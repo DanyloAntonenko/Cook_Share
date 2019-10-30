@@ -33,7 +33,9 @@ namespace MyAPP.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
+                //User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
+                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && Hash.VerifyHashedPassword(u.Password, model.Password));
+
                 if (user != null)
                 {
                     await Authenticate(model.Email);
@@ -59,7 +61,7 @@ namespace MyAPP.Controllers
                 if (user == null)
                 {
                     // добавляем пользователя в бд
-                    db.Users.Add(new User { Email = model.Email, Password = model.Password, info = new UserInfo { Email = model.Email } });
+                    db.Users.Add(new User { Email = model.Email, Password = Hash.HashPassword(model.Password), info = new UserInfo { Email = model.Email } });
 
                     await db.SaveChangesAsync();
 
