@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace MyAPP.ViewModels
 {
-    public class ChangeInfoModel : UserInfo
+    public class ChangeInfoModel
     {
 
         public string Email { get; set; }
 
 
         [RegularExpression(@"^[A-Z]+[a-z]*$")]
-        [StringLength(20, MinimumLength = 3)]
+        [StringLength(20, MinimumLength = 5)]
         [Required(ErrorMessage = "Не указан Name")]
         public string Name { get; set; }
         
 
         [RegularExpression(@"^[A-Z]+[a-z]*$")]
-        [StringLength(40, MinimumLength = 3)]
+        [StringLength(40, MinimumLength = 5)]
         [Required(ErrorMessage = "Не указан Surname")]
         public string Surname { get; set; }
 

@@ -117,12 +117,14 @@ namespace MyAPP.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> ChangeInfo(UserInfo model)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeInfo(ChangeInfoModel model)
         {
             if (ModelState.IsValid)
             {
 
                 UserInfo user = await db.UserInfos.FirstOrDefaultAsync(u => u.Email == model.Email);
+
 
                 if (user != null)
                 {
