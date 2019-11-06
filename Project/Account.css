@@ -1,0 +1,94 @@
+body{
+	background-color: #dcdcdc;
+}
+.container{
+	background-color: #ffffff;
+}
+#divPh{
+	height: 200px;
+	background: linear-gradient(0.25turn, #FD8624, #ffede3);
+}
+#phUser{
+	width: auto;
+	height: 70%;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+.name{
+	width: text;
+	background: #000000;
+	color: #ffffff;
+	text-align: center;
+	font-size: 18pt;
+}
+#MenuAcc{
+	background: #ffffff;
+	border-bottom: 1px solid #DCDCDC;
+}
+#li{
+	font-size: 14pt;
+    line-height: 0;
+    border-bottom: 1px solid #DCDCDC;
+    font-family: Vernada,sans-serif;
+    vertical-align: bottom;
+    margin-left: -15px;
+    padding-bottom: 0px;
+    text-align: left;
+    color: #4a4949;
+}
+#li:hover{
+	 border-bottom-color: #FD8624;
+	 color: #e85805;
+	 text-decoration: none;
+}
+
+#ulmenu{
+	display: block;
+	vertical-align: bottom;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    margin-bottom: 10px;
+}
+#vert{
+	border-right: 1px solid #DCDCDC;
+}
+.btn{
+ background: linear-gradient(to left, #fe8c00 , #f83600);
+ position: relative;
+ color:#fff;
+ border-radius:30px;
+ transform: scale(1.1,1.1);
+ transition:all 0.3s ease-out 0s;
+ font-size: 9pt;
+ margin-top: 10px;
+ }
+.btn:hover{
+ transform: scale(1,1);
+ color:#fff;
+}
+#but1{
+	margin-left: -50px;
+}
+#panel{
+	margin-left: -1px;
+	height: 60px;
+	border-left: 1px solid #dcdcdc;
+	text-align: center;
+	
+}
+.num{
+	font-size: 14pt;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	color: #e85805;
+
+}
+.subtext{
+	font-size: 9pt;
+	color: #616161;
+}
