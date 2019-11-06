@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Profile</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header"></header>
+      <main>
+        <div class="title__profile">
+          <img src="./img/test.jpg" alt="MyPhoto" class="profile__photo" />
+          <span class="title__name">Стась Богдан</span>
+        </div>
+        <div class="row"></div>
+
+        <div class="profile__navigation">
+          <div class="nav__left">
+            <a
+              href="#"
+              class="nav__link active"
+              onclick="clearBox('left__content')"
+              >Мои блюда</a
+            >
+
+            <a href="#" class="nav__link">Избранное</a>
+
+            <a href="#" class="nav__link">Обо мне</a>
+          </div>
+          <div class="nav__right">
+            <button class="nav__button">
+              Настройки
+            </button>
+            <button class="nav__button">
+              Выход
+            </button>
+          </div>
+        </div>
+        <div class="row"></div>
+        <div class="content">
+          <div class="left__content" id="left__content">
+            <div class="content__mydishes">
+              <div class="content__mydish">
+                <div class="title__mydish">
+                  <img
+                    src="./img/photo-food-1.png"
+                    alt=""
+                    class="photo__dish"
+                  />
+                  <h2>Бургер</h2>
+                </div>
+
+                <div>
+                  <div class="dish__desc"><p>Описание: Вкутно)</p></div>
+
+                  <h3 class="dish__date">06.11.2019</h3>
+                </div>
+              </div>
+
+              <div class="content__mydish">
+                <div class="title__mydish">
+                  <img
+                    src="./img/photo-food-1.png"
+                    alt=""
+                    class="photo__dish"
+                  />
+                  <h2>Бургер</h2>
+                </div>
+
+                <div>
+                  <div class="dish__desc"><p>Описание: Вкутно)</p></div>
+
+                  <h3 class="dish__date">06.11.2019</h3>
+                </div>
+              </div>
+
+              <div class="content__mydish">
+                <div class="title__mydish">
+                  <img
+                    src="./img/photo-food-1.png"
+                    alt=""
+                    class="photo__dish"
+                  />
+                  <h2>Бургер</h2>
+                </div>
+
+                <div>
+                  <div class="dish__desc"><p>Описание: Вкутно)</p></div>
+
+                  <h3 class="dish__date">06.11.2019</h3>
+                </div>
+              </div>
+
+              <div class="content__mydish">
+                <div class="title__mydish">
+                  <img
+                    src="./img/photo-food-1.png"
+                    alt=""
+                    class="photo__dish"
+                  />
+                  <h2>Бургер</h2>
+                </div>
+
+                <div>
+                  <div class="dish__desc"><p>Описание: Вкутно)</p></div>
+
+                  <h3 class="dish__date">06.11.2019</h3>
+                </div>
+              </div>
+
+              <div class="content__mydish">
+                <div class="title__mydish">
+                  <img
+                    src="./img/photo-food-1.png"
+                    alt=""
+                    class="photo__dish"
+                  />
+                  <h2>Бургер</h2>
+                </div>
+
+                <div>
+                  <div class="dish__desc"><p>Описание: Вкутно)</p></div>
+
+                  <h3 class="dish__date">06.11.2019</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right__content">
+            <div class="publication li__profile">
+              Публикации:<span class="num__content">0</span>
+            </div>
+            <div class="subscribers li__profile">
+              Подписчики:<span class="num__content">4</span>
+            </div>
+            <div class="subscriptions li__profile">
+              Подписки:<span class="num__content">23</span>
+            </div>
+            <div class="row"></div>
+            <div class="friend__list">
+              <div class="friend-profile__mini">
+                <div class="title__friend-profile__mini">
+                  <img src="./img/test2.jpg" alt="" class="mini-photo_friend" />
+                  <span class="friend__name">Никитченко Богдан</span>
+                </div>
+                <button class="button-friend__mini">Просмотреть</button>
+              </div>
+              <div class="friend-profile__mini">
+                <div class="title__friend-profile__mini">
+                  <img src="./img/test1.jpg" alt="" class="mini-photo_friend" />
+                  <span class="friend__name">Шишло Ольга</span>
+                </div>
+                <button class="button-friend__mini">Просмотреть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
