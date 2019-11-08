@@ -10,6 +10,9 @@
       format("woff2");
 }
 
+body {
+  margin: 0;
+}
 .container {
   color: #000000;
   width: 90%;
@@ -28,10 +31,9 @@
 }
 
 .title__profile {
-  border-radius: 20px 20px 0 0;
   display: flex;
   align-items: center;
-  background: linear-gradient(0.25turn, #fd8624, #ffede3);
+  background: linear-gradient(0.25turn, #bed0e4, #ffd0e4);
   min-height: 250px;
 }
 
@@ -41,7 +43,7 @@
   height: 200px;
   margin-left: 30px;
   margin-right: 40px;
-  border-radius: 20%;
+  border-radius: 50%;
 }
 
 .title__name {
@@ -70,11 +72,11 @@
   margin-right: 10px;
 }
 
-.nav__button {
+.nav__button, .inp__btn--log {
   height: 40px;
   border: none;
   border-radius: 20px;
-  background: linear-gradient(to left, #fe8c00, #f83600);
+  background: linear-gradient(to left, rgb(141, 205, 226), rgb(255, 205, 226));
   font-size: 15px;
   padding: 0 20px;
 
@@ -82,16 +84,23 @@
   outline: none;
   color: #fff;
 }
-
+.nav__button:hover, .inp__btn--log:hover {
+  box-shadow: 0 0 10px rgb(56, 151, 240);
+}
 .row {
   border-top: 1px solid #dcdcdc;
 }
 
-.nav__link.active {
-  color: #f50;
-}
 .nav__link:hover {
-  color: #7d8ff7;
+  font-weight: bolder;
+  border-bottom: 1px solid #000;
+  padding-bottom: 24px;
+}
+
+.nav__link.active {
+  color: #3897f0;
+  border-bottom: 1px solid #3897f0;
+  padding-bottom: 24px;
 }
 
 .content {
@@ -121,24 +130,131 @@
 }
 
 .right__content {
+  display: flex;
   text-align: left;
   padding-top: 15px;
-  padding-left: 10px;
+  justify-content: space-between;
   width: 200px;
   color: #999;
-  font-size: 20px;
+  font-size: 15px;
   border-left: 1px solid #dcdcdc;
 }
 
 .num__content {
   font-weight: bolder;
-  margin-left: 10px;
+  text-align: center;
+  color: #000;
+  font-size: 25px;
 }
 
 .li__profile {
-  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
 }
 
+.content__mydishes {
+  margin: 20px;
+  width: 95%;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content__mydish,
+.add-content__mydish {
+  position: relative;
+  margin: 10px;
+  min-width: 250px;
+  width: 30%;
+  height: 250px;
+  color: #fff;
+
+  background: rgb(209, 209, 209);
+  z-index: 0;
+}
+
+.add-content__mydish {
+  display: flex;
+  background: linear-gradient(0.25turn, #dce8f5, #fcefef);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-content__mydish:hover:before {
+  position: absolute;
+  display: flex;
+  content: "";
+
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(80, 80, 80, 0.16);
+  z-index: -1;
+}
+
+.photo__add {
+  width: 50%;
+  height: 50%;
+  margin-bottom: 20px;
+}
+
+.button__add-dish {
+  border: none;
+  min-width: 150px;
+  min-height: 40px;
+  font-size: 20px;
+  color: #fff;
+  background: #3897f0;
+  border-radius: 5px;
+  outline: none;
+}
+.button__add-dish:hover {
+  box-shadow: 0 0 10px rgb(56, 151, 240);
+}
+
+.left__content {
+  width: 100%;
+  height: 100%;
+  min-width: 580px;
+}
+
+.content__mydish > .title__mydish > .photo__dish {
+  width: 50%;
+  height: 50%;
+  border-radius: 30px;
+  border: 1px solid black;
+  
+}
+
+.content__mydish > .photo__dish {
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.content__mydish:hover :before {
+  position: absolute;
+  display: flex;
+  content: "Бургер";
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(80, 80, 80, 0.56);
+  z-index: 5;
+}
+
+/*
 .friend__list {
   padding: 20px 5px 0 5px;
 
@@ -187,56 +303,120 @@
   color: #fff;
 }
 
-.content__mydishes {
-  margin: 20px;
-  width: 95%;
+*/
 
+
+/* REGISRATION AND AUT */
+
+.authorized{
+  display: block;
+  text-align: center;
+  width: 80%;
+  border-radius: 20px;
+ margin: auto;
+ margin-top: 9%;
+ box-shadow: 0 0 10px #000;
+ 
+}
+
+.wrap__aut{
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 220px;
+
 }
 
-.content__mydish {
-  margin: 10px;
-  min-width: 250px;
-  width: 30%;
-  height: 200px;
-  background: linear-gradient(to left, #fe8c00, #f83600);
-  color: #fff;
-  border-radius: 30px;
-}
+ .wrap__bg__aut{
 
-.left__content {
+  left:0;
+  top:0;
+  position: absolute;
   width: 100%;
   height: 100%;
-  min-width: 580px;
+  object-fit: cover;
+  z-index:-1;
+  filter: sepia(50%);
+  border-radius: 20px 20px 0 0;
 }
 
-.content__mydish > .title__mydish {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 25px 0 15px;
+ .wrap__sign__in{
+  font-weight: bolder;
+  font-size: 50px;
+  color: #fff;
+  text-shadow: 2px 2px 30px black, 2px 2px 30px black, 2px 2px 30px black, 2px 2px 30px black;
+  
 }
 
-.content__mydish > .title__mydish > .photo__dish {
-  width: 50%;
-  height: 50%;
-  border-radius: 30px;
-  border: 1px solid black;
-}
-
-.content__mydish > .title__mydish > h2 {
-  font-size: 30px;
-}
-
-.dish__desc {
-  padding-left: 15px;
+.wrap__content{
+  border-radius: 0 0 20px 20px;
+  padding-top: 30px ;
+  background: #F5FEFF;
+  display: flex; 
+  flex-direction: column;
   text-align: left;
+  padding-left: 30px;
 }
 
-.dish__date {
-  height: 100%;
-  padding: 0 5px 0;
-  text-align: right;
-  margin: 0;
-  bottom: 0;
+.wrap__label{
+  margin-left: 0;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.label__log, .forgot__pass, .save__aut--label{
+  background: linear-gradient(to left, rgb(144, 163, 251),rgb(255, 160, 226));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 25px;
+  font-weight: bolder;
+
+}
+
+.log__input{
+  position: relative;
+  margin-left: 20px;
+  border:none;
+  outline: none;
+  color:#7172C6;
+  font-size: 18px;
+  border-bottom: 1px solid #000;
+  background: #F5FEFF;
+  
+}
+
+.log__input:hover, .log__input:focus,.log__input:focus{
+  border-bottom: 1px solid #7172C6;
+}
+
+.btn__log{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.help__aut{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.forgot__pass{
+  display: block;
+  padding: 2px;
+  margin-top: 3px;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.forgot__pass:hover{
+  font-size: 19px;
+  padding: 1px;
+  
+}
+
+.save__aut--label{
+  
+  font-size: 20px;
 }
