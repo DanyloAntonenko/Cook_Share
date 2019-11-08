@@ -8,7 +8,7 @@ namespace Cook_Share.Models
 {
     public class Dish
     {
-        [ForeignKey("Publication")]
+        
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -19,7 +19,9 @@ namespace Cook_Share.Models
 
         public string Cuisine { get; set; }
 
-        public string CategoryId { get; set; }
+        public int? CategoryId { get; set; }
+
+        public int? PublicationId { get; set; }
 
         public string Photo { get; set; }
         

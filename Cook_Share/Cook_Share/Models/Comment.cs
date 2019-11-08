@@ -9,17 +9,17 @@ namespace Cook_Share.Models
 {
     public class Comment
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
         public string Discription { get; set; }
-        [Required]
+
         [ForeignKey("User")]
         public int? UserId { get; set; }
 
-        [Required]
-        public int PublicationId { get; set; }
 
-        [Required]
+        public int? PublicationId { get; set; }
+
+
         public User User { get; set; }
 
        
