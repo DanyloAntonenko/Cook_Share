@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Cook_Share.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cook_Share.Controllers
 {
@@ -20,7 +21,7 @@ namespace Cook_Share.Controllers
 
         public IActionResult Index()
         {
-           
+            //return Content(User.Identity.Name);
             return View(db.Users.ToList());
         }
       

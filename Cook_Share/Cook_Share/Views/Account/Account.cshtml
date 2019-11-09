@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "Account";
+}
+@model Cook_Share.ViewModels.AccountModel
+<h2>Account</h2>
+<p>Email: @ViewBag.Info.Email</p>
+<p>Name: @ViewBag.Info.Name</p>
+<p>Surname: @ViewBag.Info.Surname</p>
+
+
+<a asp-area="" asp-controller="Account" asp-action="ChangeInfo">Change</a>

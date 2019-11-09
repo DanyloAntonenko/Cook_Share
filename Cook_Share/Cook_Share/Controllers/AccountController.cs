@@ -1,27 +1,25 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
+﻿using Cook_Share.Models;
+using Cook_Share.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using MyAPP.Models;
-using MyAPP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
-namespace MyAPP.Controllers
+namespace Cook_Share.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController:Controller
     {
-
-        private UserContext db;
-        public AccountController(UserContext context)
+        private DataContext db;
+        public AccountController(DataContext context)
         {
             db = context;
         }
-        
         [HttpGet]
         public IActionResult Login()
         {
@@ -33,12 +31,10 @@ namespace MyAPP.Controllers
         {
             if (ModelState.IsValid)
             {
-                //User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
                 User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && Hash.VerifyHashedPassword(u.Password, model.Password));
-
                 if (user != null)
                 {
-                    await Authenticate(model.Email);
+                    await Authenticate(model.Email); // аутентификация
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -61,11 +57,10 @@ namespace MyAPP.Controllers
                 if (user == null)
                 {
                     // добавляем пользователя в бд
-                    db.Users.Add(new User { Email = model.Email, Password = Hash.HashPassword(model.Password), info = new UserInfo { Email = model.Email } });
-
+                    db.Users.Add(new User { Email = model.Email, Password = Hash.HashPassword(model.Password), Name = model.Name});
                     await db.SaveChangesAsync();
 
-                    
+                    await Authenticate(model.Email); // аутентификация
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -74,78 +69,6 @@ namespace MyAPP.Controllers
             }
             return View(model);
         }
-
-        public UserInfo GetInfo()
-        {
-            var selectedUserInfo = from userInfo in db.UserInfos
-                                   where userInfo.Email == User.Identity.Name
-                                   select userInfo;
-            return selectedUserInfo.First();
-        }
-
-       
-
-        public User GetID()
-        {
-            var selectedUserInfo = from user in db.Users
-                                   where user.Email == User.Identity.Name
-                                   select user;
-            return selectedUserInfo.First();
-        }
-
-        [HttpGet]
-        [Authorize]
-        public IActionResult PersonalArea()
-        {
-
-            UserInfo info = GetInfo();
-            ViewBag.Info = info;
-
-            User user = GetID();
-            ViewBag.id = user.Id;
-            return View();
-        }
-
-        [HttpGet]
-        [Authorize]
-        public IActionResult ChangeInfo()
-        {
-            return View(GetInfo());
-        }
-
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ChangeInfo(ChangeInfoModel model)
-        {
-            if (ModelState.IsValid)
-            {
-
-                UserInfo user = await db.UserInfos.FirstOrDefaultAsync(u => u.Email == model.Email);
-
-
-                if (user != null)
-                {
-                    // добавляем пользователя в бд
-
-                    user.Name = model.Name;
-                    user.Surname = model.Surname;
-                    user.Age = model.Age;
-                    user.Address = model.Address;
-                    user.About = model.About;
-                   
-
-                    await db.SaveChangesAsync();
-
-                    return RedirectToAction("PersonalArea", "Account");
-                }
-                else
-                    ModelState.AddModelError("", user.Email);
-            }
-            return View();
-           
-        }
-
 
         private async Task Authenticate(string userName)
         {
@@ -166,5 +89,64 @@ namespace MyAPP.Controllers
             return RedirectToAction("Login", "Account");
         }
 
+        public User GetInfo()
+        {
+            var selectedUserInfo = from user in db.Users
+                                   where user.Email == User.Identity.Name
+                                   select user;
+            return selectedUserInfo.First();
+        }
+        public User GetID()
+        {
+            var selectedUserInfo = from user in db.Users
+                                   where user.Email == User.Identity.Name
+                                   select user;
+            return selectedUserInfo.First();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Account()
+        {
+            User info = GetInfo();
+            ViewBag.Info = info;
+            return View();
+            //return View(GetInfo());
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult ChangeInfo()
+        {
+            return View(GetInfo());
+        }
+        
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeInfo(AccountModel model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+
+
+                if (user != null)
+                {
+                    // добавляем пользователя в бд
+
+                    user.Name = model.Name;
+                    user.Surname = model.Surname;
+                    await db.SaveChangesAsync();
+
+                    return RedirectToAction("Account", "Account");
+                }
+                else
+                    ModelState.AddModelError("", user.Email);
+            }
+            return View();
+
+        }
     }
 }
