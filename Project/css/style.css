@@ -84,6 +84,8 @@ body {
   outline: none;
   color: #fff;
 }
+
+
 .nav__button:hover, .inp__btn--log:hover {
   box-shadow: 0 0 10px rgb(56, 151, 240);
 }
@@ -360,18 +362,28 @@ body {
 }
 
 .wrap__label{
+  display: flex;
+  justify-content: space-between;
+
   margin-left: 0;
   margin-top: 20px;
   margin-bottom: 10px;
+  width: 350px;
 }
 
-.label__log, .forgot__pass, .save__aut--label{
-  background: linear-gradient(to left, rgb(144, 163, 251),rgb(255, 160, 226));
+.label__log {
+background: linear-gradient(to left, rgb(144, 163, 251),rgb(255, 160, 226));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; 
+  
   font-size: 25px;
   font-weight: bolder;
 
+}
+
+.save__aut--label, .forgot__pass{
+  outline: none;
+  color: #7172C6;
 }
 
 .log__input{
@@ -402,16 +414,18 @@ body {
   flex-direction: column;
 }
 
-.forgot__pass{
+.forgot__pass, .link__reg{
   display: block;
   padding: 2px;
   margin-top: 3px;
   font-size: 16px;
   transition: 0.2s;
+  color: #4B4DFB;
+  text-decoration: none;
 }
 
-.forgot__pass:hover{
-  font-size: 19px;
+.forgot__pass:hover, .link__reg:hover{
+  font-size: 17px;
   padding: 1px;
   
 }
