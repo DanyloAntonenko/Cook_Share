@@ -2,85 +2,87 @@
 @{
     ViewData["Title"] = "Account";
 }
+@model Cook_Share.Models.User
+<link rel="stylesheet" href="../css/style.css" />
 
-    <link rel="stylesheet" href="../css/style.css" />
+<div class="container">
+    <header class="header"></header>
+    <main>
+        <div class="title__profile">
+            <img src="../img/test.jpg" alt="MyPhoto" class="profile__photo" />
+            <span class="title__name">@ViewBag.info.Name</span>
+            <span class="title__name">&ensp;</span>
+            <span class="title__name">@ViewBag.info.Surname</span>
+        </div>
+        <div class="row"></div>
 
-    <div class="container">
-        <header class="header"></header>
-        <main>
-            <div class="title__profile">
-                <img src="../img/test.jpg" alt="MyPhoto" class="profile__photo" />
-                <span class="title__name">Стась Богдан</span>
+        <div class="profile__navigation">
+            <div class="nav__left">
+                <a href="#"
+                   class="nav__link active"
+                   onclick="addContentMyDish()">Мои блюда</a>
+
+                <a href="#" class="nav__link" onclick="addContentMyFavorite()">Избранное</a>
             </div>
-            <div class="row"></div>
-
-            <div class="profile__navigation">
-                <div class="nav__left">
-                    <a href="#"
-                       class="nav__link active"
-                       onclick="addContentMyDish()">Мои блюда</a>
-
-                    <a href="#" class="nav__link" onclick="addContentMyFavorite()">Избранное</a>
-                </div>
-                <div class="nav__right">
-                    <a asp-area="" asp-controller="Account" asp-action="ChangeInfo">
-                        <button class="nav__button">
-                            Редактирование
-                        </button>
-                    </a>
+            <div class="nav__right">
+                <a asp-area="" asp-controller="Account" asp-action="ChangeInfo">
                     <button class="nav__button">
-                        Выход
+                        Редактирование
                     </button>
+                </a>
+                <button class="nav__button">
+                    Выход
+                </button>
+            </div>
+        </div>
+        <div class="row"></div>
+        <div class="content">
+            <div class="left__content" id="left__content">
+                <div class="content__mydishes">
+                    <div class="add-content__mydish">
+                        <img src="../img/plus.png" alt="" class="photo__add" />
+                        <button class="button__add-dish">Добавить</button>
+                    </div>
+
+                    <div class="content__mydish">
+                        <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                        <h1></h1>
+                    </div>
+
+                    <div class="content__mydish">
+                        <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                        <h1></h1>
+                    </div>
+
+                    <div class="content__mydish">
+                        <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                        <h1></h1>
+                    </div>
+
+                    <div class="content__mydish">
+                        <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                        <h1></h1>
+                    </div>
+
+                    <div class="content__mydish">
+                        <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                        <h1></h1>
+                    </div>
                 </div>
             </div>
-            <div class="row"></div>
-            <div class="content">
-                <div class="left__content" id="left__content">
-                    <div class="content__mydishes">
-                        <div class="add-content__mydish">
-                            <img src="../img/plus.png" alt="" class="photo__add" />
-                            <button class="button__add-dish">Добавить</button>
-                        </div>
-
-                        <div class="content__mydish">
-                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                            <h1></h1>
-                        </div>
-
-                        <div class="content__mydish">
-                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                            <h1></h1>
-                        </div>
-
-                        <div class="content__mydish">
-                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                            <h1></h1>
-                        </div>
-
-                        <div class="content__mydish">
-                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                            <h1></h1>
-                        </div>
-
-                        <div class="content__mydish">
-                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                            <h1></h1>
-                        </div>
-                    </div>
+            <div class="right__content">
+                <div class="subscribers li__profile">
+                    Подписчики:<span class="num__content">4</span>
                 </div>
-                <div class="right__content">
-                    <div class="subscribers li__profile">
-                        Подписчики:<span class="num__content">4</span>
-                    </div>
-                    <div class="subscriptions li__profile">
-                        Подписки:<span class="num__content">23</span>
-                    </div>
-                    <div class="row"></div>
+                <div class="subscriptions li__profile">
+                    Подписки:<span class="num__content">23</span>
                 </div>
+                <div class="row"></div>
             </div>
-        </main>
-    </div>
-    <script src="../js/script.js"></script>
+        </div>
+    </main>
+</div>
+<script src="../js/script.js"></script>
 
 
 <!--
@@ -101,5 +103,3 @@
   </div>
 </div>
 -->
-
-

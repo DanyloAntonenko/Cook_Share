@@ -348,11 +348,11 @@ body {
 
 .wrap__label {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-left: 0;
     margin-top: 20px;
     margin-bottom: 10px;
-    width: 350px;
+    width: 550px;
 }
 
 .label__log {
@@ -413,3 +413,11 @@ body {
 .save__aut--label {
     font-size: 20px;
 }
+
+
+span.field-validation-error {
+    color: #b94a48;
+    font-weight: bold;
+    font-size:20px;
+}
+
