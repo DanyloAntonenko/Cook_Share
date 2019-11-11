@@ -23,27 +23,27 @@
 
                     <div class="wrap__label">
                         <span class="label__log usen" asp-for="Email">E-mail</span>
-                        <input type="text" asp-for="Email"  placeholder="Enter username" class="log__input usen" autocomplete=" off">
+                        <input type="text" asp-for="Email" placeholder="Enter username" class="log__input usen" autocomplete=" off">
                         <span asp-validation-for="Email" />
                     </div>
 
                     <div class="wrap__label">
                         <span class="label__log passn" asp-for="Password">Пароль</span>
-                        <input asp-for="Password" type="password"  placeholder="Enter password" class="log__input passn">
+                        <input asp-for="Password" type="password" placeholder="Enter password" class="log__input passn">
                         <span asp-validation-for="Password" />
                     </div>
 
-
-                    <div class="help__aut">
-                        <div>
-                            <input type="checkbox" name="save" class="save__aut" disabled checked><span class="save__aut--label" >Запомнить меня</span>
-                        </div>
-                        <!--<a href="#" class="forgot__pass">Забыли свой пароль?</a> -->
-                    </div>
+                    <!--
+    <div class="help__aut">
+        <div>
+            <input type="checkbox" name="save" class="save__aut" disabled checked><span class="save__aut--label" >Запомнить меня</span>
+        </div>
+        <a href="#" class="forgot__pass">Забыли свой пароль?</a>
+    </div>-->
 
 
                     <div class="btn__log">
-                        <input type="submit" name="login" value="Войти" class="inp__btn--log" >
+                        <input type="submit" name="login" value="Войти" class="inp__btn--log">
                     </div>
                 </form>
             </div>
