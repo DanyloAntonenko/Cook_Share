@@ -38,7 +38,7 @@ namespace Cook_Share.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
-                ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                ModelState.AddModelError("General", "Некорректные логин и(или) пароль");
             }
             return View(model);
         }
@@ -49,7 +49,7 @@ namespace Cook_Share.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterModel model)
+        public async Task<IActionResult> Register(RegisterModel model)  
         {
             if (ModelState.IsValid)
             {
@@ -57,17 +57,18 @@ namespace Cook_Share.Controllers
                 if (user == null)
                 {
                     // добавляем пользователя в бд
-                    db.Users.Add(new User { Email = model.Email, Password = Hash.HashPassword(model.Password), Name = model.Name});
+                    db.Users.Add(new User { Email = model.Email, Password = Hash.HashPassword(model.Password), Name = model.Name, Surname = model.SurName});
                     await db.SaveChangesAsync();
 
                     await Authenticate(model.Email); // аутентификация
 
-                    return RedirectToAction("Index", "Home");
+                    //return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Account", "Account");
                 }
                 else
-                    ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                    ModelState.AddModelError("General", "Пользователь с таким электронным адресом существует");
             }
-            return View(model);
+            return View();
         }
 
         private async Task Authenticate(string userName)

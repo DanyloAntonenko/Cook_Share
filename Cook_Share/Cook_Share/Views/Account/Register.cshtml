@@ -14,36 +14,45 @@
 
             <div class="wrap__content">
                 <form class="aut__form log" asp-action="Register" asp-controller="Account" asp-anti-forgery="true">
-                    <div class="validation" asp-validation-summary="ModelOnly" />
-                    <div class="wrap__label">
-                        <span class="label__log usen" asp-for="Name">Имя</span>
-                        <input asp-for="Name" type="text" placeholder="Enter username" class="log__input usen" autocomplete=" off">
-                        <span asp-validation-for="Name" />
-                    </div>
+                    <div class="validation" asp-validation-summary="ModelOnly"></div>
+                    <div>
+                        <span asp-validation-for="General"></span>
+                        <div class="wrap__label">
+                            <span class="label__log usen" asp-for="Name">Имя</span>
+                            <input asp-for="Name" type="text" placeholder="Введите имя" class="log__input usen" autocomplete=" off">
+                            <span asp-validation-for="Name"></span>
+                        </div>
 
-                    <div class="wrap__label">
-                        <span class="label__log usen" asp-for="Email">E-mail</span>
-                        <input asp-for="Email" type="text" placeholder="Enter username" class="log__input usen" autocomplete=" off">
-                        <span asp-validation-for="Email" />
-                    </div>
+                        <div class="wrap__label">
+                            <span class="label__log usen" asp-for="SurName">Имя</span>
+                            <input asp-for="SurName" type="text" placeholder="Введите фамилию" class="log__input usen" autocomplete=" off">
+                            <span asp-validation-for="SurName"></span>
+                        </div>
 
-                    <div class="wrap__label">
-                        <span asp-for="Password" class="label__log passn">Пароль</span>
-                        <input asp-for="Password" type="password" placeholder="Enter password" class="log__input passn">
-                        <span asp-validation-for="Password" />
-                    </div>
+                        <div class="wrap__label">
+                            <span class="label__log usen" asp-for="Email">E-mail</span>
+                            <input asp-for="Email" type="text" placeholder="Введите электронный адрес" class="log__input usen" autocomplete=" off">
+                            <span asp-validation-for="Email"></span>
+                        </div>
 
-                    <div class="wrap__label">
-                        <span asp-for="ConfirmPassword" class="label__log passn">Пароль</span>
-                        <input asp-for="ConfirmPassword" type="password" placeholder="Enter password" class="log__input passn">
-                        <span asp-validation-for="ConfirmPassword" />
-                    </div>
+                        <div class="wrap__label">
+                            <span asp-for="Password" class="label__log passn">Пароль</span>
+                            <input asp-for="Password" type="password" placeholder="Введите пароль" class="log__input passn">
+                            <span asp-validation-for="Password"></span>
+                        </div>
 
-                    <a href="../html/autorization.html" class="link__reg">Уже зарегистрированы?</a>
-                    <div class="btn__log">
-                        <input type="submit" name="login" value="Регистрация" class="inp__btn--log">
+                        <div class="wrap__label">
+                            <span asp-for="ConfirmPassword" class="label__log passn">Пароль</span>
+                            <input asp-for="ConfirmPassword" type="password" placeholder="Повторите ввод пароля" class="log__input passn">
+                            <span asp-validation-for="ConfirmPassword"></span>
+                        </div>
+
+                        <a href="/Account/Login" class="link__reg">Уже зарегистрированы?</a>
+                        <div class="btn__log">
+                            <input type="submit" name="login" value="Регистрация" class="inp__btn--log">
+                        </div>
                     </div>
-                </form>
+                </form>             
             </div>
         </div>
 
