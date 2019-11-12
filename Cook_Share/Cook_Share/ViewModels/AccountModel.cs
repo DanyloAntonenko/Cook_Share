@@ -1,4 +1,5 @@
 ﻿using Cook_Share.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -20,6 +21,8 @@ namespace Cook_Share.ViewModels
         [StringLength(30, MinimumLength = 3)]
         [Required(ErrorMessage = "Не указана фамилия")]
         public string Surname { get; set; }
+
+        public IFormFile  Photo { get; set; }
 
     }
 }

@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "Account";
+    string str = ViewBag.Info?.Photo ?? "test.jpg";
 }
 
     <link rel="stylesheet" href="../css/style.css" />
@@ -9,8 +10,8 @@
         <header class="header"></header>
         <main>
             <div class="title__profile">
-                <img src="../img/test.jpg" alt="MyPhoto" class="profile__photo" />
-                <span class="title__name">Стась Богдан</span>
+                <img src="../img/@str" alt="MyPhoto" class="profile__photo" />
+                <span class="title__name">@ViewBag.Info.Name @ViewBag.Info.Surname</span>
             </div>
             <div class="row"></div>
 

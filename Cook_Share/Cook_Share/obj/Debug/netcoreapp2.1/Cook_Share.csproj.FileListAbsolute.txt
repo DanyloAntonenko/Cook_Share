@@ -104,3 +104,7 @@ G:\GitHub\projectAVPZ\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\C
 G:\GitHub\projectAVPZ\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Cook_Share.dll
 G:\GitHub\projectAVPZ\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Cook_Share.pdb
 G:\GitHub\projectAVPZ\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Cook_Share.csproj.CopyComplete
+E:\Github\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Razor\Views\Account\Account.g.cshtml.cs
+E:\Github\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Razor\Views\Account\ChangeInfo.g.cshtml.cs
+E:\Github\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
+E:\Github\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs

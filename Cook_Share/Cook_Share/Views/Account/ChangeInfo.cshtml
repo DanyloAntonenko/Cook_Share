@@ -4,7 +4,7 @@
 }
 
 <h2>ChangeInfo</h2>
-<form method="post" asp-action="ChangeInfo" asp-controller="Account">
+<form method="post" asp-action="ChangeInfo" asp-controller="Account" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly"></div>
     <input asp-for="Email" type="hidden" />
     <div>
@@ -19,6 +19,13 @@
         <div>
             <input asp-for="Surname" />
             <span asp-validation-for="Surname"></span>
+        </div>
+    </div>
+    <div>
+        <label>Photo</label>
+        <div>
+            <input type="file" id="files" asp-for="Photo" />
+            <span asp-validation-for="Photo"></span>
         </div>
     </div>
     <div>
