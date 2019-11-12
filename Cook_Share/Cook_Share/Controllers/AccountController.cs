@@ -10,14 +10,18 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace Cook_Share.Controllers
 {
     public class AccountController:Controller
     {
         private DataContext db;
-        public AccountController(DataContext context)
+        private readonly IHostingEnvironment _appEnvironment;
+        public AccountController(DataContext context, IHostingEnvironment appEnvironment)
         {
+            _appEnvironment = appEnvironment;
             db = context;
         }
         [HttpGet]
@@ -129,16 +133,23 @@ namespace Cook_Share.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                string path_Root = _appEnvironment.WebRootPath;
                 User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
 
 
                 if (user != null)
                 {
                     // добавляем пользователя в бд
+                    string path_to_Images = path_Root + "\\img\\" + model.Photo.FileName;
 
+                    using (var stream = new FileStream(path_to_Images, FileMode.Create))
+                    {
+                        await model.Photo.CopyToAsync(stream);
+                    }
+                    user.Photo = model.Photo.FileName;
                     user.Name = model.Name;
                     user.Surname = model.Surname;
+                   
                     await db.SaveChangesAsync();
 
                     return RedirectToAction("Account", "Account");

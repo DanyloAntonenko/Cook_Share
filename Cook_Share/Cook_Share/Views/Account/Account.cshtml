@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "Account";
+    string str = ViewBag.Info?.Photo ?? "test.jpg";
 }
 @model Cook_Share.Models.User
 <link rel="stylesheet" href="../css/style.css" />
@@ -9,7 +10,7 @@
     <header class="header"></header>
     <main>
         <div class="title__profile">
-            <img src="../img/test.jpg" alt="MyPhoto" class="profile__photo " id="addPhotoArea"/>
+            <img src="../img/@str" alt="MyPhoto" class="profile__photo " id="addPhotoArea"/>
             <button class="profile__add " id="addPhotoBtn">Добавить фото</button>
             <span class="title__name">@ViewBag.info.Name</span>
             <span class="title__name">&ensp;</span>

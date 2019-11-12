@@ -58,6 +58,7 @@ using Cook_Share.Models;
 #line 2 "G:\GitHub\projectAVPZ\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
   
     ViewData["Title"] = "Account";
+    string str = ViewBag.Info?.Photo ?? "test.jpg";
 
 #line default
 #line hidden
@@ -188,6 +189,10 @@ using Cook_Share.Models;
 </div>
 <script src=""../js/script.js""></script>
 
+");
+            EndContext();
+            BeginContext(3436, 641, true);
+            WriteLiteral(@"
 
 <!--
 <div class=""friend__list"">
