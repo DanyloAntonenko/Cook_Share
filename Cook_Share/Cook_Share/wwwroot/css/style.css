@@ -40,7 +40,8 @@ body {
 
 .title__name {
     font-size: 47px;
-    font-family: "ProximaNova-Black", sans-serif;
+    font-family: sans-serif;
+    font-weight:lighter;
 }
 
 .profile__navigation {
@@ -348,11 +349,12 @@ body {
 
 .wrap__label {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
     margin-left: 0;
     margin-top: 20px;
     margin-bottom: 10px;
-    width: 350px;
+    width: 550px;
 }
 
 .label__log {
@@ -413,3 +415,41 @@ body {
 .save__aut--label {
     font-size: 20px;
 }
+
+
+span.field-validation-error {
+    color: #b94a48;
+    font-weight: bold;
+    font-size:20px;
+}
+
+.exit__errore{
+    font-style:italic;
+    font-size: 13px !important;
+    margin-left: 20px;
+}
+
+    .exit__errore:before {
+        content: "\00B7";
+        margin-right:7px;
+    }
+
+
+.profile__add {
+    position: absolute;
+    margin-top: 70px;
+    margin-left: 55px;
+    height: 25px;
+    width: 150px;
+    border: 1px solid black;
+    background: #f2f2f2;
+    border-radius: 2px;
+    color: #000;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgb(0,0,0);
+}
+
+
