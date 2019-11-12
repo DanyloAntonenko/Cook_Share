@@ -446,9 +446,9 @@ span.field-validation-error {
     color: #000;
     outline: none;
     font-family: Arial, Helvetica, sans-serif;
+    
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgb(0,0,0);
 }
 
-.profile__add:hover {
-        box-shadow: 0 0 10px rgb(0,0,0);
-}
 
