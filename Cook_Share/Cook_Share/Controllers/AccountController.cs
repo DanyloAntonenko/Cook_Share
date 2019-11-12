@@ -140,13 +140,21 @@ namespace Cook_Share.Controllers
                 if (user != null)
                 {
                     // добавляем пользователя в бд
-                    string path_to_Images = path_Root + "\\img\\" + model.Photo.FileName;
-
-                    using (var stream = new FileStream(path_to_Images, FileMode.Create))
+                  
+                   
+                    if ((model.Photo != null)&&(model.Photo.ContentType=="image/jpeg"|| model.Photo.ContentType == "image/png" || model.Photo.ContentType == "image/tiff" || model.Photo.ContentType == "image/gif" || model.Photo.ContentType == "image/bmp"))
                     {
-                        await model.Photo.CopyToAsync(stream);
+                        string path_to_Images = path_Root + "\\img\\" + model.Photo.FileName;
+                        using (var stream = new FileStream(path_to_Images, FileMode.Create))
+                        {
+                            await model.Photo.CopyToAsync(stream);
+                        }
+                        user.Photo = model.Photo.FileName;
                     }
-                    user.Photo = model.Photo.FileName;
+                    else
+                    {
+                        return RedirectToAction("ChangeInfo", "Account");
+                    }
                     user.Name = model.Name;
                     user.Surname = model.Surname;
                    
