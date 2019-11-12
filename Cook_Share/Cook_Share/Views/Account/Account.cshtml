@@ -14,6 +14,7 @@
             <span class="title__name">@ViewBag.info.Name</span>
             <span class="title__name">&ensp;</span>
             <span class="title__name">@ViewBag.info.Surname</span>
+
         </div>
         <div class="row"></div>
 
@@ -25,15 +26,14 @@
 
                     <a href="#" class="nav__link" onclick="addContentMyFavorite()">Избранное</a>
                 </div>
-                <div class="nav__right">
-                    
-                        
-                    
-                    <button class="nav__button">
-                        Редактирование
-                    </button>
+            <div class="nav__right">
                 
-                <button class="nav__button">
+                <button onclick="location.href='/Account/ChangeInfo';" class="nav__button">
+                    Редактирование
+                </button>
+
+                </a>
+                <button asp-controller="Account" asp-action="Logout" class="nav__button">
                     Выход
                 </button>
             </div>
@@ -85,7 +85,7 @@
         </div>
     </main>
 </div>
-<script src="../js/script.js"></script>
+@*<script src="../js/script.js"></script>*@
 
 
 <!--

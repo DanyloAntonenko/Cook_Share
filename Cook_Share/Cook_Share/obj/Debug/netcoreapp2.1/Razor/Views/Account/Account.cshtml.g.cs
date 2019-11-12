@@ -13,12 +13,12 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
-#line 1 "G:\GitHub\projectAVPZ\Cook_Share\Cook_Share\Cook_Share\Views\_ViewImports.cshtml"
+#line 1 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\_ViewImports.cshtml"
 using Cook_Share;
 
 #line default
 #line hidden
-#line 2 "G:\GitHub\projectAVPZ\Cook_Share\Cook_Share\Cook_Share\Views\_ViewImports.cshtml"
+#line 2 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\_ViewImports.cshtml"
 using Cook_Share.Models;
 
 #line default
@@ -27,13 +27,35 @@ using Cook_Share.Models;
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e0530d5c97a2da7007dcbebf6549388f39eae983", @"/Views/_ViewImports.cshtml")]
     public class Views_Account_Account : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Cook_Share.Models.User>
     {
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Account", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Logout", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_2 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("nav__button"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        #line hidden
+        #pragma warning disable 0169
+        private string __tagHelperStringValueBuffer;
+        #pragma warning restore 0169
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext __tagHelperExecutionContext;
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner __tagHelperRunner = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner();
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __backed__tagHelperScopeManager = null;
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __tagHelperScopeManager
+        {
+            get
+            {
+                if (__backed__tagHelperScopeManager == null)
+                {
+                    __backed__tagHelperScopeManager = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager(StartTagHelperWritingScope, EndTagHelperWritingScope);
+                }
+                return __backed__tagHelperScopeManager;
+            }
+        }
+        private global::Microsoft.AspNetCore.Mvc.TagHelpers.FormActionTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_FormActionTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             BeginContext(0, 2, true);
             WriteLiteral("\r\n");
             EndContext();
-#line 2 "G:\GitHub\projectAVPZ\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
+#line 2 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
   
     ViewData["Title"] = "Account";
 
@@ -57,18 +79,19 @@ using Cook_Share.Models;
 #line default
 #line hidden
             EndContext();
-            BeginContext(443, 100, true);
-            WriteLiteral("</span>\r\n            <span class=\"title__name\">&ensp;</span>\r\n            <span class=\"title__name\">");
+            BeginContext(378, 53, true);
+            WriteLiteral("</span><br />\r\n            <span class=\"title__name\">");
             EndContext();
-            BeginContext(544, 20, false);
-#line 16 "G:\GitHub\projectAVPZ\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
+            BeginContext(432, 20, false);
+#line 14 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
                                  Write(ViewBag.info.Surname);
 
 #line default
 #line hidden
             EndContext();
-            BeginContext(564, 3392, true);
+            BeginContext(452, 655, true);
             WriteLiteral(@"</span>
+
         </div>
         <div class=""row""></div>
 
@@ -80,17 +103,39 @@ using Cook_Share.Models;
 
                     <a href=""#"" class=""nav__link"" onclick=""addContentMyFavorite()"">Избранное</a>
                 </div>
-                <div class=""nav__right"">
-                    
-                        
-                    
-                    <button class=""nav__button"">
-                        Редактирование
-                    </button>
+            <div class=""nav__right"">
                 
-                <button class=""nav__button"">
-                    Выход
+                <button onclick=""location.href='/Account/ChangeInfo';"" class=""nav__button"">
+                    Редактирование
                 </button>
+
+                </a>
+                ");
+            EndContext();
+            BeginContext(1107, 127, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ed6b9284372d43349ccc5ea058b2fd12", async() => {
+                BeginContext(1180, 45, true);
+                WriteLiteral("\r\n                    Выход\r\n                ");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_FormActionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormActionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_FormActionTagHelper);
+            __Microsoft_AspNetCore_Mvc_TagHelpers_FormActionTagHelper.Controller = (string)__tagHelperAttribute_0.Value;
+            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_0);
+            __Microsoft_AspNetCore_Mvc_TagHelpers_FormActionTagHelper.Action = (string)__tagHelperAttribute_1.Value;
+            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_1);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_2);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(1234, 1960, true);
+            WriteLiteral(@"
             </div>
         </div>
         <div class=""row""></div>
@@ -115,7 +160,8 @@ using Cook_Share.Models;
 
                     <div class=""content__mydish"">
                         <img src=""../img/photo-food-1.png"" alt="""" class=""photo__dish"" />
-                        <h1></h1>
+                  ");
+            WriteLiteral(@"      <h1></h1>
                     </div>
 
                     <div class=""content__mydish"">
@@ -142,8 +188,10 @@ using Cook_Share.Models;
         </div>
     </main>
 </div>
-<script src=""../js/script.js""></script>
-
+");
+            EndContext();
+            BeginContext(3239, 641, true);
+            WriteLiteral(@"
 
 <!--
 <div class=""friend__list"">
