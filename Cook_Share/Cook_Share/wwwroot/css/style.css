@@ -441,10 +441,12 @@ span.field-validation-error {
     margin-left: 55px;
     height: 25px;
     width: 150px;
-    border: 1px solid black;
+   
     background: #f2f2f2;
+    
     border-radius: 2px;
     color: #000;
+    
     outline: none;
     font-family: Arial, Helvetica, sans-serif;
     

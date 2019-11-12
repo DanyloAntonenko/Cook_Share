@@ -74,15 +74,20 @@ let addPhotoArea = document.getElementById('addPhotoArea');
 let addPhotoBtn = document.getElementById('addPhotoBtn');
 
 
-addPhotoArea.onmouseover = function () {
+
+addPhotoArea.onmouseenter = function () {
     addPhotoBtn.hidden = false;
 }
 
-addPhotoArea.onmouseout = function () {
+addPhotoArea.onmouseleave = function () {
     addPhotoBtn.hidden = true;
 }
 
-addPhotoBtn.onmouseover = function () {
+addPhotoBtn.onmouseenter = function () {
     addPhotoBtn.hidden = false;
+}
+
+addPhotoBtn.onmouseleave = function () {
+    addPhotoBtn.hidden = true;
 }
 
