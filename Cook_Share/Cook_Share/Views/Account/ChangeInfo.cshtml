@@ -19,19 +19,20 @@
             <input asp-for="Email" type="hidden" />
 
             <div class="change-info__list">
-                <div class="info__item"><span class="label__log">Имя</span><input type="text" asp-for="Name" class="change__input"><span asp-validation-for="Name"></span></div>
-                <div class="info__item"><span class="label__log">Фамилия</span><input type="text" class="change__input" asp-for="Surname"> <span asp-validation-for="Surname"></span></div>
+                <div class="wrap__label"><span class="label__log">Имя</span><input type="text" asp-for="Name" class="change__input"><span asp-validation-for="Name"></span></div>
+                <div class="wrap__label"><span class="label__log">Фамилия</span><input type="text" class="change__input" asp-for="Surname"> <span asp-validation-for="Surname"></span></div>
+                <div class="wrap__label"><span class="label__log">Фото</span> <input type="file" id="files" asp-for="Photo" /> <span asp-validation-for="Photo"></span></div>
 
             </div>
             
             
-            <div>
+            @*<div>
                 <label>Photo</label>
-                <div>
+                <div class="wrap__label">
                     <input type="file" id="files" asp-for="Photo" />
                     <span asp-validation-for="Photo"></span>
                 </div>
-            </div>
+            </div>*@
             <div class="change-btn__info">
                 <input type="submit" value="Сохранить" class="change-btn__save"/>
             </div>

@@ -182,7 +182,9 @@ namespace Cook_Share.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("ChangeInfo", "Account");
+                        ModelState.AddModelError("Photo", "Неправильный формат картинки");
+                        return View();
+                        //return RedirectToAction("ChangeInfo", "Account");
                     }
                     user.Name = model.Name;
                     user.Surname = model.Surname;
