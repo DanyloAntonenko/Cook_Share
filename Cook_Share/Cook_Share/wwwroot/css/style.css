@@ -40,7 +40,8 @@ body {
 
 .title__name {
     font-size: 47px;
-    font-family: "ProximaNova-Black", sans-serif;
+    font-family: sans-serif;
+    font-weight:lighter;
 }
 
 .profile__navigation {
