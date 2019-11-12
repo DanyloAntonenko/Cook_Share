@@ -455,3 +455,44 @@ span.field-validation-error {
 .profile__add:hover {
     box-shadow: 0 0 10px rgb(0,0,0);
 }
+
+
+
+/*----------------change info ------------------*/
+
+.container__changeInfo {
+    display: flex;
+    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title__change-label {
+    font-size: 40px;
+}
+
+.info__item, .change-btn__info {
+    display: flex;
+    max-width: 350px;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+
+.change__input {
+    position: relative;
+    margin-left: 20px;
+    border: none;
+    outline: none;
+    color: #7172C6;
+    font-size: 18px;
+    border-bottom: 1px solid #000;
+    background: #fff;
+}
+
+
+    .change__input:focus, .change__input:hover {
+        border-bottom: 1px solid #7172C6;
+    }
+
