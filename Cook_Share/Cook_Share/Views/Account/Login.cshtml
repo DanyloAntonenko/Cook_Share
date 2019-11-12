@@ -30,9 +30,9 @@
                     <div class="wrap__label">
                         <span class="label__log passn" asp-for="Password">Пароль</span>
                         <input asp-for="Password" type="password" placeholder="Введите пароль" class="log__input passn">
-                       <span class="field-validation-error exit__errore" asp-validation-for="Password" > </span>
+                        <span class="field-validation-error exit__errore" asp-validation-for="Password"> </span>
                     </div>
-
+                    <a href="/Account/Register" class="link__reg">Регистрация</a>
                     <!--
     <div class="help__aut">
         <div>
@@ -45,6 +45,7 @@
                     <div class="btn__log">
                         <input type="submit" name="login" value="Войти" class="inp__btn--log">
                     </div>
+
                 </form>
             </div>
         </div>
