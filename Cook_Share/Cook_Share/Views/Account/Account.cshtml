@@ -10,6 +10,7 @@
     <main>
         <div class="title__profile">
             <img src="../img/test.jpg" alt="MyPhoto" class="profile__photo" />
+            <button class="profile__add">Добавить фото</button>
             <span class="title__name">@ViewBag.info.Name</span>
             <span class="title__name">&ensp;</span>
             <span class="title__name">@ViewBag.info.Surname</span>
@@ -26,14 +27,12 @@
                 </div>
                 <div class="nav__right">
                     
-                        <button onclick="window.location.href='Account/ChangeInfo'" class="nav__button">
-                            Редактирование
-                        </button>
+                        
                     
                     <button class="nav__button">
                         Редактирование
                     </button>
-                </a>
+                
                 <button class="nav__button">
                     Выход
                 </button>
