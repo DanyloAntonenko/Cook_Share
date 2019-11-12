@@ -10,8 +10,13 @@
     <header class="header"></header>
     <main>
         <div class="title__profile">
-            <img src="../img/@str" alt="MyPhoto" class="profile__photo " id="addPhotoArea"/>
-            <button class="profile__add " id="addPhotoBtn">Добавить фото</button>
+            <img src="../img/@str" alt="MyPhoto" class="profile__photo " id="addPhotoArea" />
+            @*<form method="post" asp-action="Account" asp-controller="Account" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly"></div>
+                <input type="file" class="profile__add " id="files" asp-for="Photo" />
+                <span asp-validation-for="Photo"></span>
+                <input type="submit" value="Сохранить" />
+            </form>*@
             <span class="title__name">@ViewBag.info.Name</span>
             <span class="title__name">&ensp;</span>
             <span class="title__name">@ViewBag.info.Surname</span>

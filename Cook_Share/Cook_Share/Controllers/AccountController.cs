@@ -119,6 +119,35 @@ namespace Cook_Share.Controllers
             //return View(GetInfo());
         }
 
+        //[HttpPost]
+        //public IActionResult Account(AccountModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        string path_Root = _appEnvironment.WebRootPath;
+        //        User user = GetInfo();
+
+
+        //        if (user != null)
+        //        {
+        //            // добавляем пользователя в бд
+        //            string path_to_Images = path_Root + "\\img\\" + model.Photo.FileName;
+
+        //            using (var stream = new FileStream(path_to_Images, FileMode.Create))
+        //            {
+        //                model.Photo.CopyToAsync(stream);
+        //            }
+        //            user.Photo = model.Photo.FileName;
+        //            db.SaveChangesAsync();
+
+        //        }
+        //        else
+        //            ModelState.AddModelError("", "Error photo");
+        //    }
+        //    return View();
+        //    //return View(GetInfo());
+        //}
+
         [HttpGet]
         [Authorize]
         public IActionResult ChangeInfo()
@@ -158,6 +187,33 @@ namespace Cook_Share.Controllers
                     ModelState.AddModelError("", user.Email);
             }
             return View();
+
+        }
+
+        public void AddPhoto(AccountModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                string path_Root = _appEnvironment.WebRootPath;
+                User user = GetInfo();
+
+
+                if (user != null)
+                {
+                    // добавляем пользователя в бд
+                    string path_to_Images = path_Root + "\\img\\" + model.Photo.FileName;
+
+                    using (var stream = new FileStream(path_to_Images, FileMode.Create))
+                    {
+                         model.Photo.CopyToAsync(stream);
+                    }
+                    user.Photo = model.Photo.FileName;
+                     db.SaveChangesAsync();
+
+                }
+                else
+                    ModelState.AddModelError("", user.Email);
+            }
 
         }
     }
