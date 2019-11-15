@@ -26,6 +26,8 @@ namespace Cook_Share.Models
 
         public DbSet<Category> Categories{ get; set;}
 
+        public DbSet<DishPhoto> DishPhotos { get; set; }
+
         public DataContext(DbContextOptions<DataContext> options)
             :base(options)
         {
