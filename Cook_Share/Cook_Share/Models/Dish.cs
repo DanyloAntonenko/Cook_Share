@@ -23,8 +23,8 @@ namespace Cook_Share.Models
 
         public int? PublicationId { get; set; }
 
-        public string Photo { get; set; }
-        
+        public virtual IList<DishPhoto> Photos { get; set; }
+
         //!!!!!!!!!!!!!!!
         public virtual Publication Publication { get; set; }
          
