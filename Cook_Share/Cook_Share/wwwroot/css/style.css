@@ -5,8 +5,73 @@
 }
 
 body {
+    top:0;
     margin: 0;
+    padding-top: 70px;
 }
+
+
+
+/*-----------------------  header ------------------*/
+
+
+
+.top {
+    top:0;
+    width: 100%;
+    position: fixed;
+    background: #222222;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin-bottom:70px;
+}
+
+.top__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+    margin: auto;
+}
+
+.logo__top {
+    font-size: 32px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    color: #C1CACA;
+}
+
+.label-btn__top {
+    font-size: 22px;
+    padding-right: 10px;
+    color: #C1CACA;
+}
+
+.btn__bg {
+    background: #222222;
+    vertical-align: center;
+    padding: 22px;
+}
+
+    .btn__bg:hover {
+        background: #303030;
+    }
+
+.top__right {
+    display: flex;
+}
+
+.top__button {
+    outline: none;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
 
 .container {
     color: #000000;
