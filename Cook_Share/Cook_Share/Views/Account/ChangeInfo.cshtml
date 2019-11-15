@@ -1,0 +1,42 @@
+﻿@model Cook_Share.Models.User
+@{
+    ViewData["Title"] = "ChangeInfo";
+}
+<link rel="stylesheet" href="../css/style.css" />
+
+
+
+<div class="container">
+    <div class="container__changeInfo">
+        <div class="title__change">
+            <a href="#" class="title__back"></a>
+            <span class="title__change-label">
+                Изменить
+            </span>
+        </div>
+        <form method="post" asp-action="ChangeInfo" asp-controller="Account" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly"></div>
+            <input asp-for="Email" type="hidden" />
+
+            <div class="change-info__list">
+                <div class="wrap__label"><span class="label__log">Имя</span><input type="text" asp-for="Name" class="change__input"><span asp-validation-for="Name"></span></div>
+                <div class="wrap__label"><span class="label__log">Фамилия</span><input type="text" class="change__input" asp-for="Surname"> <span asp-validation-for="Surname"></span></div>
+                <div class="wrap__label"><span class="label__log">Фото</span> <input type="file" id="files" asp-for="Photo" /> <span asp-validation-for="Photo"></span></div>
+
+            </div>
+            
+            
+            @*<div>
+                <label>Photo</label>
+                <div class="wrap__label">
+                    <input type="file" id="files" asp-for="Photo" />
+                    <span asp-validation-for="Photo"></span>
+                </div>
+            </div>*@
+            <div class="change-btn__info">
+                <input type="submit" value="Сохранить" class="change-btn__save"/>
+            </div>
+        </form>
+
+    </div>
+</div>
