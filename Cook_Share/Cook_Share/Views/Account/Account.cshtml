@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "Account";
-    string str = ViewBag.Info?.Photo ?? "test.jpg";
+    string str = Model?.Photo ?? "default-user.png";
 }
 @model Cook_Share.Models.User
 <link rel="stylesheet" href="../css/style.css" />
@@ -10,16 +10,11 @@
     <header class="header"></header>
     <main>
         <div class="title__profile">
-            <img src="../img/@str" alt="MyPhoto" class="profile__photo " id="addPhotoArea" />
-            @*<form method="post" asp-action="Account" asp-controller="Account" enctype="multipart/form-data">
-                <div asp-validation-summary="ModelOnly"></div>
-                <input type="file" class="profile__add " id="files" asp-for="Photo" />
-                <span asp-validation-for="Photo"></span>
-                <input type="submit" value="Сохранить" />
-            </form>*@
-            <span class="title__name">@ViewBag.info.Name</span>
+            <img src="../img/@str" alt="MyPhoto" class="profile__photo " id="addPhotoArea"/>
+            <button class="profile__add " id="addPhotoBtn">Добавить фото</button>
+            <span class="title__name">@Model.Name</span>
             <span class="title__name">&ensp;</span>
-            <span class="title__name">@ViewBag.info.Surname</span>
+            <span class="title__name">@Model.Surname</span>
 
         </div>
         <div class="row"></div>
@@ -38,8 +33,8 @@
                     Редактирование
                 </button>
 
-                @*</a>
-                <button asp-controller="Account" asp-action="Logout" class="nav__button">
+                </a>
+                <button asp-controller="Account" asp-action="Logout"  class="nav__button">
                     Выход
                 </button>*@
             </div>
@@ -49,8 +44,12 @@
             <div class="left__content" id="left__content">
                 <div class="content__mydishes">
                     <div class="add-content__mydish">
-                        <img src="../img/plus.png" alt="" class="photo__add" />
-                        <button class="button__add-dish" hidden>Добавить</button>
+                        @*<img src="../img/plus.png" alt="" class="photo__add" />
+                        <button class="button__add-dish" hidden>Добавить</button>*@
+                        <a href='@Url.Action("AddDish","Account", Model, null)'>Добавить Блюдо</a>
+                        <button onclick="location.href='/Account/AddDish';">
+                            Добавить Блюдо
+                        </button>
                     </div>
 
                     <div class="content__mydish">

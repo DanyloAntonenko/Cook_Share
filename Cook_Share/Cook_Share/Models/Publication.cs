@@ -16,12 +16,27 @@ namespace Cook_Share.Models
 
         public int Likes { get; set; }
 
+        public string DishName { get; set; }
+
+        public string Discription { get; set; }
+        
+        public string Recipe { get; set; }
+
+        public int? CalorificVal { get; set; }
+
+        public string Cuisine { get; set; }
+
+        public int? CategoryId { get; set; }
+
+        public virtual IList<DishPhoto> Photos { get; set; }
+
+        public virtual Category Category { get; set; }
+
         public IList<Comment> Comments { get; set; }
 
         public IList<Favourites> Favourites { get; set; }
 
-        //!!!!!!!!!!!!!!!
-        public virtual IList<Dish> Dish { get; set; }
+        
 
         public virtual User User { get; set; }
 
