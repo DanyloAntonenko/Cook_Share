@@ -36,7 +36,7 @@
                 </a>
                 <button asp-controller="Account" asp-action="Logout"  class="nav__button">
                     Выход
-                </button>*@
+                </button>
             </div>
         </div>
         <div class="row"></div>
@@ -51,12 +51,13 @@
                             Добавить Блюдо
                         </button>
                     </div>
-
+                    <a href='@Url.Action("AddDish","Account", Model, null)'>
                     <div class="content__mydish">
+                        
                         <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
                         <h1></h1>
                     </div>
-
+                    </a>
                     <div class="content__mydish">
                         <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
                         <h1></h1>

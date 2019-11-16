@@ -11,7 +11,7 @@ namespace Cook_Share.Models
 
         public string Name { get; set; }
 
-        public IList<Dish> Dishes { get; set; }
+        public IList<Publication> Publications { get; set; }
 
     }
 }

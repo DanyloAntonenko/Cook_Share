@@ -217,7 +217,7 @@ namespace Cook_Share.Controllers
                         User = CurUser, Comments = new List<Comment>(), Favourites = new List<Favourites>(),
                         DishName = model.DishName, Category = model.Category, CalorificVal = model.CalorificVal,
                         Cuisine = model.Cuisine,CategoryId = model.CategoryId, Discription = model.Discription,
-                        Recipe = model.Recipe, Photos = new List<DishPhoto>()
+                        Recipe = model.Recipe, Photos = new List<PublicationPhoto>()
                     });
                     await db.SaveChangesAsync();
 

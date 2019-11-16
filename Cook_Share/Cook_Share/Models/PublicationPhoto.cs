@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace Cook_Share.Models
 {
-    public class DishPhoto
+    public class PublicationPhoto
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public  Dish Dish { get; set; }
+        public  Publication Publication { get; set; }
 
 
     }

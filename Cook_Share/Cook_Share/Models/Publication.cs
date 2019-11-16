@@ -28,7 +28,7 @@ namespace Cook_Share.Models
 
         public int? CategoryId { get; set; }
 
-        public virtual IList<DishPhoto> Photos { get; set; }
+        public virtual IList<PublicationPhoto> Photos { get; set; }
 
         public virtual Category Category { get; set; }
 
