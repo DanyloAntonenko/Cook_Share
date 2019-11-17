@@ -1,17 +1,10 @@
 ﻿window.onload = function () {
     document.getElementById("first__tag").addEventListener('click', addContentMyDish);
     document.getElementById("second__tag").addEventListener('click', addContentMyFavorite);
-
-    document.getElementsByTagName(".wrap__photo").addEventListener('mousemove', visibleTrue);
+    
 }
 
-function visibleTrue() {
 
-    document.getElementById("cnt__mydishes").classList.add('dispnone');
-    document.getElementById("cnt__myfavorite").classList.add('dispnone');
-
- 
-}
 
 function addContentMyDish() {
  document.getElementById("cnt__myfavorite").classList.add('dispnone');
