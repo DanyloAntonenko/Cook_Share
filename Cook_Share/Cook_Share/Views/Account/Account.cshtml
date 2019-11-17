@@ -44,13 +44,56 @@
         <div class="row"></div>
         <div class="content">
             <div class="left__content" id="left__content">
-                <div class="content__mydishes" >
+                <div class="content__mydishes" id="cnt__mydishes">
                     <a asp-area="" asp-controller="Account" asp-action="AddDish" class="link__dish__add">
                         <div class="add-content__mydish">
                             <img src="../img/plus.png" alt="" class="photo__add" />
 
                         </div>
                     </a>
+                    <a asp-area="" asp-controller="Account" asp-action="Dish" class="link__dish">
+                        <div class="content__mydish">
+
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <div class="wrap__photo">
+                                <h1 class="title-name__photo">Бургер</h1>
+                            </div>
+                        </div>
+                        
+                    </a>
+
+                    <a href='@Url.Action("Dish","Account", Model, null)' class="link__dish">
+                        <div class="content__mydish">
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1 class="title-name__photo">Макароны</h1>
+                        </div>
+                    </a>
+
+                    <a href='@Url.Action("Dish","Account", Model, null)' class="link__dish">
+                        <div class="content__mydish">
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1></h1>
+                        </div>
+                    </a>
+
+                    <a href='@Url.Action("Dish","Account", Model, null)' class="link__dish">
+                        <div class="content__mydish">
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1></h1>
+                        </div>
+                    </a>
+
+                    <a href='@Url.Action("Dish","Account", Model, null)' class="link__dish">
+                        <div class="content__mydish">
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1></h1>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="content__myfavorite dispnone"  id="cnt__myfavorite">
+                   
                     <a asp-area="" asp-controller="Account" asp-action="Dish" class="link__dish">
                         <div class="content__mydish">
 
@@ -87,7 +130,6 @@
                         </div>
                     </a>
                 </div>
-
 
 
             </div>
