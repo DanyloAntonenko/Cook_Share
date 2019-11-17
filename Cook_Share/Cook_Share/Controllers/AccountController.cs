@@ -227,5 +227,14 @@ namespace Cook_Share.Controllers
 
 
 
+        /*-------------------------------------------------------------------------------------------------------------*/
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Dish()
+        {
+            return View();
+        }
+
     }
 }

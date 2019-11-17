@@ -12609,5 +12609,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Ошибка чтения файла кэша G:\\GitHub\\projectAVPZ\\Cook_Share\\Cook_Share\\Cook_Share\\obj\\Cook_Share.csproj.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

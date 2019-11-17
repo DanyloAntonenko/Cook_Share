@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "Account";
-    string str = ViewBag.Info?.Photo ?? "test.jpg";
+    string str = Model?.Photo ?? "default-user.png";
 }
 @model Cook_Share.Models.User
 
@@ -10,16 +10,11 @@
     <header class="header"></header>
     <main>
         <div class="title__profile">
-            <img src="../img/@str" alt="MyPhoto" class="profile__photo " id="addPhotoArea" />
-            @*<form method="post" asp-action="Account" asp-controller="Account" enctype="multipart/form-data">
-                <div asp-validation-summary="ModelOnly"></div>
-                <input type="file" class="profile__add " id="files" asp-for="Photo" />
-                <span asp-validation-for="Photo"></span>
-                <input type="submit" value="Сохранить" />
-            </form>*@
-            <span class="title__name">@ViewBag.info.Name</span>
+            <img src="../img/@str" alt="MyPhoto" class="profile__photo " id="addPhotoArea"/>
+            <button class="profile__add " id="addPhotoBtn" hidden>Добавить фото</button>
+            <span class="title__name">@Model.Name</span>
             <span class="title__name">&ensp;</span>
-            <span class="title__name">@ViewBag.info.Surname</span>
+            <span class="title__name">@Model.Surname</span>
 
         </div>
         <div class="row"></div>
@@ -38,46 +33,58 @@
                     Редактирование
                 </button>
 
-                @*</a>
-                <button asp-controller="Account" asp-action="Logout" class="nav__button">
+                </a>
+                <button asp-controller="Account" asp-action="Logout"  class="nav__button">
                     Выход
-                </button>*@
+                </button>
             </div>
         </div>
         <div class="row"></div>
         <div class="content">
             <div class="left__content" id="left__content">
                 <div class="content__mydishes">
-                    <div class="add-content__mydish">
-                        <img src="../img/plus.png" alt="" class="photo__add" />
-                        <button class="button__add-dish" hidden>Добавить</button>
-                    </div>
+                    <a  asp-area="" asp-controller="Account" asp-action="AddDish"  class="link__dish__add">
+                        <div class="add-content__mydish">
+                            <img src="../img/plus.png" alt="" class="photo__add" />
+                          
+                        </div>
+                    </a>
+                    <a  asp-area="" asp-controller="Account" asp-action="Dish"  class="link__dish">
+                        <div class="content__mydish">
 
-                    <div class="content__mydish">
-                        <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                        <h1></h1>
-                    </div>
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1></h1>
+                        </div>
+                    </a>
 
-                    <div class="content__mydish">
-                        <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                        <h1></h1>
-                    </div>
+                    <a href='@Url.Action("Dish","Account", Model, null)' class="link__dish">
+                        <div class="content__mydish">
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1></h1>
+                        </div>
+                    </a>
 
-                    <div class="content__mydish">
-                        <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                        <h1></h1>
-                    </div>
+                    <a href='@Url.Action("Dish","Account", Model, null)' class="link__dish">
+                        <div class="content__mydish">
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1></h1>
+                        </div>
+                    </a>
 
-                    <div class="content__mydish">
-                        <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                        <h1></h1>
-                    </div>
+                    <a href='@Url.Action("Dish","Account", Model, null)' class="link__dish">
+                        <div class="content__mydish">
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1></h1>
+                        </div>
+                    </a>
 
-                    <div class="content__mydish">
-                        <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                        <h1></h1>
-                    </div>
-                </div>
+                    <a href='@Url.Action("Dish","Account", Model, null)' class="link__dish">
+                        <div class="content__mydish">
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1></h1>
+                        </div>
+                    </a>
+</div> 
             </div>
             <div class="right__content">
                 <div class="subscribers li__profile">

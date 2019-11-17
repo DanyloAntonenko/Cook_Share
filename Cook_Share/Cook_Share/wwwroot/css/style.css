@@ -10,7 +10,9 @@ body {
     padding-top: 70px;
 }
 
-
+.top{
+    z-index: 1000;
+}
 
 /*-----------------------  header ------------------*/
 
@@ -235,6 +237,7 @@ body {
 }
 
 .add-content__mydish {
+    margin-top:21px;
     display: flex;
     background: linear-gradient(0.25turn, #dce8f5, #fcefef);
     flex-direction: column;
@@ -560,4 +563,276 @@ span.field-validation-error {
     .change__input:focus, .change__input:hover {
         border-bottom: 1px solid #7172C6;
     }
+
+
+
+/*---------------- dish ---------------*/
+
+.dish-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid #dcdcdc;
+    display: flex;
+    height: 500px;
+    background: #F5FEFF;
+    min-width: 780px;
+}
+
+
+
+.owl-carousel, .owl-stage-outer, .owl-stage, .owl-item,
+.photo__slider, .dish-photo {
+    height: 100%;
+    width: 100%;
+}
+
+
+.dish-left {
+    width: 60%;
+    height: 100%;
+}
+
+.slider__nav--left,
+.slider__nav--right {
+    display: none;
+}
+
+.dish-right {
+    position: relative;
+    width: 40%;
+}
+
+.name__dish {
+    font-size: 32px;
+    padding: 10px 0 0 10px;
+    font-family: "ProximaNova-Black", sans-serif;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+.title__dish__creator {
+    padding-bottom: 10px;
+}
+
+.comments__list {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+}
+
+.name__commentator {
+    font-size: 24px;
+    padding: 10px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.text__commentator, .date__commentator, .text__creator {
+    font-size: 18px;
+    font-style: normal;
+    padding: 3px 0 3px 10px;
+}
+
+.comment__item {
+    padding: 0;
+}
+
+    .comment__item:hover {
+        background: #C8D8DA;
+    }
+
+
+.send__comment {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #dcdcdc;
+    padding-top: 10px;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 20px;
+}
+
+.send__txt {
+    height: 30px;
+    outline: none;
+    font-size: 18px;
+    max-width: 65%;
+    background: #F5FEFF;
+    border: none;
+    color: #3897f0;
+    padding-left: 5px;
+}
+
+.send__btn {
+    outline: none;
+    background: #F5FEFF;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: #3897f0;
+}
+
+    .send__btn:hover, .send__txt:hover, .send__txt:focus {
+        color: #4B4DFB;
+    }
+
+.name__creator, .cuisine__dish {
+    padding-left: 15px;
+    font-size: 18px;
+    color: #414A4C;
+}
+
+.dish__span {
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.description__dish {
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.category__dish {
+    padding-left: 10px;
+}
+
+.subtitle__dish {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 15px 5px 15px;
+}
+
+.cuisine__dish {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.li__dish {
+    position: relative;
+    padding: 3px;
+}
+
+    .li__dish:before {
+        top: 2px;
+        left: -21px;
+        position: absolute;
+        display: block;
+        content: " ";
+        border: 1px solid #000000;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+    }
+
+.recipe__dish {
+    padding-left: 10px;
+}
+
+.date__creator {
+    padding-left: 15px;
+}
+
+.link__dish__add {
+   
+
+    width:270px;
+    height:270px;
+}
+
+
+
+.content__mydish {
+    top: 0;
+}
+
+
+
+/*------------------------ Add Dish --------------------------*/
+
+.addDish__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #F5FEFF;
+    margin: 100px 0;
+    border: 1px solid #dcdcdc;
+}
+
+.AddDish__post {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.title__AddDish {
+    font-size: 32px;
+    font-family: "ProximaNova-Black", sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    padding: 30px;
+    text-align: center;
+}
+
+.name__input {
+    font-family: "ProximaNova-Black", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 15px 0 10px 25px;
+}
+
+.input__item {
+    width: 90%;
+    position: relative;
+    margin-left: 20px;
+    border: none;
+    outline: none;
+    color: #000;
+    font-size: 24px;
+    border-bottom: 1px solid #dcdcdc;
+    background: #F5FEFF;
+    line-height: 30px;
+}
+
+.txtArea__input {
+    max-width: 90%;
+    min-width: 90%;
+    height: 150px;
+    resize: none;
+    border: 1px solid #dcdcdc;
+}
+
+.sbtn__input {
+    margin-top: 30px;
+    width: auto;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(to left, rgb(141, 205, 226), rgb(255, 205, 226));
+    font-size: 15px;
+    padding: 0 20px;
+    margin-right: 10px;
+    outline: none;
+    color: #fff;
+}
+
+    .sbtn__input:hover {
+        color: rgb(56, 151, 240);
+    }
+
+.AddDish__post > .btn__log > .inp__btn--log {
+    width: 40% !important;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.back__list {
+    left: 0;
+    margin: 0 0 30px 30px;
+    text-decoration: none;
+    font-size: 18px;
+}
 

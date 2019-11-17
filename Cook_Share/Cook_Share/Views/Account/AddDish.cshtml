@@ -3,55 +3,68 @@
 @{
     ViewData["Title"] = "AddDish";
 }
+<div class="container">
 
-<h2>AddDish</h2>
+    <div class="addDish__content">
+        <span class="title__AddDish">
+            Добавить блюдо
+        </span>
 
-<h4>Publication</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="AddDish">
+        <form asp-action="AddDish" class="AddDish__post">
 
             <input type="hidden" asp-for="UserId" class="form-control" value="@ViewBag.User.Id" asp-items="ViewBag.UserId" />
 
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>     
-            <div class="form-group">
-                <label asp-for="DishName" class="control-label"></label>
-                <input asp-for="DishName" class="form-control" />
+            <div asp-validation-summary="ModelOnly"></div>
+
+
+
+            <label asp-for="DishName" class="control-label name__input">Название блюда:</label>
+            <div>
+                <input asp-for="DishName" class="form-control input__item" />
                 <span asp-validation-for="DishName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Discription" class="control-label"></label>
-                <input asp-for="Discription" class="form-control" />
+
+
+            <label asp-for="Discription" class="control-label name__input">Описание: </label>
+            <div>
+                <input asp-for="Discription" class="form-control  input__item" />
                 <span asp-validation-for="Discription" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Recipe" class="control-label"></label>
-                <input asp-for="Recipe" class="form-control" />
+
+
+            <label asp-for="Recipe" class="control-label name__input">Рецепт: </label>
+            <div>
+                <input asp-for="Recipe" class="form-control  input__item" />
                 <span asp-validation-for="Recipe" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CalorificVal" class="control-label"></label>
-                <input asp-for="CalorificVal" class="form-control" />
+
+
+            <label asp-for="CalorificVal" class="control-label name__input">Калорийность: </label>
+            <div>
+                <input asp-for="CalorificVal" class="form-control  input__item" />
                 <span asp-validation-for="CalorificVal" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Cuisine" class="control-label"></label>
-                <input asp-for="Cuisine" class="form-control" />
+
+
+            <label asp-for="Cuisine" class="control-label name__input">Кухня: </label>
+            <div>
+                <input asp-for="Cuisine" class="form-control  input__item" />
                 <span asp-validation-for="Cuisine" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class="form-control" @*asp-items=""*@></select>
+
+
+            <label asp-for="CategoryId" class="control-label name__input">Категория: </label>
+            <div>
+                <select asp-for="CategoryId" class="form-control  input__item" @*asp-items="" *@></select>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+
+            <div class="btn__log">
+                <input type="submit" name="create" value="Создать" class="inp__btn--log">
             </div>
         </form>
+    
+        <a asp-action="Index" class="back__list">Back to List</a>
+   
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
