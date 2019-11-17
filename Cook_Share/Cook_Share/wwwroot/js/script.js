@@ -1,38 +1,55 @@
-﻿
+﻿window.onload = function () {
+    document.getElementById("first__tag").addEventListener('click', addContentMyDish);
+    document.getElementById("second__tag").addEventListener('click', addContentMyFavorite);
+}
 
 function addContentMyDish() {
     document.getElementById("left__content").innerHTML = `
-    <div class="content__mydishes">
-              <div class="add-content__mydish">
-                <img src="../img/plus.png" alt="" class="photo__add" />
-                <button class="button__add-dish">Добавить</button>
-              </div>
+   <div class="content__mydishes">
+                    <a  asp-area="" asp-controller="Account" asp-action="AddDish"  class="link__dish__add">
+                        <div class="add-content__mydish">
+                            <img src="../img/plus.png" alt="" class="photo__add" />
+                          
+                        </div>
+                    </a>
+                    <a  asp-area="" asp-controller="Account" asp-action="Dish"  class="link__dish">
+                        <div class="content__mydish">
 
-              <div class="content__mydish">
-                <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                <h1></h1>
-              </div>
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1></h1>
+                        </div>
+                    </a>
 
-              <div class="content__mydish">
-                <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                <h1></h1>
-              </div>
+                    <a href='@Url.Action("Dish","Account", Model, null)' class="link__dish">
+                        <div class="content__mydish">
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1></h1>
+                        </div>
+                    </a>
 
-              <div class="content__mydish">
-                <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                <h1></h1>
-              </div>
+                    <a href='@Url.Action("Dish","Account", Model, null)' class="link__dish">
+                        <div class="content__mydish">
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1></h1>
+                        </div>
+                    </a>
 
-              <div class="content__mydish">
-                <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                <h1></h1>
-              </div>
+                    <a href='@Url.Action("Dish","Account", Model, null)' class="link__dish">
+                        <div class="content__mydish">
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1></h1>
+                        </div>
+                    </a>
 
-              <div class="content__mydish">
-                <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                <h1></h1>
-              </div>
-            </div>`;
+                    <a href='@Url.Action("Dish","Account", Model, null)' class="link__dish">
+                        <div class="content__mydish">
+                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                            <h1></h1>
+                        </div>
+                    </a>
+</div> `;
+    document.getElementById("first__tag").classList.add('active');
+    document.getElementById("second__tag").classList.remove('active');
 }
 
 function addContentMyFavorite() {
@@ -65,6 +82,8 @@ function addContentMyFavorite() {
                 <h1></h1>
               </div>
             </div>`;
+    document.getElementById("first__tag").classList.remove('active');
+    document.getElementById("second__tag").classList.add('active');
 }
 
 

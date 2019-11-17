@@ -23,9 +23,11 @@
             <div class="nav__left">
                 <a href="#"
                    class="nav__link active"
-                   onclick="addContentMyDish()">Мои блюда</a>
+                   id="first__tag"
+                  >Мои блюда</a>
 
-                    <a href="#" class="nav__link" onclick="addContentMyFavorite()">Избранное</a>
+                    <a href="#" class="nav__link" 
+                          id="second__tag">Избранное</a>
                 </div>
             <div class="nav__right">
                 
@@ -42,14 +44,14 @@
         <div class="row"></div>
         <div class="content">
             <div class="left__content" id="left__content">
-                <div class="content__mydishes">
-                    <a  asp-area="" asp-controller="Account" asp-action="AddDish"  class="link__dish__add">
+                <div class="content__mydishes dispnone" >
+                    <a asp-area="" asp-controller="Account" asp-action="AddDish" class="link__dish__add">
                         <div class="add-content__mydish">
                             <img src="../img/plus.png" alt="" class="photo__add" />
-                          
+
                         </div>
                     </a>
-                    <a  asp-area="" asp-controller="Account" asp-action="Dish"  class="link__dish">
+                    <a asp-area="" asp-controller="Account" asp-action="Dish" class="link__dish">
                         <div class="content__mydish">
 
                             <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
@@ -84,7 +86,10 @@
                             <h1></h1>
                         </div>
                     </a>
-</div> 
+                </div>
+
+
+
             </div>
             <div class="right__content">
                 <div class="subscribers li__profile">
