@@ -1,0 +1,57 @@
+﻿@model Cook_Share.Models.Publication
+
+@{
+    ViewData["Title"] = "AddDish";
+}
+
+<h2>AddDish</h2>
+
+<h4>Publication</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddDish">
+
+            <input type="hidden" asp-for="UserId" class="form-control" value="@ViewBag.User.Id" asp-items="ViewBag.UserId" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>     
+            <div class="form-group">
+                <label asp-for="DishName" class="control-label"></label>
+                <input asp-for="DishName" class="form-control" />
+                <span asp-validation-for="DishName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discription" class="control-label"></label>
+                <input asp-for="Discription" class="form-control" />
+                <span asp-validation-for="Discription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recipe" class="control-label"></label>
+                <input asp-for="Recipe" class="form-control" />
+                <span asp-validation-for="Recipe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CalorificVal" class="control-label"></label>
+                <input asp-for="CalorificVal" class="form-control" />
+                <span asp-validation-for="CalorificVal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cuisine" class="control-label"></label>
+                <input asp-for="Cuisine" class="form-control" />
+                <span asp-validation-for="Cuisine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" @*asp-items=""*@></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

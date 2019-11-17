@@ -20,13 +20,12 @@ namespace Cook_Share.Models
 
         public DbSet<Favourites> Favourites { get; set;}
 
-        public DbSet<Dish> Dishes{ get; set;}
 
         public DbSet<Comment> Comments{ get; set;}
 
         public DbSet<Category> Categories{ get; set;}
 
-        public DbSet<DishPhoto> DishPhotos { get; set; }
+        public DbSet<PublicationPhoto> PublicationPhotos { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options)
             :base(options)
@@ -43,7 +42,7 @@ namespace Cook_Share.Models
             {
                 relationship.DeleteBehavior = DeleteBehavior.SetNull;
             }
-        }
+    }
 }
 
  

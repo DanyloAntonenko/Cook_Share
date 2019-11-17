@@ -96,10 +96,12 @@ namespace Cook_Share.Controllers
 
         public User GetInfo()
         {
-            var selectedUserInfo = from user in db.Users
-                                   where user.Email == User.Identity.Name
-                                   select user;
-            return selectedUserInfo.First();
+            var user = db.Users.FirstOrDefault(u => u.Email == User.Identity.Name);// Linq
+            //var selectedUserInfo = from user in db.Users
+            //                       where user.Email == User.Identity.Name
+            //                       select user;
+            //return selectedUserInfo.First();
+            return user;
         }
         public User GetID()
         {
@@ -114,9 +116,9 @@ namespace Cook_Share.Controllers
         public IActionResult Account()
         {
             User info = GetInfo();
-            ViewBag.Info = info;
-            return View();
-            //return View(GetInfo());
+            //ViewBag.Info = info;
+            //return View();
+            return View(info);
         }
 
         //[HttpPost]
@@ -182,9 +184,7 @@ namespace Cook_Share.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("Photo", "Неправильный формат картинки");
-                        return View();
-                        //return RedirectToAction("ChangeInfo", "Account");
+                        return RedirectToAction("Account", "Account");
                     }
                     user.Name = model.Name;
                     user.Surname = model.Surname;
@@ -199,32 +199,33 @@ namespace Cook_Share.Controllers
             return View();
 
         }
-
-        public void AddPhoto(AccountModel model)
+        [HttpGet]
+        public IActionResult AddDish(User user)
         {
-            if (ModelState.IsValid)
-            {
-                string path_Root = _appEnvironment.WebRootPath;
-                User user = GetInfo();
+            ViewBag.User = user;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddDish(Publication model)
+        {
+                User CurUser = await db.Users.FirstOrDefaultAsync(u => u.Id == model.UserId);
 
-
-                if (user != null)
-                {
-                    // добавляем пользователя в бд
-                    string path_to_Images = path_Root + "\\img\\" + model.Photo.FileName;
-
-                    using (var stream = new FileStream(path_to_Images, FileMode.Create))
+                    db.Publications.Add(new Publication
                     {
-                         model.Photo.CopyToAsync(stream);
-                    }
-                    user.Photo = model.Photo.FileName;
-                     db.SaveChangesAsync();
+                        Time = DateTime.Now.Date, UserId = model.UserId, Likes = model.Likes,
+                        User = CurUser, Comments = new List<Comment>(), Favourites = new List<Favourites>(),
+                        DishName = model.DishName, Category = model.Category, CalorificVal = model.CalorificVal,
+                        Cuisine = model.Cuisine,CategoryId = model.CategoryId, Discription = model.Discription,
+                        Recipe = model.Recipe, Photos = new List<PublicationPhoto>()
+                    });
+                    await db.SaveChangesAsync();
 
-                }
-                else
-                    ModelState.AddModelError("", user.Email);
-            }
+                    return RedirectToAction("Account", "Account");
 
         }
+
+
+
     }
 }
