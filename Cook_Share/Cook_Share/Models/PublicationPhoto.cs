@@ -11,6 +11,8 @@ namespace Cook_Share.Models
 
         public string Name { get; set; }
 
+        public int? PublicationId { get; set; }
+
         public  Publication Publication { get; set; }
 
 

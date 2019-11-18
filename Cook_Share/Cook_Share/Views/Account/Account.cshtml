@@ -46,8 +46,7 @@
         <div class="content">
             <div class="left__content" id="left__content">
                 <div class="content__mydishes" id="cnt__mydishes">
-
-                    @*<a href='@Url.Action("AddDish","Account", Model.User, null)'  class="link__dish__add">*@
+                   
                     <a href="/Account/AddDish" class="link__dish__add">
 
                         <div class="add-content__mydish">
@@ -55,22 +54,25 @@
 
                         </div>
                     </a>
-
+                   
                     @{
+
                         foreach (var publication in Model.Publications)
                         {
-                            <a href='@Url.Action("Dish","Account", publication, null)' class="link__dish">
 
+                            var photo = Model.Photos.FirstOrDefault(p => p.PublicationId == publication.Id);
+                            <a href='@Url.Action("Dish","Account", publication, null)'  class="link__dish">
+                                            
                                 <div class="content__mydish">
 
-                                    <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                                    <div class="wrap__photo">
-                                        <h1 class="title-name__photo">@publication.DishName</h1>
-                                    </div>
+                                   <img src="../dish_img/@photo.Name" alt="" class="photo__dish" />
+                                   <div class="wrap__photo">
+                                       <h1 class="title-name__photo">@publication.DishName</h1>
+                                   </div>
                                 </div>
-
-
-                            </a>
+                        
+                    
+                           </a>
                         }
                     }
                 </div>

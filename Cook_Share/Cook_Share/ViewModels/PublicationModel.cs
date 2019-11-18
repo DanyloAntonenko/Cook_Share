@@ -10,5 +10,6 @@ namespace Cook_Share.ViewModels
     {
         public Publication Publication { get; set;}
         public User User { get; set; }
+        public Category Category { get; set; }
     }
 }

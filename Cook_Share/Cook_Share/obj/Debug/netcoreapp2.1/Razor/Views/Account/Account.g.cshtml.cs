@@ -13,12 +13,12 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
-#line 1 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\_ViewImports.cshtml"
+#line 1 "E:\Github\Cook_Share\Cook_Share\Cook_Share\Views\_ViewImports.cshtml"
 using Cook_Share.Models;
 
 #line default
 #line hidden
-#line 2 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\_ViewImports.cshtml"
+#line 2 "E:\Github\Cook_Share\Cook_Share\Cook_Share\Views\_ViewImports.cshtml"
 using Cook_Share.ViewModels;
 
 #line default
@@ -56,7 +56,7 @@ using Cook_Share.ViewModels;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
-#line 1 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
+#line 1 "E:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
   
     ViewData["Title"] = "Account";
     string str = Model.User.Photo ?? "default-user.png";
@@ -71,7 +71,7 @@ using Cook_Share.ViewModels;
             EndContext();
             BeginWriteAttribute("src", " src=\"", 259, "\"", 276, 2);
             WriteAttributeValue("", 265, "../img/", 265, 7, true);
-#line 14 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
+#line 14 "E:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
 WriteAttributeValue("", 272, str, 272, 4, false);
 
 #line default
@@ -81,7 +81,7 @@ WriteAttributeValue("", 272, str, 272, 4, false);
             WriteLiteral(" alt=\"MyPhoto\" class=\"profile__photo \" id=\"addPhotoArea\"/>\r\n\r\n            <button class=\"profile__add \" id=\"addPhotoBtn\" hidden>Добавить фото</button>\r\n            <span class=\"title__name\">");
             EndContext();
             BeginContext(468, 15, false);
-#line 17 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
+#line 17 "E:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
                                  Write(Model.User.Name);
 
 #line default
@@ -91,7 +91,7 @@ WriteAttributeValue("", 272, str, 272, 4, false);
             WriteLiteral("</span>\r\n            <span class=\"title__name\">&ensp;</span>\r\n            <span class=\"title__name\">");
             EndContext();
             BeginContext(584, 18, false);
-#line 19 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
+#line 19 "E:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
                                  Write(Model.User.Surname);
 
 #line default
@@ -159,8 +159,11 @@ WriteAttributeValue("", 272, str, 272, 4, false);
             EndContext();
 #line 59 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
                       
+
                         foreach (var publication in Model.Publications)
                         {
+
+                            var photo = Model.Photos.FirstOrDefault(p => p.PublicationId == publication.Id);
 
 #line default
 #line hidden

@@ -128,9 +128,11 @@ namespace Cook_Share.Controllers
         [Authorize]
         public IActionResult Account()
         {
+            IEnumerable<PublicationPhoto> photos = db.PublicationPhotos;
             AccountModel model = new AccountModel();
             model.User = GetInfo();
             model.Publications = GetPublications(model.User.Id);
+            model.Photos = photos;
             return View(model);
         }
 
@@ -216,9 +218,10 @@ namespace Cook_Share.Controllers
                 
             }
 
+
                     db.Publications.Add(new Publication
                     {
-                        Time = DateTime.Now.Date, UserId = model.UserId, Likes = model.Likes,
+                        Time = DateTime.Now, UserId = model.UserId, Likes = model.Likes,
                         User = CurUser, Comments = new List<Comment>(), Favourites = new List<Favourites>(),
                         DishName = model.DishName,CalorificVal = model.CalorificVal,
                         Cuisine = model.Cuisine,CategoryId = Cat.Id, Category=Cat, Discription = model.Discription,
@@ -234,9 +237,10 @@ namespace Cook_Share.Controllers
         {
             PublicationModel publicationModel = new PublicationModel();
             User user = GetInfo(publication.UserId);
+            var cat = db.Categories.FirstOrDefault(c => c.Id == publication.CategoryId);
             publicationModel.Publication = publication;
             publicationModel.User = user;
-
+            publicationModel.Category = cat;
             return View(publicationModel);
         }
     }
