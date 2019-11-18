@@ -9,7 +9,11 @@ namespace Cook_Share.ViewModels
     public class PublicationModel
     {
         public Publication Publication { get; set;}
+
         public User User { get; set; }
+
         public Category Category { get; set; }
+
+        public IEnumerable<PublicationPhoto> Photos { get; set; }
     }
 }
