@@ -123,7 +123,6 @@ namespace Cook_Share.Controllers
             return publications;
         }
 
-
         [HttpGet]
         [Authorize]
         public IActionResult Account()
@@ -143,6 +142,7 @@ namespace Cook_Share.Controllers
 
             return View(GetInfo());
         }     
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangeInfo(ChangeModel model)

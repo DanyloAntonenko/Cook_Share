@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cook_Share.Data;
 using Cook_Share.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -67,6 +68,11 @@ namespace Cook_Share
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                DataContext content = scope.ServiceProvider.GetRequiredService<DataContext>();
+                DBObjects.Initial(content);
+            }
         }
     }
 }
