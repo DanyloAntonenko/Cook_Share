@@ -66,8 +66,8 @@ using Cook_Share.ViewModels;
             BeginContext(101, 4, true);
             WriteLiteral("\r\n\r\n");
             EndContext();
-            BeginContext(126, 133, true);
-            WriteLiteral("\r\n\r\n<div class=\"container\">\r\n    <header class=\"header\"></header>\r\n    <main>\r\n        <div class=\"title__profile\">\r\n            <img");
+            BeginContext(126, 135, true);
+            WriteLiteral("\r\n\r\n\r\n<div class=\"container\">\r\n    <header class=\"header\"></header>\r\n    <main>\r\n        <div class=\"title__profile\">\r\n            <img");
             EndContext();
             BeginWriteAttribute("src", " src=\"", 259, "\"", 276, 2);
             WriteAttributeValue("", 265, "../img/", 265, 7, true);
@@ -77,7 +77,7 @@ WriteAttributeValue("", 272, str, 272, 4, false);
 #line default
 #line hidden
             EndWriteAttribute();
-            BeginContext(277, 190, true);
+            BeginContext(279, 190, true);
             WriteLiteral(" alt=\"MyPhoto\" class=\"profile__photo \" id=\"addPhotoArea\"/>\r\n\r\n            <button class=\"profile__add \" id=\"addPhotoBtn\" hidden>Добавить фото</button>\r\n            <span class=\"title__name\">");
             EndContext();
             BeginContext(468, 15, false);
@@ -87,7 +87,7 @@ WriteAttributeValue("", 272, str, 272, 4, false);
 #line default
 #line hidden
             EndContext();
-            BeginContext(483, 100, true);
+            BeginContext(485, 100, true);
             WriteLiteral("</span>\r\n            <span class=\"title__name\">&ensp;</span>\r\n            <span class=\"title__name\">");
             EndContext();
             BeginContext(584, 18, false);
@@ -97,7 +97,7 @@ WriteAttributeValue("", 272, str, 272, 4, false);
 #line default
 #line hidden
             EndContext();
-            BeginContext(602, 652, true);
+            BeginContext(604, 652, true);
             WriteLiteral(@"</span>
 
         </div>
@@ -143,7 +143,7 @@ WriteAttributeValue("", 272, str, 272, 4, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             EndContext();
-            BeginContext(1382, 551, true);
+            BeginContext(1384, 551, true);
             WriteLiteral(@"
             </div>
         </div>
@@ -172,7 +172,7 @@ WriteAttributeValue("", 272, str, 272, 4, false);
 
 #line default
 #line hidden
-            BeginContext(2171, 30, true);
+            BeginContext(2173, 30, true);
             WriteLiteral("                            <a");
             EndContext();
             BeginWriteAttribute("href", " href=\'", 2201, "\'", 2256, 1);
@@ -182,7 +182,7 @@ WriteAttributeValue("", 2208, Url.Action("Dish","Account", publication, null), 2
 #line default
 #line hidden
             EndWriteAttribute();
-            BeginContext(2257, 173, true);
+            BeginContext(2253, 173, true);
             WriteLiteral("  class=\"link__dish\">\r\n                                            \r\n                                <div class=\"content__mydish\">\r\n\r\n                                   <img");
             EndContext();
             BeginWriteAttribute("src", " src=\"", 2430, "\"", 2459, 2);
@@ -193,7 +193,7 @@ WriteAttributeValue("", 2448, photo.Name, 2448, 11, false);
 #line default
 #line hidden
             EndWriteAttribute();
-            BeginContext(2460, 163, true);
+            BeginContext(2456, 163, true);
             WriteLiteral(" alt=\"\" class=\"photo__dish\" />\r\n                                   <div class=\"wrap__photo\">\r\n                                       <h1 class=\"title-name__photo\">");
             EndContext();
             BeginContext(2624, 20, false);
@@ -203,7 +203,7 @@ WriteAttributeValue("", 2448, photo.Name, 2448, 11, false);
 #line default
 #line hidden
             EndContext();
-            BeginContext(2644, 171, true);
+            BeginContext(2640, 171, true);
             WriteLiteral("</h1>\r\n                                   </div>\r\n                                </div>\r\n                        \r\n                    \r\n                           </a>\r\n");
             EndContext();
 #line 76 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Account.cshtml"
@@ -212,7 +212,7 @@ WriteAttributeValue("", 2448, photo.Name, 2448, 11, false);
 
 #line default
 #line hidden
-            BeginContext(2865, 151, true);
+            BeginContext(2861, 151, true);
             WriteLiteral("                </div>\r\n\r\n\r\n                <div class=\"content__myfavorite dispnone\"  id=\"cnt__myfavorite\">\r\n                   \r\n                    ");
             EndContext();
             BeginContext(3016, 454, false);

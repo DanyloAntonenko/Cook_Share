@@ -27,6 +27,31 @@ using Cook_Share.ViewModels;
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"56a947732fe9c17793ed08c30568b9f3ac6c7817", @"/Views/_ViewImports.cshtml")]
     public class Views_Account_Dish : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PublicationModel>
     {
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("rel", new global::Microsoft.AspNetCore.Html.HtmlString("stylesheet"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("href", new global::Microsoft.AspNetCore.Html.HtmlString("~/css/style.css"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_2 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("alt", new global::Microsoft.AspNetCore.Html.HtmlString(""), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_3 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("dish-photo"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_4 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/js/owl.carousel.min.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_5 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/js/carousel.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        #line hidden
+        #pragma warning disable 0169
+        private string __tagHelperStringValueBuffer;
+        #pragma warning restore 0169
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext __tagHelperExecutionContext;
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner __tagHelperRunner = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner();
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __backed__tagHelperScopeManager = null;
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __tagHelperScopeManager
+        {
+            get
+            {
+                if (__backed__tagHelperScopeManager == null)
+                {
+                    __backed__tagHelperScopeManager = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager(StartTagHelperWritingScope, EndTagHelperWritingScope);
+                }
+                return __backed__tagHelperScopeManager;
+            }
+        }
+        private global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
@@ -36,28 +61,78 @@ using Cook_Share.ViewModels;
 #line 3 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Dish.cshtml"
   
     ViewData["Title"] = "Dish";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 
 #line default
 #line hidden
-            BeginContext(67, 685, true);
-            WriteLiteral(@"<link rel=""stylesheet"" href=""../css/style.css"" />
+            BeginContext(116, 4, true);
+            WriteLiteral("\r\n\r\n");
+            EndContext();
+            BeginContext(120, 48, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cb2085b2c4534f5daa1b2361a7826bb2", async() => {
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_1);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(168, 129, true);
+            WriteLiteral("\r\n<div class=\"container\">\r\n    <div class=\"dish-item\">\r\n        <div class=\"dish-left\">\r\n            <div class=\"owl-carousel\">\r\n");
+            EndContext();
+#line 15 "E:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Dish.cshtml"
+                  
+                    foreach (var item in Model.Photos)
+                    {
 
+#line default
+#line hidden
+            BeginContext(396, 52, true);
+            WriteLiteral("                        <div class=\"photo__slider\"> ");
+            EndContext();
+            BeginContext(448, 59, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a6ade1dff4e5487aa9b0034f033f5b71", async() => {
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper);
+            BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "src", 2, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            AddHtmlAttributeValue("", 458, "~/dish_img/", 458, 11, true);
+#line 18 "E:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Dish.cshtml"
+AddHtmlAttributeValue("", 469, item.Name, 469, 10, false);
 
-<div class=""container"">
-    <div class=""dish-item"">
-        <div class=""dish-left"">
-            <div class=""owl-carousel"">
+#line default
+#line hidden
+            EndAddHtmlAttributeValues(__tagHelperExecutionContext);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_2);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_3);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(507, 8, true);
+            WriteLiteral("</div>\r\n");
+            EndContext();
+#line 19 "E:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Dish.cshtml"
+                    }
+                
 
-                <div class=""photo__slider""> <img src=""../img/photo-food-1.png"" alt="""" class=""dish-photo""></div>
-                <div class=""photo__slider""> <img src=""../img/photo-food-1.png"" alt="""" class=""dish-photo""></div>
-
-                <div class=""photo__slider""> <img src=""../img/photo-food-1.png"" alt="""" class=""dish-photo""></div>
-            </div>
-        </div>
-
-        <div class=""dish-right"">
-            <div class=""title__dish__creator"">
-                <div class=""name__dish"">");
+#line default
+#line hidden
+            BeginContext(557, 160, true);
+            WriteLiteral("            </div>\r\n        </div>\r\n\r\n        <div class=\"dish-right\">\r\n            <div class=\"title__dish__creator\">\r\n                <div class=\"name__dish\">");
             EndContext();
             BeginContext(753, 26, false);
 #line 23 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Dish.cshtml"
@@ -66,7 +141,7 @@ using Cook_Share.ViewModels;
 #line default
 #line hidden
             EndContext();
-            BeginContext(779, 101, true);
+            BeginContext(744, 101, true);
             WriteLiteral("</div>\r\n                <div class=\"subtitle__dish\">\r\n                    <div class=\"name__creator\">");
             EndContext();
             BeginContext(881, 15, false);
@@ -76,7 +151,7 @@ using Cook_Share.ViewModels;
 #line default
 #line hidden
             EndContext();
-            BeginContext(896, 55, true);
+            BeginContext(861, 55, true);
             WriteLiteral("</div>\r\n                    <div class=\"name__creator\">");
             EndContext();
             BeginContext(952, 18, false);
@@ -86,7 +161,7 @@ using Cook_Share.ViewModels;
 #line default
 #line hidden
             EndContext();
-            BeginContext(970, 81, true);
+            BeginContext(935, 81, true);
             WriteLiteral("</div>\r\n                    <div class=\"cuisine__dish\">\r\n                        ");
             EndContext();
             BeginContext(1052, 25, false);
@@ -96,7 +171,7 @@ using Cook_Share.ViewModels;
 #line default
 #line hidden
             EndContext();
-            BeginContext(1077, 141, true);
+            BeginContext(1042, 141, true);
             WriteLiteral("\r\n                    </div>\r\n                </div>\r\n                <div class=\"category__dish\"><span class=\"dish__span\">Категория: </span>");
             EndContext();
             BeginContext(1219, 19, false);
@@ -106,7 +181,7 @@ using Cook_Share.ViewModels;
 #line default
 #line hidden
             EndContext();
-            BeginContext(1238, 141, true);
+            BeginContext(1203, 141, true);
             WriteLiteral("</div>\r\n                <div class=\"description__dish\">\r\n                    <span class=\"dish__span\">Описание: </span>\r\n                    ");
             EndContext();
             BeginContext(1380, 29, false);
@@ -116,8 +191,8 @@ using Cook_Share.ViewModels;
 #line default
 #line hidden
             EndContext();
-            BeginContext(1409, 157, true);
-            WriteLiteral("\r\n                </div>\r\n                <div class=\"recipe__dish\">\r\n                    <span class=\"dish__span\">Рецепт: </span> <ol>\r\n                    ");
+            BeginContext(1374, 161, true);
+            WriteLiteral("\r\n                </div>\r\n                <div class=\"recipe__dish\">\r\n                    <span class=\"dish__span\">Рецепт: </span> <ol>\r\n                        ");
             EndContext();
             BeginContext(1567, 24, false);
 #line 38 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\Dish.cshtml"
@@ -147,13 +222,49 @@ using Cook_Share.ViewModels;
 
     </div>
 </div>
+");
+            EndContext();
+            BeginContext(3110, 48, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62cf1d40bb414294b193bc48044d4ae5", async() => {
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_4);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(3158, 2, true);
+            WriteLiteral("\r\n");
+            EndContext();
+            BeginContext(3160, 40, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e62c67f2322b4110b7f329ba5419937a", async() => {
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_5);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(3200, 321, true);
+            WriteLiteral(@"
 <script src=""https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js""></script>
 <link rel=""stylesheet""
       href=""https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"" />
 <script src=""https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js""></script>
 
-<script src=""../js/owl.carousel.min.js""></script>
-<script src=""../js/carousel.js""></script>
+
 ");
             EndContext();
         }

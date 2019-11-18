@@ -7,6 +7,7 @@
 @model AccountModel
 
 
+
 <div class="container">
     <header class="header"></header>
     <main>
@@ -61,7 +62,7 @@
                         {
 
                             var photo = Model.Photos.FirstOrDefault(p => p.PublicationId == publication.Id);
-                            <a href='@Url.Action("Dish","Account", publication, null)'  class="link__dish">
+                            <a href='@Url.Action("Dish","Account", publication)'  class="link__dish">
                                             
                                 <div class="content__mydish">
 

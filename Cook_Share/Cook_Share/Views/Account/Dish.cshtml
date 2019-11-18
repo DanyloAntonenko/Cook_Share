@@ -2,19 +2,22 @@
 
 @{
     ViewData["Title"] = "Dish";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
-<link rel="stylesheet" href="../css/style.css" />
 
 
+<link rel="stylesheet" href="~/css/style.css" />
 <div class="container">
     <div class="dish-item">
         <div class="dish-left">
             <div class="owl-carousel">
-
-                <div class="photo__slider"> <img src="../img/photo-food-1.png" alt="" class="dish-photo"></div>
-                <div class="photo__slider"> <img src="../img/photo-food-1.png" alt="" class="dish-photo"></div>
-
-                <div class="photo__slider"> <img src="../img/photo-food-1.png" alt="" class="dish-photo"></div>
+                @{
+                    foreach (var item in Model.Photos)
+                    {
+                        <div class="photo__slider"> <img src="~/dish_img/@item.Name" alt="" class="dish-photo"></div>
+                    }
+                }
             </div>
         </div>
 
@@ -49,10 +52,11 @@
 
     </div>
 </div>
+<script src="~/js/owl.carousel.min.js"></script>
+<script src="~/js/carousel.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
-<script src="../js/owl.carousel.min.js"></script>
-<script src="../js/carousel.js"></script>
+
