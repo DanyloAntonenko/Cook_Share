@@ -1,5 +1,5 @@
-﻿@model Cook_Share.Models.Publication
-
+﻿@*@model Cook_Share.Models.Publication*@
+@model Publication
 @{
     ViewData["Title"] = "AddDish";
 }
@@ -12,7 +12,7 @@
     <div class="col-md-4">
         <form asp-action="AddDish">
 
-            <input type="hidden" asp-for="UserId" class="form-control" value="@ViewBag.User.Id" asp-items="ViewBag.UserId" />
+            @*<input type="hidden" asp-for="UserId" class="form-control" value="@ViewBag.User.Id" asp-items="ViewBag.UserId" />*@
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>     
             <div class="form-group">
@@ -42,7 +42,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class="form-control" @*asp-items=""*@></select>
+                <select asp-for="CategoryId" class="form-control" ></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />

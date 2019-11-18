@@ -36,8 +36,6 @@ namespace Cook_Share.Models
 
         public IList<Favourites> Favourites { get; set; }
 
-        
-
         public virtual User User { get; set; }
 
 

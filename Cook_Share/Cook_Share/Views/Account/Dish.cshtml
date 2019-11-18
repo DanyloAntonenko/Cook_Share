@@ -1,0 +1,81 @@
+﻿@model PublicationModel
+
+@{
+    ViewData["Title"] = "Dish";
+}
+
+<h2>Dish</h2>
+
+<link rel="stylesheet" href="../css/owl.carousel.min.css">
+<br />
+<br />
+<div class="container">
+    <div class="dish-item">
+        <div class="dish-left">
+            <div class="owl-carousel">
+
+                <div class="photo__slider"> <img src="../img/photo-food-1.png" alt="" class="dish-photo"></div>
+                <div class="photo__slider"> <img src="../img/photo-food-1.png" alt="" class="dish-photo"></div>
+
+                <div class="photo__slider"> <img src="../img/photo-food-1.png" alt="" class="dish-photo"></div>
+            </div>
+        </div>
+
+        <div class="dish-right">
+            <div class="title__dish__creator">
+                <div class="name__dish">@Model.Publication.DishName</div>
+                <div class="subtitle__dish">
+                    <div class="name__creator">@Model.User.Name</div>
+                    <div class="name__creator">@Model.User.Surname</div>
+                    <div class="cuisine__dish">
+                        @Model.Publication.Cuisine
+                    </div>
+                </div>
+                <div class="category__dish"><span class="dish__span">Категория: </span>@Model.Publication.Category</div>
+                <div class="description__dish">
+                    <span class="dish__span">Описание: </span>
+                    @Model.Publication.Discription
+                </div>
+                <div class="recipe__dish">
+                    <span class="dish__span">Рецепт: </span> <ol>
+                    @Model.Publication.Recipe
+                        @*<li class="li__dish">Приготовьте соус. </li>
+                        <li class="li__dish">Мясо и жир нарежьте, добавьте соль и приправы, прокрутите через мясорубку.</li>
+                        <li class="li__dish">Разрежьте булку пополам и подсушите её на сковороде или в тостере.</li>
+                        <li class="li__dish">Можете собирать бургер. Готово!</li>*@
+                    </ol>
+                </div>
+                <div class="date__creator"> <span class="dish__span">Дата добавления: </span>@Model.Publication.Time</div>
+            </div>
+            <div class="row"></div>
+            <!-- <ul class="comments__list">
+                 <li class="comment__item">
+                        <div class="name__commentator">Ольга</div>
+                        <div class="text__commentator">Бодя любит бургеры</div>
+                        <div class="date__commentator">3 ч.</div>
+                </li>
+                 <li class="comment__item">
+                       <div class="name__commentator">Павел</div>
+                       <div class="text__commentator">Интересно почему???</div>
+                       <div class="date__commentator">2 ч.</div>
+                </li>
+            </ul>
+
+            <div class="send__comment">
+
+            <input type="text" class="send__txt" placeholder="Добавьте коментарий...">
+            <input type="button" class="send__btn" value="Опубликовать">
+            </div>-->
+        </div>
+
+
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script src="../js/owl.carousel.min.js"></script>
+<script src="../js/carousel.js"></script>
