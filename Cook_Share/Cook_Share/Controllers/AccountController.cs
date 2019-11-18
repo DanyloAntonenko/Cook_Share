@@ -104,10 +104,7 @@ namespace Cook_Share.Controllers
         public User GetInfo(int? userId)
         {
             var user = db.Users.FirstOrDefault(u => u.Id == userId);// Linq
-            //var selectedUserInfo = from user in db.Users
-            //                       where user.Email == User.Identity.Name
-            //                       select user;
-            //return selectedUserInfo.First();
+          
             return user;
         }
         public User GetID()
@@ -218,6 +215,7 @@ namespace Cook_Share.Controllers
                 }
                 
             }
+
                     db.Publications.Add(new Publication
                     {
                         Time = DateTime.Now.Date, UserId = model.UserId, Likes = model.Likes,
