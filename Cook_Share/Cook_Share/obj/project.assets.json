@@ -12537,23 +12537,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Pavel\\.nuget\\packages\\": {},
+    "C:\\Users\\nikbo\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\GitHub\\projectAVPZ\\Cook_Share\\Cook_Share\\Cook_Share\\Cook_Share.csproj",
+      "projectUniqueName": "D:\\Github\\Cook_Share\\Cook_Share\\Cook_Share\\Cook_Share.csproj",
       "projectName": "Cook_Share",
-      "projectPath": "G:\\GitHub\\projectAVPZ\\Cook_Share\\Cook_Share\\Cook_Share\\Cook_Share.csproj",
-      "packagesPath": "C:\\Users\\Pavel\\.nuget\\packages\\",
-      "outputPath": "G:\\GitHub\\projectAVPZ\\Cook_Share\\Cook_Share\\Cook_Share\\obj\\",
+      "projectPath": "D:\\Github\\Cook_Share\\Cook_Share\\Cook_Share\\Cook_Share.csproj",
+      "packagesPath": "C:\\Users\\nikbo\\.nuget\\packages\\",
+      "outputPath": "D:\\Github\\Cook_Share\\Cook_Share\\Cook_Share\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Pavel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nikbo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12593,6 +12593,7 @@
             "version": "[2.1.11, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
@@ -12603,10 +12604,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   },

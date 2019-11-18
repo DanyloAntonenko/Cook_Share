@@ -1,9 +1,11 @@
 ﻿
 @{
     ViewData["Title"] = "Account";
-    string str = Model?.Photo ?? "default-user.png";
+    string str = Model.User.Photo ?? "default-user.png";
 }
-@model Cook_Share.Models.User
+
+
+@model AccountModel
 
 
 <div class="container">
@@ -11,10 +13,11 @@
     <main>
         <div class="title__profile">
             <img src="../img/@str" alt="MyPhoto" class="profile__photo " id="addPhotoArea"/>
+
             <button class="profile__add " id="addPhotoBtn" hidden>Добавить фото</button>
-            <span class="title__name">@Model.Name</span>
+            <span class="title__name">@Model.User.Name</span>
             <span class="title__name">&ensp;</span>
-            <span class="title__name">@Model.Surname</span>
+            <span class="title__name">@Model.User.Surname</span>
 
         </div>
         <div class="row"></div>
@@ -35,7 +38,6 @@
                     Редактирование
                 </button>
 
-                </a>
                 <button asp-controller="Account" asp-action="Logout"  class="nav__button">
                     Выход
                 </button>
@@ -45,24 +47,32 @@
         <div class="content">
             <div class="left__content" id="left__content">
                 <div class="content__mydishes" id="cnt__mydishes">
-                    <a asp-area="" asp-controller="Account" asp-action="AddDish" class="link__dish__add">
-                        <div class="add-content__mydish">
+                   
+                        <a href='@Url.Action("AddDish","Account", Model.User, null)'  class="link__dish__add">
+                        
+                         <div class="add-content__mydish">
                             <img src="../img/plus.png" alt="" class="photo__add" />
 
                         </div>
-                    </a>
-                    <a asp-area="" asp-controller="Account" asp-action="Dish" class="link__dish">
-                        <div class="content__mydish">
-
-                            <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
-                            <div class="wrap__photo">
-                                <h1 class="title-name__photo">Бургер</h1>
-                            </div>
-                        </div>
-                        
-                    </a>
-
+                        </a>
                    
+                    @{
+                        foreach (var publication in Model.Publications)
+                        {
+                                        <a href='@Url.Action("Dish","Account", publication, null)'  class="link__dish">
+                                            
+                                         <div class="content__mydish">
+
+                                           <img src="../img/photo-food-1.png" alt="" class="photo__dish" />
+                                            <div class="wrap__photo">
+                                         <h1 class="title-name__photo">Бургер</h1>
+                                         </div>
+                                         </div>
+                        
+                    
+                                        </a>
+                        }
+                    }
                 </div>
 
 

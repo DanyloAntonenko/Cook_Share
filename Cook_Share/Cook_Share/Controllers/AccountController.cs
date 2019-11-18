@@ -103,6 +103,17 @@ namespace Cook_Share.Controllers
             //return selectedUserInfo.First();
             return user;
         }
+
+
+        public User GetInfo(int? userId)
+        {
+            var user = db.Users.FirstOrDefault(u => u.Id == userId);// Linq
+            //var selectedUserInfo = from user in db.Users
+            //                       where user.Email == User.Identity.Name
+            //                       select user;
+            //return selectedUserInfo.First();
+            return user;
+        }
         public User GetID()
         {
             var selectedUserInfo = from user in db.Users
@@ -111,56 +122,46 @@ namespace Cook_Share.Controllers
             return selectedUserInfo.First();
         }
 
+
+        public IEnumerable<Publication> GetPublications(int id)
+        {
+            IEnumerable<Publication> publications = db.Publications.Where(c => c.UserId == id);
+            return publications;
+        }
+
+
         [HttpGet]
         [Authorize]
         public IActionResult Account()
         {
-            User info = GetInfo();
+            AccountModel model = new AccountModel();
+            model.User = GetInfo();
+            model.Publications = GetPublications(model.User.Id);
             //ViewBag.Info = info;
             //return View();
-            return View(info);
+            return View(model);
         }
-
-        //[HttpPost]
-        //public IActionResult Account(AccountModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        string path_Root = _appEnvironment.WebRootPath;
-        //        User user = GetInfo();
-
-
-        //        if (user != null)
-        //        {
-        //            // добавляем пользователя в бд
-        //            string path_to_Images = path_Root + "\\img\\" + model.Photo.FileName;
-
-        //            using (var stream = new FileStream(path_to_Images, FileMode.Create))
-        //            {
-        //                model.Photo.CopyToAsync(stream);
-        //            }
-        //            user.Photo = model.Photo.FileName;
-        //            db.SaveChangesAsync();
-
-        //        }
-        //        else
-        //            ModelState.AddModelError("", "Error photo");
-        //    }
-        //    return View();
-        //    //return View(GetInfo());
-        //}
 
         [HttpGet]
         [Authorize]
         public IActionResult ChangeInfo()
         {
+            //ChangeModel model = new ChangeModel();
+            //model.Email = accountModel.User.Email;
+            //model.Name = accountModel.User.Name;
+            //model.Surname = accountModel.User.Surname;
+            //model.Photo = accountModel.User.Photo;
+            //User user = GetInfo();
+            //AccountModel accountModel = new AccountModel();
+            //accountModel.User = user;
+            //accountModel.
             return View(GetInfo());
         }
         
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ChangeInfo(AccountModel model)
+        public async Task<IActionResult> ChangeInfo(ChangeModel model)
         {
             if (ModelState.IsValid)
             {
@@ -184,11 +185,15 @@ namespace Cook_Share.Controllers
                     }
                     else
                     {
+                        user.Name = model.Name;
+                        user.Surname = model.Surname;
+
+                        await db.SaveChangesAsync();
                         return RedirectToAction("Account", "Account");
                     }
                     user.Name = model.Name;
                     user.Surname = model.Surname;
-                   
+
                     await db.SaveChangesAsync();
 
                     return RedirectToAction("Account", "Account");
@@ -200,21 +205,22 @@ namespace Cook_Share.Controllers
 
         }
         [HttpGet]
-        public IActionResult AddDish(User user)
+        public IActionResult AddDish()
         {
-            ViewBag.User = user;
+
+            //ViewBag.User = user;
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddDish(Publication model)
         {
-                User CurUser = await db.Users.FirstOrDefaultAsync(u => u.Id == model.UserId);
-
+            //User CurUser = await db.Users.FirstOrDefaultAsync(u => u.Id == model.UserId);
+            User curUser = GetInfo();
                     db.Publications.Add(new Publication
                     {
-                        Time = DateTime.Now.Date, UserId = model.UserId, Likes = model.Likes,
-                        User = CurUser, Comments = new List<Comment>(), Favourites = new List<Favourites>(),
+                        Time = DateTime.Now.Date, UserId = curUser.Id, Likes = model.Likes,
+                        User = curUser, Comments = new List<Comment>(), Favourites = new List<Favourites>(),
                         DishName = model.DishName, Category = model.Category, CalorificVal = model.CalorificVal,
                         Cuisine = model.Cuisine,CategoryId = model.CategoryId, Discription = model.Discription,
                         Recipe = model.Recipe, Photos = new List<PublicationPhoto>()
@@ -226,15 +232,15 @@ namespace Cook_Share.Controllers
         }
 
 
-
-        /*-------------------------------------------------------------------------------------------------------------*/
-
         [HttpGet]
-        [Authorize]
-        public IActionResult Dish()
+        public IActionResult Dish(Publication publication)
         {
-            return View();
-        }
+            PublicationModel publicationModel = new PublicationModel();
+            User user = GetInfo(publication.UserId);
+            publicationModel.Publication = publication;
+            publicationModel.User = user;
 
+            return View(publicationModel);
+        }
     }
 }
