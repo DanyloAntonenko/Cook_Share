@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace Cook_Share.Controllers
 {
@@ -87,7 +88,6 @@ namespace Cook_Share.Controllers
             // установка аутентификационных куки
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
-
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
@@ -96,15 +96,12 @@ namespace Cook_Share.Controllers
 
         public User GetInfo()
         {
-            var user = db.Users.FirstOrDefault(u => u.Email == User.Identity.Name);// Linq
-            //var selectedUserInfo = from user in db.Users
-            //                       where user.Email == User.Identity.Name
-            //                       select user;
-            //return selectedUserInfo.First();
+            var user = db.Users.FirstOrDefault(u => u.Email == User.Identity.Name);
             return user;
         }
         public User GetID()
         {
+
             var selectedUserInfo = from user in db.Users
                                    where user.Email == User.Identity.Name
                                    select user;
@@ -116,63 +113,26 @@ namespace Cook_Share.Controllers
         public IActionResult Account()
         {
             User info = GetInfo();
-            //ViewBag.Info = info;
-            //return View();
             return View(info);
         }
-
-        //[HttpPost]
-        //public IActionResult Account(AccountModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        string path_Root = _appEnvironment.WebRootPath;
-        //        User user = GetInfo();
-
-
-        //        if (user != null)
-        //        {
-        //            // добавляем пользователя в бд
-        //            string path_to_Images = path_Root + "\\img\\" + model.Photo.FileName;
-
-        //            using (var stream = new FileStream(path_to_Images, FileMode.Create))
-        //            {
-        //                model.Photo.CopyToAsync(stream);
-        //            }
-        //            user.Photo = model.Photo.FileName;
-        //            db.SaveChangesAsync();
-
-        //        }
-        //        else
-        //            ModelState.AddModelError("", "Error photo");
-        //    }
-        //    return View();
-        //    //return View(GetInfo());
-        //}
-
         [HttpGet]
         [Authorize]
         public IActionResult ChangeInfo()
         {
             return View(GetInfo());
-        }
-        
-        
+        }     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangeInfo(AccountModel model)
         {
+            
             if (ModelState.IsValid)
             {
                 string path_Root = _appEnvironment.WebRootPath;
                 User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
-
-
                 if (user != null)
                 {
-                    // добавляем пользователя в бд
-                  
-                   
+                    // добавляем пользователя в бд                                    
                     if ((model.Photo != null)&&(model.Photo.ContentType=="image/jpeg"|| model.Photo.ContentType == "image/png" || model.Photo.ContentType == "image/tiff" || model.Photo.ContentType == "image/gif" || model.Photo.ContentType == "image/bmp"))
                     {
                         string path_to_Images = path_Root + "\\img\\" + model.Photo.FileName;
@@ -202,30 +162,45 @@ namespace Cook_Share.Controllers
         [HttpGet]
         public IActionResult AddDish(User user)
         {
-            ViewBag.User = user;
-            return View();
+            IEnumerable<string> cat= db.Categories.Select(c=>c.Name).ToList();
+            AddPublicationModel model = new AddPublicationModel();
+            model.Categories = cat;
+            return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddDish(Publication model)
+        public async Task<IActionResult> AddDish(AddPublicationModel model)
         {
-                User CurUser = await db.Users.FirstOrDefaultAsync(u => u.Id == model.UserId);
-
+            string path_Root = _appEnvironment.WebRootPath;
+            var photos = Request.Form.Files;
+            Category Cat = await db.Categories.FirstOrDefaultAsync(c => c.Name == model.Category);
+            User CurUser = GetInfo(); 
+            List<PublicationPhoto> PubPhoto = new List<PublicationPhoto>();
+            
+            
+            foreach (var item in photos)
+            {
+                
+                PublicationPhoto pb = new PublicationPhoto();
+                pb.Name = item.FileName;
+                PubPhoto.Add(pb);
+                string path_to_Images = path_Root + "\\dish_img\\" + item.FileName;
+                using (var stream = new FileStream(path_to_Images, FileMode.Create))
+                {
+                    await item.CopyToAsync(stream);
+                }
+                
+            }
                     db.Publications.Add(new Publication
                     {
                         Time = DateTime.Now.Date, UserId = model.UserId, Likes = model.Likes,
                         User = CurUser, Comments = new List<Comment>(), Favourites = new List<Favourites>(),
-                        DishName = model.DishName, Category = model.Category, CalorificVal = model.CalorificVal,
-                        Cuisine = model.Cuisine,CategoryId = model.CategoryId, Discription = model.Discription,
-                        Recipe = model.Recipe, Photos = new List<PublicationPhoto>()
+                        DishName = model.DishName,CalorificVal = model.CalorificVal,
+                        Cuisine = model.Cuisine,CategoryId = Cat.Id, Category=Cat, Discription = model.Discription,
+                        Recipe = model.Recipe, Photos = PubPhoto
                     });
                     await db.SaveChangesAsync();
-
                     return RedirectToAction("Account", "Account");
-
         }
-
-
-
     }
 }

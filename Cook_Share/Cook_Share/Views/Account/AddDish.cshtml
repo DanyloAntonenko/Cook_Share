@@ -1,20 +1,19 @@
-﻿@model Cook_Share.Models.Publication
-
+﻿@*@model Cook_Share.Models.Publication*@
+@model AddPublicationModel
 @{
     ViewData["Title"] = "AddDish";
+    
 }
-
 <h2>AddDish</h2>
 
 <h4>Publication</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AddDish">
+        <form asp-action="AddDish" method="post" enctype="multipart/form-data">
 
-            <input type="hidden" asp-for="UserId" class="form-control" value="@ViewBag.User.Id" asp-items="ViewBag.UserId" />
 
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>     
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="DishName" class="control-label"></label>
                 <input asp-for="DishName" class="form-control" />
@@ -41,17 +40,43 @@
                 <span asp-validation-for="Cuisine" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class="form-control" @*asp-items=""*@></select>
+                <label asp-for="Category" class="control-label"></label>
+                <select asp-for="Category" class="form-control" asp-items="@new SelectList(Model.Categories)"></select>
+            </div>
+            <div class="form-group" >
+                
+                <input type="button" id="AddPhoto" value="AddPhoto" class="btn btn-default" />
+            </div>
+            <div id="TextBoxContainer" class="form-group mt-5">
+
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
+            
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+@section scripts{ 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var i = 1;
+            $("#AddPhoto").click(function () {
+                var div = $("<div />").attr("class", "pt-5 pb-5"); /*<input type="file" id="files" asp-for="Photo" />*/
+                var value = "";
+                var photoinp = $("<input />").attr("type", "file").attr("value", "AddPhoto").attr("name", "Photos");
+                div.append(photoinp)
+                var button = $("<input />").attr("type", "button").attr("value", "Remove").attr("class","btn btn-default pt-5 pb-5");
+                button.attr("onclick", "Remove(this)");
+                div.append(button);
+                $("#TextBoxContainer").append(div);
+            });
+        });
+        function Remove(button) {
+            $(button).parent().remove();
+        }
+    </script>
+}
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Account";
     string str = Model?.Photo ?? "default-user.png";
 }
@@ -47,9 +46,6 @@
                         @*<img src="../img/plus.png" alt="" class="photo__add" />
                         <button class="button__add-dish" hidden>Добавить</button>*@
                         <a href='@Url.Action("AddDish","Account", Model, null)'>Добавить Блюдо</a>
-                        <button onclick="location.href='/Account/AddDish';">
-                            Добавить Блюдо
-                        </button>
                     </div>
                     <a href='@Url.Action("AddDish","Account", Model, null)'>
                     <div class="content__mydish">
