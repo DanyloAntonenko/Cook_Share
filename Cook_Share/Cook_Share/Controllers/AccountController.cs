@@ -120,7 +120,7 @@ namespace Cook_Share.Controllers
         public IEnumerable<Publication> GetPublications(int id)
         {
             IEnumerable<Publication> publications = db.Publications.Where(c => c.UserId == id);
-            return publications;
+            return publications.Reverse();
         }
 
         [HttpGet]
