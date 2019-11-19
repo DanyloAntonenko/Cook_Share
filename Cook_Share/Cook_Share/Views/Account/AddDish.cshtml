@@ -30,7 +30,7 @@
 
             <label asp-for="Recipe" class="control-label name__input">Рецепт: </label>
             <div>
-                <input asp-for="Recipe" class="form-control  input__item" />
+                <textarea asp-for="Recipe" class="form-control  input__item"></textarea>
                 <span asp-validation-for="Recipe" class="text-danger"></span>
             </div>
 
@@ -65,7 +65,7 @@
             
         </form>
     
-        <a asp-action="Index" class="back__list">Back to List</a>
+        <a href="/Account/Account" class="back__list">Back to List</a>
    
     </div>
 </div>
@@ -89,6 +89,4 @@
         }
     </script>
 }
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
+    

@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Account";
-    string str = Model.User.Photo ?? "default-user.png";
+    string defUser = Model.User.Photo ?? "default-user.png";
+    //string defDish = Model.Photos ?? "default-dish.jpg";
 }
 
 
@@ -12,9 +13,9 @@
     <header class="header"></header>
     <main>
         <div class="title__profile">
-            <img src="../img/@str" alt="MyPhoto" class="profile__photo " id="addPhotoArea"/>
+            <img src="../img/@defUser" alt="MyPhoto" class="profile__photo " id="addPhotoArea"/>
 
-            <button class="profile__add " id="addPhotoBtn" hidden>Добавить фото</button>
+            @*<button class="profile__add " id="addPhotoBtn" hidden>Добавить фото</button>*@
             <span class="title__name">@Model.User.Name</span>
             <span class="title__name">&ensp;</span>
             <span class="title__name">@Model.User.Surname</span>
@@ -37,10 +38,6 @@
                 <button onclick="location.href='/Account/ChangeInfo';" class="nav__button">
                     Редактирование
                 </button>
-
-                <button asp-controller="Account" asp-action="Logout"  class="nav__button">
-                    Выход
-                </button>
             </div>
         </div>
         <div class="row"></div>
@@ -60,13 +57,17 @@
 
                         foreach (var publication in Model.Publications)
                         {
-
+                            string dish = "default-dish.jpg";
                             var photo = Model.Photos.FirstOrDefault(p => p.PublicationId == publication.Id);
+                            if(photo != null)
+                            {
+                                dish = photo.Name;
+                            }
                             <a href='@Url.Action("Dish","Account", publication)'  class="link__dish">
                                             
                                 <div class="content__mydish">
-
-                                   <img src="../dish_img/@photo.Name" alt="" class="photo__dish" />
+                                    
+                                   <img src="../dish_img/@dish" alt="" class="photo__dish" />
                                    <div class="wrap__photo">
                                        <h1 class="title-name__photo">@publication.DishName</h1>
                                    </div>

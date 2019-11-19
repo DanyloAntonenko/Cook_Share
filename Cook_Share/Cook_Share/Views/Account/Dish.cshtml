@@ -37,19 +37,13 @@
                     @Model.Publication.Discription
                 </div>
                 <div class="recipe__dish">
-                    <span class="dish__span">Рецепт: </span> <ol>
-                    @Model.Publication.Recipe
-                        
-                    </ol>
+                    <span class="dish__span">Рецепт: </span> 
+                    <textarea>@Model.Publication.Recipe</textarea>
                 </div>
                 <div class="date__creator"> <span class="dish__span">Дата добавления: </span>@Model.Publication.Time</div>
             </div>
-            <div class="row"></div>
-            
+            <div class="row"></div>            
         </div>
-
-
-
     </div>
 </div>
 <script src="~/js/owl.carousel.min.js"></script>
