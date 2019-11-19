@@ -190,7 +190,7 @@ WriteAttributeValue("", 2626, dish, 2626, 5, false);
             WriteLiteral("                </div>\r\n\r\n\r\n                <div class=\"content__myfavorite dispnone\"  id=\"cnt__myfavorite\">\r\n                   \r\n                    ");
             EndContext();
             BeginContext(3188, 454, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccc93568c8fc4be78faf9b0802dd6121", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "37b4993e3ed441499809be98d046ee78", async() => {
                 BeginContext(3265, 373, true);
                 WriteLiteral(@"
                         <div class=""content__mydish"">
