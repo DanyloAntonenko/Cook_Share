@@ -394,6 +394,17 @@ body {
 
 */
 /* REGISRATION AND AUT */
+
+.owl-stage {
+    display: flex !important;
+}
+
+.owl-carousel {
+    overflow: hidden !important;
+}
+
+
+
 .authorized {
     display: block;
     text-align: center;
@@ -947,7 +958,7 @@ span.field-validation-error {
     font-size: 13px;
     line-height:14px;
     min-height:150px;
+    max-height:150px;
     max-width:80%;
     min-width:80%;
 }
-
