@@ -202,33 +202,44 @@ namespace Cook_Share.Controllers
             Category Cat = await db.Categories.FirstOrDefaultAsync(c => c.Name == model.Category);
             User CurUser = GetInfo(); 
             List<PublicationPhoto> PubPhoto = new List<PublicationPhoto>();
-            
-            
-            foreach (var item in photos)
+            if (ModelState.IsValid)
             {
-                
-                PublicationPhoto pb = new PublicationPhoto();
-                pb.Name = item.FileName;
-                PubPhoto.Add(pb);
-                string path_to_Images = path_Root + "\\dish_img\\" + item.FileName;
-                using (var stream = new FileStream(path_to_Images, FileMode.Create))
+                foreach (var item in photos)
                 {
-                    await item.CopyToAsync(stream);
-                }
-                
-            }
 
-
-                    db.Publications.Add(new Publication
+                    PublicationPhoto pb = new PublicationPhoto();
+                    pb.Name = item.FileName;
+                    PubPhoto.Add(pb);
+                    string path_to_Images = path_Root + "\\dish_img\\" + item.FileName;
+                    using (var stream = new FileStream(path_to_Images, FileMode.Create))
                     {
-                        Time = DateTime.Now, UserId = model.UserId, Likes = model.Likes,
-                        User = CurUser, Comments = new List<Comment>(), Favourites = new List<Favourites>(),
-                        DishName = model.DishName,CalorificVal = model.CalorificVal,
-                        Cuisine = model.Cuisine,CategoryId = Cat.Id, Category=Cat, Discription = model.Discription,
-                        Recipe = model.Recipe, Photos = PubPhoto
-                    });
-                    await db.SaveChangesAsync();
-                    return RedirectToAction("Account", "Account");
+                        await item.CopyToAsync(stream);
+                    }
+                }
+
+
+                db.Publications.Add(new Publication
+                {
+                    Time = DateTime.Now,
+                    UserId = model.UserId,
+                    Likes = model.Likes,
+                    User = CurUser,
+                    Comments = new List<Comment>(),
+                    Favourites = new List<Favourites>(),
+                    DishName = model.DishName,
+                    CalorificVal = model.CalorificVal,
+                    Cuisine = model.Cuisine,
+                    CategoryId = Cat.Id,
+                    Category = Cat,
+                    Discription = model.Discription,
+                    Recipe = model.Recipe,
+                    Photos = PubPhoto
+                });
+                await db.SaveChangesAsync();
+            }
+            else
+                ModelState.AddModelError("Dish", "Поля Имя и Описания должны быть заполнены");
+            return RedirectToAction("Account", "Account");
         }
 
 
