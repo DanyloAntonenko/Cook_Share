@@ -78,12 +78,12 @@
         $(document).ready(function () {
             var i = 1;
             $("#AddPhoto").click(function () {
-                var div = $("<div />").attr("class", "pt-5 pb-5"); /*<input type="file" id="files" asp-for="Photo" />*/
+                var div = $("<div />").attr("class", "pt-5 pb-5 photo__item"); /*<input type="file" id="files" asp-for="Photo" />*/
                 var value = "";
                 var photoinp = $("<input />").attr("type", "file").attr("value", "AddPhoto").attr("name", "Photos").attr("id", "Photos").attr("class","btn__addPhoto");
                 div.append(photoinp)
-                var photolab = $("<label />").attr("for", "Photos");
-                div.append(photolab)
+                //var photolab = $("<label />").attr("for", "Photos");
+                //div.append(photolab)
                 var button = $("<input />").attr("type", "button").attr("value", "Remove").attr("class", "btn btn-default pt-5 pb-5 btn__remPhoto");
                 button.attr("onclick", "Remove(this)");
                 div.append(button);
