@@ -615,6 +615,10 @@ span.field-validation-error {
     width: 100%;
 }
 
+.dish-photo {
+    object-fit: cover;
+}
+
 
 .dish-left {
     width: 60%;
