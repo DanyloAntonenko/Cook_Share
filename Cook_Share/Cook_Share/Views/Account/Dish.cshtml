@@ -25,8 +25,8 @@
             <div class="title__dish__creator">
                 <div class="name__dish">@Model.Publication.DishName</div>
                 <div class="subtitle__dish">
-                    <div class="name__creator">@Model.User.Name</div>
-                    <div class="name__creator">@Model.User.Surname</div>
+                    <div class="name__creator">@Model.User.Name @Model.User.Surname</div>
+                   
                     <div class="cuisine__dish">
                         @Model.Publication.Cuisine
                     </div>
@@ -37,8 +37,12 @@
                     @Model.Publication.Discription
                 </div>
                 <div class="recipe__dish">
-                    <span class="dish__span">Рецепт: </span> 
-                    <textarea>@Model.Publication.Recipe</textarea>
+                    <span class="dish__span">Рецепт: </span>
+                    <textarea class="txtArea__recipe input__item" disabled>
+                    
+                          @Model.Publication.Recipe
+
+</textarea>
                 </div>
                 <div class="date__creator"> <span class="dish__span">Дата добавления: </span>@Model.Publication.Time</div>
             </div>
