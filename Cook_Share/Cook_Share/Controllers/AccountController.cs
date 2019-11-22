@@ -257,13 +257,30 @@ namespace Cook_Share.Controllers
             return View(publicationModel);
         }
 
+
+        [HttpPost]
+        public IActionResult Dish(string discription, string recipe, int id)
+        {
+            Publication publication = db.Publications.FirstOrDefault(c => c.Id == id);
+            if(publication.UserId == db.Users.FirstOrDefault(u => u.Email == User.Identity.Name).Id)
+            {
+                publication.Discription = discription;
+                publication.Recipe = recipe;
+                db.SaveChanges();
+                return Dish(publication);
+                //return RedirectToAction("Account", "Account");
+            }
+            //return Dish(publication);
+            return View();
+        }
+
         [HttpGet]
         public IActionResult ViewAllDish()
         {
             IEnumerable<Publication> publications = db.Publications
-                .Include(p=>p.Photos)
-                .Include(p=>p.User)
-                .Include(p=>p.Category)
+                .Include(p => p.Photos)
+                .Include(p => p.User)
+                .Include(p => p.Category)
                 .ToList();
             return View(db.Publications);
         }

@@ -16,16 +16,27 @@
 
             <div class="dish-item">
                 <div class="dish-left">
-                    <div class="owl-carousel">
-                        @{
-                            foreach (var photo in publication.Photos)
-                            {
-                                <div class="photo__slider">
-                                    <img src="~/dish_img/@photo.Name" alt="" class="dish-photo">
-                                </div>
+                        <div class="owl-carousel">
+                            @{
+                                if (publication.Photos.Count != 0)
+                                {
+                                    foreach (var photo in publication.Photos)
+                                    {
+
+                                        <div class="photo__slider">
+                                            <img src="~/dish_img/@photo.Name" alt="" class="dish-photo">
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    string dish = "default-dish.jpg";
+                                    <div class="photo__slider">
+                                        <img src="~/dish_img/@dish" alt="" class="dish-photo">
+                                    </div>
+                                }
                             }
-                        }
-                    </div>
+                        </div>
                 </div>
 
                 <div class="dish-right">
