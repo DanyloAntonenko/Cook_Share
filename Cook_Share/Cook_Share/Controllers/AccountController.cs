@@ -256,5 +256,18 @@ namespace Cook_Share.Controllers
             publicationModel.Category = cat;
             return View(publicationModel);
         }
+
+        [HttpGet]
+        public IActionResult ViewAllDish()
+        {
+            IEnumerable<Publication> publications = db.Publications
+                .Include(p=>p.Photos)
+                .Include(p=>p.User)
+                .Include(p=>p.Category)
+                .ToList();
+            return View(db.Publications);
+        }
+
+
     }
 }
