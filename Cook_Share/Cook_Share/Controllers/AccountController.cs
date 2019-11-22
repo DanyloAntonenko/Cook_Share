@@ -259,13 +259,14 @@ namespace Cook_Share.Controllers
 
 
         [HttpPost]
-        public IActionResult Dish(string discription, string recipe, int id)
+        public IActionResult Dish(string discription, string recipe, int id, string cuisine)
         {
             Publication publication = db.Publications.FirstOrDefault(c => c.Id == id);
             if(publication.UserId == db.Users.FirstOrDefault(u => u.Email == User.Identity.Name).Id)
             {
                 publication.Discription = discription;
                 publication.Recipe = recipe;
+                publication.Cuisine = cuisine;
                 db.SaveChanges();
                 return Dish(publication);
                 //return RedirectToAction("Account", "Account");

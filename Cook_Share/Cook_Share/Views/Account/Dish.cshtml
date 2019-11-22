@@ -42,8 +42,8 @@
                         <div class="name__dish">@Model.Publication.DishName</div>
                         <div class="subtitle__dish">
                             <div class="name__creator">@Model.User.Name @Model.User.Surname</div>
-                            <div class="cuisine__dish">
-                                @Model.Publication.Cuisine
+                            <div class="cuisine__dish"><input type="text" name="cuisine" class="change__input" id="cuisineInput" disabled asp-for="Publication.Cuisine">
+                                @*@Model.Publication.Cuisine*@
                             </div>
                         </div>
                         <div class="category__dish"><span class="dish__span">Категория: </span>@Model.Category.Name</div>
@@ -80,6 +80,7 @@
                 $("#ChangeBtn").click(function () {
                     $('#discrInput').prop('disabled', false);
                     $('#recInput').prop('disabled', false);
+                    $('#cuisineInput').prop('disabled', false);
                     $('#SaveBtn').prop('hidden', false);
                 });
             });
