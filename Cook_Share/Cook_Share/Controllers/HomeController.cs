@@ -22,7 +22,8 @@ namespace Cook_Share.Controllers
 
         public IActionResult Index()
         {
-            return RedirectToAction("Account", "Account");
+             return RedirectToAction("Account", "Account");
+           // return View();
         }
       
 

@@ -23,7 +23,7 @@ using Cook_Share.ViewModels;
 
 #line default
 #line hidden
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"82bd37ed78751084229285f6670f20995963f294", @"/Views/Shared/_Layout.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ce50383c60e273bc82a5e64fa6ac47fd468c24c9", @"/Views/Shared/_Layout.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"56a947732fe9c17793ed08c30568b9f3ac6c7817", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__Layout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
@@ -53,7 +53,10 @@ using Cook_Share.ViewModels;
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_23 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-fallback-test", "window.jQuery && window.jQuery.fn && window.jQuery.fn.modal", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_24 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("integrity", new global::Microsoft.AspNetCore.Html.HtmlString("sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_25 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", "~/js/site.min.js", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_26 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/js/owl.carousel.min.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_26 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/js/jquery-3.3.1.slim.min.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_27 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/js/popper.min.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_28 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/js/bootstrap.min.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_29 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/js/owl.carousel.min.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         #line hidden
         #pragma warning disable 0169
         private string __tagHelperStringValueBuffer;
@@ -264,8 +267,8 @@ using Cook_Share.ViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
-                BeginContext(816, 54, true);
-                WriteLiteral("\r\n</div>\r\n            <div class=\"top__right\">\r\n\r\n\r\n\r\n");
+                BeginContext(816, 66, true);
+                WriteLiteral("\r\n            </div>\r\n            <div class=\"top__right\">\r\n\r\n\r\n\r\n");
                 EndContext();
 #line 29 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Shared\_Layout.cshtml"
                  if (!User.Identity.IsAuthenticated)
@@ -273,7 +276,7 @@ using Cook_Share.ViewModels;
 
 #line default
 #line hidden
-                BeginContext(943, 20, true);
+                BeginContext(955, 20, true);
                 WriteLiteral("                    ");
                 EndContext();
                 BeginContext(963, 124, false);
@@ -300,7 +303,7 @@ using Cook_Share.ViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
-                BeginContext(1087, 22, true);
+                BeginContext(1099, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(1109, 134, false);
@@ -327,7 +330,7 @@ using Cook_Share.ViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
-                BeginContext(1243, 2, true);
+                BeginContext(1255, 2, true);
                 WriteLiteral("\r\n");
                 EndContext();
 #line 33 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Shared\_Layout.cshtml"
@@ -335,7 +338,7 @@ using Cook_Share.ViewModels;
 
 #line default
 #line hidden
-                BeginContext(1264, 16, true);
+                BeginContext(1276, 16, true);
                 WriteLiteral("                ");
                 EndContext();
 #line 34 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Shared\_Layout.cshtml"
@@ -344,7 +347,7 @@ using Cook_Share.ViewModels;
 
 #line default
 #line hidden
-                BeginContext(1336, 20, true);
+                BeginContext(1348, 20, true);
                 WriteLiteral("                    ");
                 EndContext();
                 BeginContext(1356, 129, false);
@@ -371,7 +374,7 @@ using Cook_Share.ViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
-                BeginContext(1485, 22, true);
+                BeginContext(1497, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(1507, 127, false);
@@ -398,7 +401,7 @@ using Cook_Share.ViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
-                BeginContext(1634, 2, true);
+                BeginContext(1646, 2, true);
                 WriteLiteral("\r\n");
                 EndContext();
 #line 38 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Shared\_Layout.cshtml"
@@ -406,7 +409,7 @@ using Cook_Share.ViewModels;
 
 #line default
 #line hidden
-                BeginContext(1655, 58, true);
+                BeginContext(1667, 58, true);
                 WriteLiteral("\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n\r\n    ");
                 EndContext();
                 BeginContext(1713, 40, false);
@@ -425,7 +428,7 @@ using Cook_Share.ViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
-                BeginContext(1753, 10, true);
+                BeginContext(1765, 10, true);
                 WriteLiteral("\r\n\r\n\r\n    ");
                 EndContext();
                 BeginContext(1764, 12, false);
@@ -435,7 +438,7 @@ Write(RenderBody());
 #line default
 #line hidden
                 EndContext();
-                BeginContext(1776, 14, true);
+                BeginContext(1788, 14, true);
                 WriteLiteral("\r\n\r\n\r\n\r\n\r\n    ");
                 EndContext();
                 BeginContext(1790, 258, false);
@@ -458,7 +461,7 @@ Write(RenderBody());
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     EndContext();
-                    BeginContext(1886, 10, true);
+                    BeginContext(1898, 10, true);
                     WriteLiteral("\r\n        ");
                     EndContext();
                     BeginContext(1896, 60, false);
@@ -476,7 +479,7 @@ Write(RenderBody());
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     EndContext();
-                    BeginContext(1956, 10, true);
+                    BeginContext(1968, 10, true);
                     WriteLiteral("\r\n        ");
                     EndContext();
                     BeginContext(1966, 62, false);
@@ -503,7 +506,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     EndContext();
-                    BeginContext(2028, 6, true);
+                    BeginContext(2040, 6, true);
                     WriteLiteral("\r\n    ");
                     EndContext();
                 }
@@ -520,7 +523,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
-                BeginContext(2048, 6, true);
+                BeginContext(2060, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(2054, 924, false);
@@ -553,7 +556,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     EndContext();
-                    BeginContext(2452, 10, true);
+                    BeginContext(2464, 10, true);
                     WriteLiteral("\r\n        ");
                     EndContext();
                     BeginContext(2462, 420, false);
@@ -581,7 +584,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     EndContext();
-                    BeginContext(2882, 10, true);
+                    BeginContext(2894, 10, true);
                     WriteLiteral("\r\n        ");
                     EndContext();
                     BeginContext(2892, 66, false);
@@ -608,7 +611,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     EndContext();
-                    BeginContext(2958, 6, true);
+                    BeginContext(2970, 6, true);
                     WriteLiteral("\r\n    ");
                     EndContext();
                 }
@@ -625,7 +628,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
-                BeginContext(2978, 8, true);
+                BeginContext(2990, 8, true);
                 WriteLiteral("\r\n\r\n    ");
                 EndContext();
                 BeginContext(2987, 41, false);
@@ -635,8 +638,13 @@ Write(RenderSection("Scripts", required: false));
 #line default
 #line hidden
                 EndContext();
-                BeginContext(3028, 10, true);
-                WriteLiteral("\r\n\r\n\r\n    ");
+                BeginContext(3040, 613, true);
+                WriteLiteral(@"
+
+    <script src=""https://code.jquery.com/jquery-3.3.1.slim.min.js"" integrity=""sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"" crossorigin=""anonymous""></script>
+    <script src=""https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"" integrity=""sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"" crossorigin=""anonymous""></script>
+    <script src=""https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"" integrity=""sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"" crossorigin=""anonymous""></script>
+    ");
                 EndContext();
                 BeginContext(3038, 48, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e3afea5cd9af4d36a0e0b89438c76630", async() => {
@@ -653,7 +661,61 @@ Write(RenderSection("Scripts", required: false));
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
-                BeginContext(3086, 6, true);
+                BeginContext(3706, 6, true);
+                WriteLiteral("\r\n    ");
+                EndContext();
+                BeginContext(3712, 42, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "de99c302360043a5b5cbe0437a061317", async() => {
+                }
+                );
+                __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_27);
+                await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+                if (!__tagHelperExecutionContext.Output.IsContentModified)
+                {
+                    await __tagHelperExecutionContext.SetOutputContentAsync();
+                }
+                Write(__tagHelperExecutionContext.Output);
+                __tagHelperExecutionContext = __tagHelperScopeManager.End();
+                EndContext();
+                BeginContext(3754, 6, true);
+                WriteLiteral("\r\n    ");
+                EndContext();
+                BeginContext(3760, 45, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "08bbe30a6fec4edbb55ec8630c34197c", async() => {
+                }
+                );
+                __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_28);
+                await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+                if (!__tagHelperExecutionContext.Output.IsContentModified)
+                {
+                    await __tagHelperExecutionContext.SetOutputContentAsync();
+                }
+                Write(__tagHelperExecutionContext.Output);
+                __tagHelperExecutionContext = __tagHelperScopeManager.End();
+                EndContext();
+                BeginContext(3805, 6, true);
+                WriteLiteral("\r\n    ");
+                EndContext();
+                BeginContext(3811, 48, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e89960245c474d1a895099e9f9264d3d", async() => {
+                }
+                );
+                __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_29);
+                await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+                if (!__tagHelperExecutionContext.Output.IsContentModified)
+                {
+                    await __tagHelperExecutionContext.SetOutputContentAsync();
+                }
+                Write(__tagHelperExecutionContext.Output);
+                __tagHelperExecutionContext = __tagHelperScopeManager.End();
+                EndContext();
+                BeginContext(3859, 6, true);
                 WriteLiteral("\r\n\r\n\r\n");
                 EndContext();
             }
@@ -668,7 +730,7 @@ Write(RenderSection("Scripts", required: false));
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             EndContext();
-            BeginContext(3099, 11, true);
+            BeginContext(3872, 11, true);
             WriteLiteral("\r\n</html>\r\n");
             EndContext();
         }

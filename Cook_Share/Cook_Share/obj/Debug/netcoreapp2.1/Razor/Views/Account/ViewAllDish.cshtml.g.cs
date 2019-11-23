@@ -121,20 +121,60 @@ AddHtmlAttributeValue("", 746, photo.Name, 746, 11, false);
             BeginContext(785, 50, true);
             WriteLiteral("\r\n                                        </div>\r\n");
             EndContext();
-#line 29 "D:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\ViewAllDish.cshtml"
-                                    }
-                                }
-                                else
+#line 20 "E:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\ViewAllDish.cshtml"
+                          
+                            if (publication.Photos.Count != 0)
+                            {
+                                foreach (var photo in publication.Photos)
                                 {
-                                    string dish = "default-dish.jpg";
+
 
 #line default
 #line hidden
-            BeginContext(1053, 105, true);
+            BeginContext(588, 105, true);
             WriteLiteral("                                    <div class=\"photo__slider\">\r\n                                        ");
             EndContext();
-            BeginContext(1158, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e441cac9518b4dab9306e2f0343db984", async() => {
+            BeginContext(693, 60, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "9b6ab378163b4018b75cec87ae96598f", async() => {
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper);
+            BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "src", 2, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            AddHtmlAttributeValue("", 703, "~/dish_img/", 703, 11, true);
+#line 27 "E:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\ViewAllDish.cshtml"
+AddHtmlAttributeValue("", 714, photo.Name, 714, 11, false);
+
+#line default
+#line hidden
+            EndAddHtmlAttributeValues(__tagHelperExecutionContext);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_1);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(753, 46, true);
+            WriteLiteral("\r\n                                    </div>\r\n");
+            EndContext();
+#line 29 "E:\Github\Cook_Share\Cook_Share\Cook_Share\Views\Account\ViewAllDish.cshtml"
+                                }
+                            }
+                            else
+                            {
+                                string dish = "default-dish.jpg";
+
+#line default
+#line hidden
+            BeginContext(997, 97, true);
+            WriteLiteral("                                <div class=\"photo__slider\">\r\n                                    ");
+            EndContext();
+            BeginContext(1094, 54, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "41bac461403a4ddcaa70da68a92b67a9", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

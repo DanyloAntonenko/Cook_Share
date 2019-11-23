@@ -1,10 +1,20 @@
 ﻿@model PublicationModel
+
+@{
+    //ViewData["Title"] = "Dish";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <link rel="stylesheet" href="~/css/style.css" />
     <title>Document</title>
 </head>
@@ -30,8 +40,29 @@
                                 </div>
                             }
                         }
-
                     }
+                </div>
+            </div>
+
+            <div class="dish-right">
+                <div class="title__dish__creator">
+                    <div class="name__dish">@Model.Publication.DishName</div>
+                    <div class="subtitle__dish">
+                        <div class="name__creator">@Model.User.Name @Model.User.Surname</div>
+                        <div class="cuisine__dish">
+                            @Model.Publication.Cuisine
+                        </div>
+                    </div>
+                    <div class="category__dish"><span class="dish__span">Категория: </span>@Model.Category.Name</div>
+                    <div class="description__dish">
+                        <span class="dish__span">Описание: </span>
+                        @Model.Publication.Discription
+                    </div>
+                    <div class="recipe__dish">
+                        <span class="dish__span">Рецепт: </span>
+                        <textarea class="txtArea__recipe input__item" disabled>@Model.Publication.Recipe</textarea>
+                    </div>
+                    <div class="date__creator"> <span class="dish__span">Дата добавления: </span>@Model.Publication.Time</div>
                 </div>
             </div>
 
@@ -67,6 +98,41 @@
 
         </div>
     </div>
+                <div class="row">
+                    <button id="DeleteModal">Удалить фото</button>
+                </div>
+                @*_____________________________MODAL_____________________________*@
+                <div class="modal fade" id="login">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Удаление публикации</h4>
+                                <button type="button" class="close" data-dismiss="modal">
+                                    ×
+                                </button>
+                                
+                            </div>
+                            <div class="modal-body">
+                                <h5>Удалить публикацию @Model.Publication.DishName?</h5>
+                                <form method="post" asp-controller="Account" asp-action="DeleteDish">
+                                    <div class="form-group">
+                                        <input hidden class="form-control" type="number" name="Id" id="inputUserName" asp-for="Publication.Id" />
+                                    </div>
+                                    
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary button button4">Удалить</button>
+                                <button type="button" id="HidebtnModal" class="btn btn-primary"> Отмена </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="~/js/jquery.min.js"></script>
     <link rel="stylesheet"
           href="~/css/jquery.fancybox.min.css" />
@@ -84,7 +150,17 @@
                     $('#SaveBtn').prop('hidden', false);
                 });
             });
-            
+            $(document).ready(function () {
+            $("#DeleteModal").click(function () {
+                $("#login").modal('show');
+            });
+
+
+
+            $("#btnHideModal").click(function () {
+                $("#login").modal('hide');
+            });
+        });
         </script>
     }
 </body>

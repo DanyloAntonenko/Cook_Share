@@ -286,6 +286,14 @@ namespace Cook_Share.Controllers
             return View(db.Publications);
         }
 
+        public IActionResult DeleteDish(int id)
+        {
+            Publication pub = db.Publications.FirstOrDefault(p => p.Id == id);
+            db.Publications.Remove(pub);
+            db.SaveChanges();
+            return RedirectToAction("Account");
+        }
+
 
     }
 }
