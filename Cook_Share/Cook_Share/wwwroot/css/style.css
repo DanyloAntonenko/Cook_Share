@@ -599,6 +599,18 @@ span.field-validation-error {
 }
 
 
+.change__input__dish {
+    position: relative;
+    margin-left: 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    border-bottom: 1px solid #000;
+    background: #f5feff;
+    width:auto;
+   
+}
+
     .change__input:focus, .change__input:hover {
         border-bottom: 1px solid #7172C6;
     }
@@ -619,6 +631,21 @@ span.field-validation-error {
     min-width: 780px;
 }
 
+.dish-item-all {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction:column;
+    width: 100%;
+    border: 1px solid #dcdcdc;
+    display: flex;
+   margin-top:50px;
+    background: #F5FEFF;
+    min-width: 780px;
+    
+}
+
+
 
 
 .owl-carousel, .owl-stage-outer, .owl-stage, .owl-item,
@@ -633,8 +660,39 @@ span.field-validation-error {
 
 
 .dish-left {
+    position:relative;
     width: 60%;
     height: 100%;
+}
+
+.dish-item-all > .dish-left {
+    width: 100%;
+    min-height: 550px;
+    height: 550px;
+}
+
+.name__dish-all{
+    font-size:48px;
+    padding-left:10px;
+}
+
+.name__creator__all{
+    font-size:32px !important;
+}
+
+.cuisine__dish__all {
+    font-size: 32px !important;
+}
+
+.dish__span__all{
+    font-size:28px !important;
+    line-height:30px !important;
+}
+
+.title__all{
+    font-size:42px;
+    text-align:center;
+    margin-top:20px;
 }
 
 .slider__nav--left,
@@ -646,6 +704,12 @@ span.field-validation-error {
     position: relative;
     width: 40%;
 }
+
+.dish-item-all > .dish-right {
+    width: 100%;
+  
+}
+
 
 .name__dish {
     font-size: 32px;
@@ -744,7 +808,7 @@ span.field-validation-error {
 
 .subtitle__dish {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
     padding: 3px 15px 5px 15px;
 }
 
@@ -771,6 +835,7 @@ span.field-validation-error {
     }
 
 .recipe__dish {
+    display:flex;
     padding-left: 10px;
 }
 
@@ -960,6 +1025,29 @@ span.field-validation-error {
     line-height:14px;
     min-height:150px;
     max-height:150px;
-    max-width:80%;
-    min-width:80%;
+    max-width:70%;
+    min-width:70%;
 }
+
+.nav__button{
+    margin-left:20px;
+}
+
+.delete__photo {
+    border: none;
+    position: absolute;
+    top: 0;
+    width: 35%;
+    height: 10%;
+    background: rgba(62, 62, 62, 0.4);
+    color: rgba(176, 176, 176);
+    border-bottom-right-radius: 20px;
+    font-size: 24px;
+    font-family: "ProximaNova-Black", sans-serif;
+    transition: 0.3s;
+}
+
+    .delete__photo:hover {
+        background: rgba(62, 62, 62, 0.6);
+        color: rgba(239, 239, 239);
+    }
