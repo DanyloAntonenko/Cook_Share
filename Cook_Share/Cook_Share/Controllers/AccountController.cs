@@ -256,5 +256,36 @@ namespace Cook_Share.Controllers
             publicationModel.Category = cat;
             return View(publicationModel);
         }
+
+
+        [HttpPost]
+        public IActionResult Dish(string discription, string recipe, int id, string cuisine)
+        {
+            Publication publication = db.Publications.FirstOrDefault(c => c.Id == id);
+            if(publication.UserId == db.Users.FirstOrDefault(u => u.Email == User.Identity.Name).Id)
+            {
+                publication.Discription = discription;
+                publication.Recipe = recipe;
+                publication.Cuisine = cuisine;
+                db.SaveChanges();
+                return Dish(publication);
+                //return RedirectToAction("Account", "Account");
+            }
+            //return Dish(publication);
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult ViewAllDish()
+        {
+            IEnumerable<Publication> publications = db.Publications
+                .Include(p => p.Photos)
+                .Include(p => p.User)
+                .Include(p => p.Category)
+                .ToList();
+            return View(db.Publications);
+        }
+
+
     }
 }

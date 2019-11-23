@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Cook_Share.Models.Publication>
+
+@{
+    ViewData["Title"] = "ViewAllDish";
+}
+
+<h2>ViewAllDish</h2>
+
+
+<br /><br />
+<div class="container">
+    @{ foreach (var publication in Model)
+        {
+
+
+
+            <div class="dish-item">
+                <div class="dish-left">
+                        <div class="owl-carousel">
+                            @{
+                                if (publication.Photos.Count != 0)
+                                {
+                                    foreach (var photo in publication.Photos)
+                                    {
+
+                                        <div class="photo__slider">
+                                            <img src="~/dish_img/@photo.Name" alt="" class="dish-photo">
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    string dish = "default-dish.jpg";
+                                    <div class="photo__slider">
+                                        <img src="~/dish_img/@dish" alt="" class="dish-photo">
+                                    </div>
+                                }
+                            }
+                        </div>
+                </div>
+
+                <div class="dish-right">
+                    <div class="title__dish__creator">
+                        <div class="name__dish">@publication.DishName</div>
+                        <div class="subtitle__dish">
+                            <div class="name__creator">@publication.User.Name @publication.User.Surname</div>
+                            <div class="cuisine__dish">
+                                @publication.Cuisine
+                            </div>
+                        </div>
+                        <div class="category__dish"><span class="dish__span">Категория: </span>@publication.Category.Name</div>
+                        <div class="description__dish">
+                            <span class="dish__span">Описание: </span>
+                            @publication.Discription
+                        </div>
+                        <div class="recipe__dish">
+                            <span class="dish__span">Рецепт: </span>
+                            <textarea class="txtArea__recipe input__item" disabled>@publication.Recipe</textarea>
+                        </div>
+                        <div class="date__creator"> <span class="dish__span">Дата добавления: </span>@publication.Time</div>
+                    </div>
+                    <div class="row"></div>
+                </div>
+            </div>
+
+        }
+    }
+</div>
+<script src="~/js/jquery.min.js"></script>
+<link rel="stylesheet"
+      href="~/css/jquery.fancybox.min.css" />
+<script src="~/js/jquery.fancybox.min.js"></script>
+
+<script src="~/js/owl.carousel.min.js"></script>
+<script src="~/js/carousel.js"></script>
