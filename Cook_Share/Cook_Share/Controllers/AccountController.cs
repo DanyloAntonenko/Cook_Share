@@ -286,6 +286,7 @@ namespace Cook_Share.Controllers
             return View(db.Publications);
         }
 
+        [HttpPost]
         public IActionResult DeleteDish(int id)
         {
             Publication pub = db.Publications.FirstOrDefault(p => p.Id == id);

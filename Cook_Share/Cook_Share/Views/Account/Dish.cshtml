@@ -44,27 +44,7 @@
                 </div>
             </div>
 
-            <div class="dish-right">
-                <div class="title__dish__creator">
-                    <div class="name__dish">@Model.Publication.DishName</div>
-                    <div class="subtitle__dish">
-                        <div class="name__creator">@Model.User.Name @Model.User.Surname</div>
-                        <div class="cuisine__dish">
-                            @Model.Publication.Cuisine
-                        </div>
-                    </div>
-                    <div class="category__dish"><span class="dish__span">Категория: </span>@Model.Category.Name</div>
-                    <div class="description__dish">
-                        <span class="dish__span">Описание: </span>
-                        @Model.Publication.Discription
-                    </div>
-                    <div class="recipe__dish">
-                        <span class="dish__span">Рецепт: </span>
-                        <textarea class="txtArea__recipe input__item" disabled>@Model.Publication.Recipe</textarea>
-                    </div>
-                    <div class="date__creator"> <span class="dish__span">Дата добавления: </span>@Model.Publication.Time</div>
-                </div>
-            </div>
+          
 
             <div class="dish-right">
                 <form method="post" asp-action="Dish" asp-controller="Account" enctype="multipart/form-data">
@@ -74,13 +54,13 @@
                         <div class="subtitle__dish">
                             <div class="name__creator">@Model.User.Name @Model.User.Surname</div>
                             <div class="cuisine__dish"><input type="text" name="cuisine" class="change__input" id="cuisineInput" disabled asp-for="Publication.Cuisine">
-                                @*@Model.Publication.Cuisine*@
+                               
                             </div>
                         </div>
                         <div class="category__dish"><span class="dish__span">Категория: </span>@Model.Category.Name</div>
                         <div class="description__dish">
                             <span class="dish__span">Описание: </span>
-                            @*@Model.Publication.Discription*@
+                            
                             <input type="text" name="discription" class="change__input" id="discrInput" disabled asp-for="Publication.Discription">
                         </div>
                         <div class="recipe__dish">
@@ -118,13 +98,13 @@
                                     <div class="form-group">
                                         <input hidden class="form-control" type="number" name="Id" id="inputUserName" asp-for="Publication.Id" />
                                     </div>
-                                    
-                                
+                                    <button type="submit" class="btn btn-primary button button4">Удалить</button>
+                                    <button type="button" id="HidebtnModal" class="btn btn-primary"> Отмена </button>
+                                </form>
+
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary button button4">Удалить</button>
-                                <button type="button" id="HidebtnModal" class="btn btn-primary"> Отмена </button>
-                                </form>
+                                
                             </div>
                         </div>
                     </div>
