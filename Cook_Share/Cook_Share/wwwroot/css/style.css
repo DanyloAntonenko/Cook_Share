@@ -632,13 +632,59 @@ span.field-validation-error {
 
 
 .dish-left {
+    position:relative;
     width: 60%;
     height: 100%;
 }
 
-.slider__nav--left,
+
+
+.slider__nav--left {
+    bottom: 30%;
+    left: 50px;
+    position: absolute;
+    margin-right: 15px;
+    width: 50px !important;
+    height: 50px !important;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    z-index: 100;
+    font-size: 100px;
+    background: transparent url("/img/arrow-left.svg") no-repeat center;
+}
+
 .slider__nav--right {
-    display: none;
+    bottom: 30%;
+    right: 50px;
+    border-radius: 50%;
+    position: absolute;
+    width: 50px !important;
+    height: 50px !important;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 100;
+    background: #AAABB1;
+    background: transparent url("/img/arrow-right.svg") no-repeat center;
+    
+}
+
+    .slider__nav--left:hover, .slider__nav--right:hover {
+        box-shadow: 0 0 10px rgb(0,0,0);
+    }
+
+
+
+    .slider__nav--left span,
+    .slider__nav--right span {
+        display: none;
+        box-shadow: 0 0 10px rgb(56, 151, 240);
+    }
+
+.disabled{
+    display:none;
 }
 
 .dish-right {

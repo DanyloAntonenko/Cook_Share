@@ -147,20 +147,25 @@
           <div class="container">
               <div class="dish-item">
                   <div class="dish-left">
+
                       <div class="owl-carousel">
                           @{
                               foreach (var item in Model.Photos)
                               {
                                   <div class="photo__slider">
-                                        <img src="~/dish_img/@item.Name" alt="" class="dish-photo">
+                                      <img src="~/dish_img/@item.Name" alt="" class="dish-photo">
                                   </div>
                               }
                           }
+
+                                
                       </div>
+
                   </div>
 
                   <div class="dish-right">
                       <div class="title__dish__creator">
+
                           <div class="name__dish">@Model.Publication.DishName</div>
                           <div class="subtitle__dish">
                               <div class="name__creator">@Model.User.Name @Model.User.Surname</div>
