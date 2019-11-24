@@ -16,16 +16,21 @@ namespace Cook_Share.ViewModels
 
         public int Likes { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Не указано имя")]
+        [StringLength(20, MinimumLength = 2, ErrorMessage = "Размер имени от 2 до 20 символов")]
         public string DishName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Не указано описание")]
+        [StringLength(40, MinimumLength = 2, ErrorMessage = "Размер описания от 2 до 40 символов")]
         public string Discription { get; set; }
 
         public string Recipe { get; set; }
-
+        
+        
+        [Range(10,1500, ErrorMessage = "Размер калорийности от 10 до 1500 символов")]
         public int? CalorificVal { get; set; }
 
+        [StringLength(20, MinimumLength = 2, ErrorMessage = "Размер кухни от 2 до 20 символов")]
         public string Cuisine { get; set; }
 
         public string Category { get; set; }

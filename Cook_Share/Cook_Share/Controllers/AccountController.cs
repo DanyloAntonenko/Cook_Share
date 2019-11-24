@@ -146,8 +146,7 @@ namespace Cook_Share.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangeInfo(ChangeModel model)
-        {
-            
+        { 
             if (ModelState.IsValid)
             {
                 string path_Root = _appEnvironment.WebRootPath;
@@ -193,6 +192,7 @@ namespace Cook_Share.Controllers
             model.Categories = cat;
             return View(model);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddDish(AddPublicationModel model)
@@ -206,14 +206,16 @@ namespace Cook_Share.Controllers
             {
                 foreach (var item in photos)
                 {
-
-                    PublicationPhoto pb = new PublicationPhoto();
-                    pb.Name = item.FileName;
-                    PubPhoto.Add(pb);
-                    string path_to_Images = path_Root + "\\dish_img\\" + item.FileName;
-                    using (var stream = new FileStream(path_to_Images, FileMode.Create))
+                    if ((item != null) && (item.ContentType == "image/jpeg" || item.ContentType == "image/png" || item.ContentType == "image/tiff" || item.ContentType == "image/gif" || item.ContentType == "image/bmp"))
                     {
-                        await item.CopyToAsync(stream);
+                        PublicationPhoto pb = new PublicationPhoto();
+                        pb.Name = item.FileName;
+                        PubPhoto.Add(pb);
+                        string path_to_Images = path_Root + "\\dish_img\\" + item.FileName;
+                        using (var stream = new FileStream(path_to_Images, FileMode.Create))
+                        {
+                            await item.CopyToAsync(stream);
+                        }
                     }
                 }
 
@@ -236,10 +238,11 @@ namespace Cook_Share.Controllers
                     Photos = PubPhoto
                 });
                 await db.SaveChangesAsync();
+                return RedirectToAction("Account", "Account");
             }
-            else
-                ModelState.AddModelError("Dish", "Поля Имя и Описания должны быть заполнены");
-            return RedirectToAction("Account", "Account");
+            return AddDish();
+            //return View(model);
+            //return RedirectToAction("Account", "Account");
         }
 
 
@@ -262,7 +265,31 @@ namespace Cook_Share.Controllers
         public IActionResult Dish(string discription, string recipe, int id, string cuisine)
         {
             Publication publication = db.Publications.FirstOrDefault(c => c.Id == id);
-            if(publication.UserId == db.Users.FirstOrDefault(u => u.Email == User.Identity.Name).Id)
+            if (discription.Length < 2)
+            {
+                ModelState.AddModelError("Publication.Discription", "Описание меньше 2 символов");
+                return Dish(publication);
+            }
+            if(discription.Length > 40)
+            {
+                ModelState.AddModelError("Publication.Discription", "Описание больше 2 символов");
+                return Dish(publication);
+            }
+            if(cuisine != null)
+            {
+                if (cuisine.Length < 2)
+                {
+                    ModelState.AddModelError("Publication.Cuisine", "Описание меньше 2 символов");
+                    return Dish(publication);
+                }
+                if (cuisine.Length > 20)
+                {
+                    ModelState.AddModelError("Publication.Cuisine", "Описание больше 2 символов");
+                    return Dish(publication);
+                }
+            }
+            
+            if (publication.UserId == db.Users.FirstOrDefault(u => u.Email == User.Identity.Name).Id)
             {
                 publication.Discription = discription;
                 publication.Recipe = recipe;
