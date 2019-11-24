@@ -16,6 +16,7 @@ namespace Cook_Share.Models
 
         public int Likes { get; set; }
 
+
         public string DishName { get; set; }
 
         public string Discription { get; set; }
@@ -23,6 +24,7 @@ namespace Cook_Share.Models
         public string Recipe { get; set; }
 
         public int? CalorificVal { get; set; }
+
 
         public string Cuisine { get; set; }
 
