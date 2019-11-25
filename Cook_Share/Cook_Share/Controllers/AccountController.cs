@@ -310,7 +310,7 @@ namespace Cook_Share.Controllers
                 .Include(p => p.User)
                 .Include(p => p.Category)
                 .ToList();
-            return View(db.Publications);
+            return View(publications.Reverse());
         }
 
         [HttpPost]
