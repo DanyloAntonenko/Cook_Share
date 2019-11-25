@@ -54,19 +54,25 @@
                         <div class="name__dish">@Model.Publication.DishName</div>
                         <div class="subtitle__dish">
                             <div class="name__creator">@Model.User.Name @Model.User.Surname</div>
-                            <div class="cuisine__dish"><input type="text" name="cuisine" class="change__input__dish" id="cuisineInput" disabled asp-for="Publication.Cuisine">
-                                                       <span asp-validation-for="Publication.Cuisine"></span>
+                            <div class="cuisine__dish">
+                                <input type="text" name="cuisine" class="change__input__dish" id="cuisineInput" disabled asp-for="Publication.Cuisine">
+                                <span asp-validation-for="Publication.Cuisine"></span>
                             </div>
                         </div>
                         <div class="category__dish"><span class="dish__span">Категория: </span>@Model.Category.Name</div>
                         <div class="description__dish">
                             <span class="dish__span">Описание: </span>
-                            
+
                             <input type="text" name="discription" class="change__input__dish" id="discrInput" disabled asp-for="Publication.Discription"><span asp-validation-for="Publication.Discription"></span>
                         </div>
                         <div class="recipe__dish">
                             <span class="dish__span">Рецепт: </span>
-                            <textarea class="txtArea__recipe input__item" id="recInput" name="recipe" disabled asp-for="Publication.Recipe">@*@Model.Publication.Recipe*@</textarea>    
+                            <textarea class="txtArea__recipe input__item" id="recInput" name="recipe" disabled asp-for="Publication.Recipe">@*@Model.Publication.Recipe*@</textarea>
+                        </div>
+                        <div class="description__dish">
+                            <span class="dish__span">Количество калорий: </span>
+
+                            <input name="calVal" class="class="form-control  input__item" id="calVal" disabled asp-for="Publication.CalorificVal"><span asp-validation-for="Publication.CalorificVal"></span>
                         </div>
                         <div class="date__creator"> <span class="dish__span">Дата добавления: </span>@Model.Publication.Time</div>
 
@@ -111,9 +117,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+
 
     <script src="~/js/jquery.min.js"></script>
     <link rel="stylesheet"
@@ -129,6 +133,7 @@
                     $('#discrInput').prop('disabled', false);
                     $('#recInput').prop('disabled', false);
                     $('#cuisineInput').prop('disabled', false);
+                    $('#calVal').prop('disabled', false);
                     $('#SaveBtn').prop('hidden', false);
                 });
             });
