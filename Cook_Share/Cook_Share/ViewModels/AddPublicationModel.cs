@@ -27,7 +27,7 @@ namespace Cook_Share.ViewModels
         public string Recipe { get; set; }
         
         
-        [Range(10,1500, ErrorMessage = "Размер калорийности от 10 до 1500 символов")]
+        [Range(10,1500, ErrorMessage = "Размер калорийности от 10 до 1500")]
         public int? CalorificVal { get; set; }
 
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Размер кухни от 2 до 20 символов")]
