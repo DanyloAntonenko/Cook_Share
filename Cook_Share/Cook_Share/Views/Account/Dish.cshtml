@@ -126,11 +126,16 @@
     @section scripts{
         <script type="text/javascript">
             $(document).ready(function () {
+                var cuisine = document.getElementById("cuisineInput");
+                var discription = document.getElementById("discrInput");
                 $("#ChangeBtn").click(function () {
                     $('#discrInput').prop('disabled', false);
                     $('#recInput').prop('disabled', false);
                     $('#cuisineInput').prop('disabled', false);
                     $('#SaveBtn').prop('hidden', false);
+                  
+                    cuisine.style.cssText = "color:blue; border-bottom:1px solid black;"
+                    discription.style.cssText = "color:blue; border-bottom:1px solid black;"
                 });
             });
             $(document).ready(function () {
