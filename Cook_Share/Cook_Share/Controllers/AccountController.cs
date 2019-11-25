@@ -262,9 +262,14 @@ namespace Cook_Share.Controllers
 
 
         [HttpPost]
-        public IActionResult Dish(string discription, string recipe, int id, string cuisine)
+        public IActionResult Dish(string discription, string recipe, int id, string cuisine, int? calVal)
         {
             Publication publication = db.Publications.FirstOrDefault(c => c.Id == id);
+            if(discription == null)
+            {
+                ModelState.AddModelError("Publication.Discription", "Описание должно быть заполнено");
+                return Dish(publication);
+            }
             if (discription.Length < 2)
             {
                 ModelState.AddModelError("Publication.Discription", "Описание меньше 2 символов");
@@ -288,12 +293,26 @@ namespace Cook_Share.Controllers
                     return Dish(publication);
                 }
             }
-            
+            if (calVal != null)
+            {
+                if (calVal < 10)
+                {
+                    ModelState.AddModelError("Publication.CalorificVal", "Размер калорийности не меньше 10");
+                    return Dish(publication);
+                }
+                if (calVal > 1500)
+                {
+                    ModelState.AddModelError("Publication.CalorificVal", "Размер калорийности не больше 1500");
+                    return Dish(publication);
+                }
+            }
+
             if (publication.UserId == db.Users.FirstOrDefault(u => u.Email == User.Identity.Name).Id)
             {
                 publication.Discription = discription;
                 publication.Recipe = recipe;
                 publication.Cuisine = cuisine;
+                publication.CalorificVal = calVal;
                 db.SaveChanges();
                 return Dish(publication);
                 //return RedirectToAction("Account", "Account");
