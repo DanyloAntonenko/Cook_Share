@@ -70,8 +70,8 @@ body {
 }
 
 .top__button {
-    outline: none;
-    text-decoration: none;
+    outline: none !important;
+    text-decoration: none !important;
     color: black;
 }
 
@@ -798,6 +798,7 @@ span.field-validation-error {
 }
 
 .description__dish {
+    display:flex;
     font-size: 16px;
     padding-left: 10px;
 }
@@ -1021,6 +1022,7 @@ span.field-validation-error {
         }
 
 .txtArea__recipe{
+    border:none;
     font-size: 13px;
     line-height:14px;
     min-height:150px;
@@ -1051,3 +1053,13 @@ span.field-validation-error {
         background: rgba(62, 62, 62, 0.6);
         color: rgba(239, 239, 239);
     }
+
+.cal__dish{
+    display:flex;
+
+}
+
+.valid{
+    display:flex;
+    flex-direction:column;
+}
