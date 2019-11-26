@@ -258,7 +258,6 @@ namespace Cook_Share.Controllers
         public IActionResult Dish(string discription, string recipe, int id, string cuisine, int? calVal)
         {
             Publication publication = db.Publications.FirstOrDefault(c => c.Id == id);
-            bool _error = false;
             bool _errorDiscr = false;
             bool _errorRec = false;
             bool _errorCuis = false;
@@ -266,39 +265,29 @@ namespace Cook_Share.Controllers
             if(recipe == null)
             {
                 ModelState.AddModelError("Publication.Recipe", "Описание должно быть заполнено");
-                _error = true;
                 _errorRec = true;
-                //return Dish(publication);
             }
             if (discription.Length < 2)
             {
                 ModelState.AddModelError("Publication.Discription", "Описание меньше 2 символов");
-                _error = true;
                 _errorDiscr = true;
-                //return Dish(publication);
             }
             if(discription.Length > 40)
             {
                 ModelState.AddModelError("Publication.Discription", "Описание больше 2 символов");
-                _error = true;
                 _errorDiscr = true;
-                //return Dish(publication);
             }
             if(cuisine != null)
             {
                 if (cuisine.Length < 2)
                 {
                     ModelState.AddModelError("Publication.Cuisine", "Описание меньше 2 символов");
-                    _error = true;
                     _errorCuis = true;
-                    //return Dish(publication);
                 }
                 if (cuisine.Length > 20)
                 {
                     ModelState.AddModelError("Publication.Cuisine", "Описание больше 2 символов");
-                    _error = true;
                     _errorCuis = true;
-                    //return Dish(publication);
                 }
             }
             if (calVal != null)
@@ -306,16 +295,12 @@ namespace Cook_Share.Controllers
                 if (calVal < 10)
                 {
                     ModelState.AddModelError("Publication.CalorificVal", "Размер калорийности не меньше 10");
-                    _error = true;
                     _errorCal = true;
-                    //return Dish(publication);
                 }
                 if (calVal > 1500)
                 {
                     ModelState.AddModelError("Publication.CalorificVal", "Размер калорийности не больше 1500");
-                    _error = true;
                     _errorCal = true;
-                    //return Dish(publication);
                 }
             }
                 if (!_errorCal)
@@ -334,14 +319,11 @@ namespace Cook_Share.Controllers
                 {
                     publication.Recipe = recipe;
                 }
-                //return Dish(publication);
             if (publication.UserId == db.Users.FirstOrDefault(u => u.Email == User.Identity.Name).Id)
             {
                 db.SaveChanges();
                 return Dish(publication);
-                //return RedirectToAction("Account", "Account");
             }
-            //return Dish(publication);
             return RedirectToAction("Account", "Account");
         }
 
