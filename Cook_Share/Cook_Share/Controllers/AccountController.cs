@@ -107,14 +107,7 @@ namespace Cook_Share.Controllers
           
             return user;
         }
-        public User GetID()
-        {
-
-            var selectedUserInfo = from user in db.Users
-                                   where user.Email == User.Identity.Name
-                                   select user;
-            return selectedUserInfo.First();
-        }
+        
 
 
         public IEnumerable<Publication> GetPublications(int id)
@@ -265,32 +258,38 @@ namespace Cook_Share.Controllers
         public IActionResult Dish(string discription, string recipe, int id, string cuisine, int? calVal)
         {
             Publication publication = db.Publications.FirstOrDefault(c => c.Id == id);
-            if(discription == null)
+            bool _error = false;
+            if(recipe == null)
             {
-                ModelState.AddModelError("Publication.Discription", "Описание должно быть заполнено");
-                return Dish(publication);
+                ModelState.AddModelError("Publication.Recipe", "Описание должно быть заполнено");
+                _error = true;
+                //return Dish(publication);
             }
             if (discription.Length < 2)
             {
                 ModelState.AddModelError("Publication.Discription", "Описание меньше 2 символов");
-                return Dish(publication);
+                _error = true;
+                //return Dish(publication);
             }
             if(discription.Length > 40)
             {
                 ModelState.AddModelError("Publication.Discription", "Описание больше 2 символов");
-                return Dish(publication);
+                _error = true;
+                //return Dish(publication);
             }
             if(cuisine != null)
             {
                 if (cuisine.Length < 2)
                 {
                     ModelState.AddModelError("Publication.Cuisine", "Описание меньше 2 символов");
-                    return Dish(publication);
+                    _error = true;
+                    //return Dish(publication);
                 }
                 if (cuisine.Length > 20)
                 {
                     ModelState.AddModelError("Publication.Cuisine", "Описание больше 2 символов");
-                    return Dish(publication);
+                    _error = true;
+                    //return Dish(publication);
                 }
             }
             if (calVal != null)
@@ -298,15 +297,20 @@ namespace Cook_Share.Controllers
                 if (calVal < 10)
                 {
                     ModelState.AddModelError("Publication.CalorificVal", "Размер калорийности не меньше 10");
-                    return Dish(publication);
+                    _error = true;
+                    //return Dish(publication);
                 }
                 if (calVal > 1500)
                 {
                     ModelState.AddModelError("Publication.CalorificVal", "Размер калорийности не больше 1500");
-                    return Dish(publication);
+                    _error = true;
+                    //return Dish(publication);
                 }
             }
-
+            if (_error)
+            {
+                return Dish(publication);
+            }
             if (publication.UserId == db.Users.FirstOrDefault(u => u.Email == User.Identity.Name).Id)
             {
                 publication.Discription = discription;

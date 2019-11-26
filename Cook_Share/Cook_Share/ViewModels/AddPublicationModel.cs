@@ -20,10 +20,11 @@ namespace Cook_Share.ViewModels
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Размер имени от 2 до 20 символов")]
         public string DishName { get; set; }
 
-        [Required(ErrorMessage = "Не указано описание")]
+        
         [StringLength(40, MinimumLength = 2, ErrorMessage = "Размер описания от 2 до 40 символов")]
         public string Discription { get; set; }
 
+        [Required(ErrorMessage = "Не указан рецепт")]
         public string Recipe { get; set; }
         
         

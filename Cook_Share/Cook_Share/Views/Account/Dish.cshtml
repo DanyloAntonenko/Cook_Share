@@ -42,7 +42,7 @@
                         }
                     }
                 </div>
-                <button id="DeleteModal" class="delete__photo">Удалить фото</button>
+                <button id="DeleteModal" class="delete__photo">Удалить пост</button>
             </div>
 
           
@@ -71,10 +71,13 @@
 
                             </div>
                         </div>
-                            <div class="recipe__dish">
-                                <span class="dish__span">Рецепт: </span>
-                                <textarea class="txtArea__recipe input__item" id="recInput" name="recipe" disabled asp-for="Publication.Recipe">@*@Model.Publication.Recipe*@</textarea>
+                        <div class="recipe__dish">
+                            <span class="dish__span">Рецепт: </span>
+                            <div class="valid">
+                                <textarea class="txtArea__recipe input__item" id="recInput" name="recipe" disabled asp-for="Publication.Recipe"></textarea>
+                                <span asp-validation-for="Publication.Recipe" class="exit__errore field-validation-error"></span>
                             </div>
+                        </div>
                             <div class="cal__dish">
                                 <span class="dish__span">Количество калорий: </span>
                                 <div class="valid">
@@ -82,7 +85,7 @@
                                     <span asp-validation-for="Publication.CalorificVal" class="exit__errore field-validation-error"></span>
                                 </div>
                             </div>
-                           
+
                             <div class="date__creator"> <span class="dish__span">Дата добавления: </span>@Model.Publication.Time</div>
 
                         </div>
@@ -139,6 +142,7 @@
                 var discription = document.getElementById("discrInput");
                 var cal = document.getElementById("calVal");
                 var change = document.getElementById("ChangeBtn");
+                var changeArea = document.getElementById("recInput");
                 $("#ChangeBtn").click(function () {
                     $('#discrInput').prop('disabled', false);
                     $('#recInput').prop('disabled', false);
@@ -149,6 +153,7 @@
                     cuisine.style.cssText = "color:blue; border-bottom:1px solid black;"
                     discription.style.cssText = "color:blue; border-bottom:1px solid black;"
                     cal.style.cssText = "color:blue; border-bottom:1px solid black;"
+                    changeArea.style.cssText = "color:blue; border:1px solid black;"
                     change.style.cssText ="display:none";
                 });
             });
