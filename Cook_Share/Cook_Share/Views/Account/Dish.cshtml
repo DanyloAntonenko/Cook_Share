@@ -58,7 +58,7 @@
                                 <div class="valid">
                                     <input type="text" name="cuisine" class="change__input__dish" id="cuisineInput" disabled asp-for="Publication.Cuisine">
 
-                                    <span asp-validation-for="Publication.Cuisine"></span>
+                                    <span asp-validation-for="Publication.Cuisine" class="exit__errore field-validation-error"></span>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                             <span class="dish__span">Описание: </span>
                             <div class="valid">
                                 <input type="text" name="discription" class="change__input__dish" id="discrInput" disabled asp-for="Publication.Discription">
-                                <span asp-validation-for="Publication.Discription"></span>
+                                <span asp-validation-for="Publication.Discription" class="exit__errore field-validation-error"></span>
 
                             </div>
                         </div>
@@ -78,8 +78,8 @@
                             <div class="cal__dish">
                                 <span class="dish__span">Количество калорий: </span>
                                 <div class="valid">
-                                    <input name="calVal" class="change__input__dish" id="calVal" disabled asp-for="Publication.CalorificVal">
-                                    <span asp-validation-for="Publication.CalorificVal"></span>
+                                    <input name="calVal" class="change__input__dish__cal" id="calVal" disabled asp-for="Publication.CalorificVal">
+                                    <span asp-validation-for="Publication.CalorificVal" class="exit__errore field-validation-error"></span>
                                 </div>
                             </div>
                            

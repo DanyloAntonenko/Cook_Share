@@ -540,6 +540,7 @@ span.field-validation-error {
     .exit__errore:before {
         content: "\00B7";
         margin-right: 7px;
+        display:none;
     }
 
 
@@ -609,6 +610,16 @@ span.field-validation-error {
     background: #f5feff;
     width:auto;
    
+}
+
+.change__input__dish__cal {
+    position: relative;
+    margin-left: 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background: #f5feff;
+    width: 100px;
 }
 
     .change__input:focus, .change__input:hover {
@@ -792,6 +803,7 @@ span.field-validation-error {
 }
 
 .dish__span {
+    width:auto;
     font-size: 18px;
     font-weight: bold;
     font-style: italic;
@@ -1056,7 +1068,7 @@ span.field-validation-error {
 
 .cal__dish{
     display:flex;
-
+    margin-left:15px;
 }
 
 .valid{

@@ -17,42 +17,42 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <label asp-for="DishName" class="control-label name__input">Название:</label>
-            <div>
+            <div class="valid">
                 <input asp-for="DishName" class="form-control input__item" />
-                <span asp-validation-for="DishName" class="text-danger"></span>
+                <span asp-validation-for="DishName" class="text-danger exit__errore field-validation-error"></span>
             </div>
 
 
             <label asp-for="Discription" class="control-label name__input">Описание: </label>
-            <div>
+            <div class="valid">
                 <input asp-for="Discription" class="form-control  input__item" />
-                <span asp-validation-for="Discription" class="text-danger"></span>
+                <span asp-validation-for="Discription" class="text-danger exit__errore field-validation-error"></span>
             </div>
 
 
             <label asp-for="Recipe" class="control-label name__input">Рецепт: </label>
-            <div>
+            <div class="valid">
                 <textarea asp-for="Recipe" class="form-control  input__item"></textarea>
-                <span asp-validation-for="Recipe" class="text-danger"></span>
+                <span asp-validation-for="Recipe" class="text-danger exit__errore field-validation-error"></span>
             </div>
 
 
             <label asp-for="CalorificVal" class="control-label name__input">Калорийность:</label>
-            <div>
+            <div class="valid">
                 <input asp-for="CalorificVal" class="form-control  input__item" />
-                <span asp-validation-for="CalorificVal" class="text-danger"></span>
+                <span asp-validation-for="CalorificVal" class="text-danger exit__errore field-validation-error"></span>
             </div>
 
 
             <label asp-for="Cuisine" class="control-label name__input">Кухня: </label>
-            <div>
+            <div class="valid">
                 <input asp-for="Cuisine" class="form-control  input__item" />
-                <span asp-validation-for="Cuisine" class="text-danger"></span>
+                <span asp-validation-for="Cuisine" class="text-danger exit__errore field-validation-error" ></span>
                 
             </div>
 
             <label asp-for="Category" class="control-label name__input">Категория: </label>
-            <div>
+            <div class="valid">
                 <select asp-for="Category" class="form-control input__item" asp-items="@new SelectList(Model.Categories)"></select>
             </div>
 
