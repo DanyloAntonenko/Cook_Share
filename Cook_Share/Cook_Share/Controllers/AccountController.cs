@@ -259,22 +259,29 @@ namespace Cook_Share.Controllers
         {
             Publication publication = db.Publications.FirstOrDefault(c => c.Id == id);
             bool _error = false;
+            bool _errorDiscr = false;
+            bool _errorRec = false;
+            bool _errorCuis = false;
+            bool _errorCal = false;
             if(recipe == null)
             {
                 ModelState.AddModelError("Publication.Recipe", "Описание должно быть заполнено");
                 _error = true;
+                _errorRec = true;
                 //return Dish(publication);
             }
             if (discription.Length < 2)
             {
                 ModelState.AddModelError("Publication.Discription", "Описание меньше 2 символов");
                 _error = true;
+                _errorDiscr = true;
                 //return Dish(publication);
             }
             if(discription.Length > 40)
             {
                 ModelState.AddModelError("Publication.Discription", "Описание больше 2 символов");
                 _error = true;
+                _errorDiscr = true;
                 //return Dish(publication);
             }
             if(cuisine != null)
@@ -283,12 +290,14 @@ namespace Cook_Share.Controllers
                 {
                     ModelState.AddModelError("Publication.Cuisine", "Описание меньше 2 символов");
                     _error = true;
+                    _errorCuis = true;
                     //return Dish(publication);
                 }
                 if (cuisine.Length > 20)
                 {
                     ModelState.AddModelError("Publication.Cuisine", "Описание больше 2 символов");
                     _error = true;
+                    _errorCuis = true;
                     //return Dish(publication);
                 }
             }
@@ -298,31 +307,45 @@ namespace Cook_Share.Controllers
                 {
                     ModelState.AddModelError("Publication.CalorificVal", "Размер калорийности не меньше 10");
                     _error = true;
+                    _errorCal = true;
                     //return Dish(publication);
                 }
                 if (calVal > 1500)
                 {
                     ModelState.AddModelError("Publication.CalorificVal", "Размер калорийности не больше 1500");
                     _error = true;
+                    _errorCal = true;
                     //return Dish(publication);
                 }
             }
             if (_error)
             {
-                return Dish(publication);
+                if (!_errorCal)
+                {
+                    publication.CalorificVal = calVal;
+                }
+                if (!_errorCuis)
+                {
+                    publication.Cuisine = cuisine;
+                }
+                if (!_errorDiscr)
+                {
+                    publication.Discription = discription;
+                }
+                if (!_errorRec)
+                {
+                    publication.Recipe = recipe;
+                }
+                //return Dish(publication);
             }
             if (publication.UserId == db.Users.FirstOrDefault(u => u.Email == User.Identity.Name).Id)
             {
-                publication.Discription = discription;
-                publication.Recipe = recipe;
-                publication.Cuisine = cuisine;
-                publication.CalorificVal = calVal;
                 db.SaveChanges();
                 return Dish(publication);
                 //return RedirectToAction("Account", "Account");
             }
             //return Dish(publication);
-            return View();
+            return RedirectToAction("Account", "Account");
         }
 
         [HttpGet]
