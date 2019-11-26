@@ -318,8 +318,6 @@ namespace Cook_Share.Controllers
                     //return Dish(publication);
                 }
             }
-            if (_error)
-            {
                 if (!_errorCal)
                 {
                     publication.CalorificVal = calVal;
@@ -337,7 +335,6 @@ namespace Cook_Share.Controllers
                     publication.Recipe = recipe;
                 }
                 //return Dish(publication);
-            }
             if (publication.UserId == db.Users.FirstOrDefault(u => u.Email == User.Identity.Name).Id)
             {
                 db.SaveChanges();
