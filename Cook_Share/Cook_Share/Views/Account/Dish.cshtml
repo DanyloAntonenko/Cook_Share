@@ -102,27 +102,24 @@
                 <div class="modal fade" id="login">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Удаление публикации</h4>
-                                <button type="button" class="close" data-dismiss="modal">
-                                    ×
-                                </button>
-                                
-                            </div>
+                           
                             <div class="modal-body">
-                                <h5>Удалить публикацию @Model.Publication.DishName?</h5>
+                                <div class="modal-header">
+                                    <h5>Удалить публикацию @Model.Publication.DishName?</h5>
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        ×
+                                    </button>
+                                </div>
                                 <form method="post" asp-controller="Account" asp-action="DeleteDish">
                                     <div class="form-group">
                                         <input hidden class="form-control" type="number" name="Id" id="inputUserName" asp-for="Publication.Id" />
                                     </div>
-                                    <button type="submit" class="btn btn-primary button button4">Удалить</button>
-                                    <button type="button" id="HidebtnModal" class="btn btn-primary"> Отмена </button>
+                                    <button type="submit" class="btn btn-primary button button4 nav__button">Удалить</button>
+                                    <button type="button" id="HidebtnModal" class="btn btn-primary nav__button"> Отмена </button>
                                 </form>
 
                             </div>
-                            <div class="modal-footer">
-                                
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -141,6 +138,7 @@
                 var cuisine = document.getElementById("cuisineInput");
                 var discription = document.getElementById("discrInput");
                 var cal = document.getElementById("calVal");
+                var change = document.getElementById("ChangeBtn");
                 $("#ChangeBtn").click(function () {
                     $('#discrInput').prop('disabled', false);
                     $('#recInput').prop('disabled', false);
@@ -151,6 +149,7 @@
                     cuisine.style.cssText = "color:blue; border-bottom:1px solid black;"
                     discription.style.cssText = "color:blue; border-bottom:1px solid black;"
                     cal.style.cssText = "color:blue; border-bottom:1px solid black;"
+                    change.style.cssText ="display:none";
                 });
             });
             $(document).ready(function () {

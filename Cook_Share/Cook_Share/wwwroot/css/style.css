@@ -1063,3 +1063,12 @@ span.field-validation-error {
     display:flex;
     flex-direction:column;
 }
+
+.modal-content{
+    width: 450px;
+    
+}
+
+.container-all{
+    width:40% !important;
+}
