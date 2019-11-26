@@ -55,13 +55,6 @@ body {
     color: #C1CACA;
 }
 
-.modal__label {
-    font-size: 22px;
-    padding-right: 10px;
-    color: #C1CACA;
-}
-}
-
 .btn__bg {
     background: #222222;
     vertical-align: center;
@@ -77,8 +70,8 @@ body {
 }
 
 .top__button {
-    outline: none !important;
-    text-decoration: none !important;
+    outline: none;
+    text-decoration: none;
     color: black;
 }
 
@@ -95,10 +88,6 @@ body {
         margin: auto;
         max-width: 1080px;
     }
-
-.container__all {
-    width: 50% !important;
-}
 
 .grid {
     display: grid;
@@ -170,7 +159,6 @@ body {
 
 .row {
     border-top: 1px solid #dcdcdc;
-    margin-bottom: 5px;
 }
 
 .nav__link:hover {
@@ -1063,14 +1051,3 @@ span.field-validation-error {
         background: rgba(62, 62, 62, 0.6);
         color: rgba(239, 239, 239);
     }
-
-.title-modal__label{
-    color:black;
-    font-size:32px;
-}
-
-.addDish__valid{
-    display:flex;
-    flex-direction:column;
-    margin-left:15px;
-}

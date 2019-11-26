@@ -42,7 +42,7 @@
                         }
                     }
                 </div>
-                <button id="DeleteModal" class="delete__photo">Удалить рецепт</button>
+                <button id="DeleteModal" class="delete__photo">Удалить фото</button>
             </div>
 
           
@@ -86,29 +86,28 @@
                 @*_____________________________MODAL_____________________________*@
                 <div class="modal fade" id="login">
                     <div class="modal-dialog modal-lg">
-                        <div class="modal-content ">
+                        <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title title-modal__label">Удаление публикации</h4>
+                                <h4 class="modal-title">Удаление публикации</h4>
                                 <button type="button" class="close" data-dismiss="modal">
                                     ×
                                 </button>
                                 
                             </div>
-                            <div class="modal-body ">
-                                <h5 class="modal__label">Удалить публикацию @Model.Publication.DishName?</h5>
+                            <div class="modal-body">
+                                <h5>Удалить публикацию @Model.Publication.DishName?</h5>
                                 <form method="post" asp-controller="Account" asp-action="DeleteDish">
                                     <div class="form-group">
                                         <input hidden class="form-control" type="number" name="Id" id="inputUserName" asp-for="Publication.Id" />
                                     </div>
-                                    <div class="row"></div>
-
-                                        <button type="submit" class="btn btn-primary button button4 nav__button">Удалить</button>
-                                        <button type="button" id="HidebtnModal" class="btn btn-primary nav__button"> Отмена </button>
-                                   
+                                    <button type="submit" class="btn btn-primary button button4">Удалить</button>
+                                    <button type="button" id="HidebtnModal" class="btn btn-primary"> Отмена </button>
                                 </form>
 
                             </div>
-                           
+                            <div class="modal-footer">
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
