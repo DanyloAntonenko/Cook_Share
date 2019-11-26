@@ -267,16 +267,20 @@ namespace Cook_Share.Controllers
                 ModelState.AddModelError("Publication.Recipe", "Описание должно быть заполнено");
                 _errorRec = true;
             }
-            if (discription.Length < 2)
+            if(discription != null)
             {
-                ModelState.AddModelError("Publication.Discription", "Описание меньше 2 символов");
-                _errorDiscr = true;
+                if (discription.Length < 2)
+                {
+                    ModelState.AddModelError("Publication.Discription", "Описание меньше 2 символов");
+                    _errorDiscr = true;
+                }
+                if (discription.Length > 40)
+                {
+                    ModelState.AddModelError("Publication.Discription", "Описание больше 2 символов");
+                    _errorDiscr = true;
+                }
             }
-            if(discription.Length > 40)
-            {
-                ModelState.AddModelError("Publication.Discription", "Описание больше 2 символов");
-                _errorDiscr = true;
-            }
+           
             if(cuisine != null)
             {
                 if (cuisine.Length < 2)
