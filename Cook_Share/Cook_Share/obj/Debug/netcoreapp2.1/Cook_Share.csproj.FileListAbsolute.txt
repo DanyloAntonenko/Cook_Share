@@ -115,5 +115,7 @@ G:\GitHub\projectAVPZ\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\R
 E:\Github\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Razor\Views\Account\Dish.g.cshtml.cs
 E:\Github\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Razor\Views\Account\ViewAllDish.g.cshtml.cs
 D:\Github\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Razor\Views\Account\ViewAllDish.cshtml.g.cs
-D:\Github\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Cook_Share.csprojAssemblyReference.cache
 G:\GitHub\projectAVPZ\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Razor\Views\Account\ViewAllDish.g.cshtml.cs
+D:\Github\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Razor\Views\Account\UserPage.cshtml.g.cs
+D:\Github\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Cook_Share.csprojAssemblyReference.cache
+D:\Github\Cook_Share\Cook_Share\Cook_Share\obj\Debug\netcoreapp2.1\Razor\Views\Account\DishPage.cshtml.g.cs

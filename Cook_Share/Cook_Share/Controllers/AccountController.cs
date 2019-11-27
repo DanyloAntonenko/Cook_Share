@@ -267,7 +267,8 @@ namespace Cook_Share.Controllers
                 ModelState.AddModelError("Publication.Recipe", "Описание должно быть заполнено");
                 _errorRec = true;
             }
-            if(discription != null)
+
+            if (discription != null)
             {
                 if (discription.Length < 2)
                 {
@@ -351,6 +352,34 @@ namespace Cook_Share.Controllers
             return RedirectToAction("Account");
         }
 
+        [HttpGet]
+        public IActionResult UserPage(int? id)
+        {
+            if (id != null)
+            {
+                IEnumerable<PublicationPhoto> photos = db.PublicationPhotos;
+                AccountModel model = new AccountModel();
+                model.User = GetInfo(id);
+                model.Publications = GetPublications(model.User.Id);
+                model.Photos = photos;
+                return View(model);
+            }
+            return RedirectToAction("ViewAllDish", "Account");
+        }
+
+        [HttpGet]
+        public IActionResult DishPage(Publication publication)
+        {
+            PublicationModel publicationModel = new PublicationModel();
+            User user = GetInfo(publication.UserId);
+            var cat = db.Categories.FirstOrDefault(c => c.Id == publication.CategoryId);
+            var photos = db.PublicationPhotos.Where(p => p.PublicationId == publication.Id);
+            publicationModel.Photos = photos;
+            publicationModel.Publication = publication;
+            publicationModel.User = user;
+            publicationModel.Category = cat;
+            return View(publicationModel);
+        }
 
     }
 }
