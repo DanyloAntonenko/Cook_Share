@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "UserPage";
+    string defUser = Model.User.Photo ?? "default-user.png";
+}
+
+
+@model AccountModel
+
+
+
+<div class="container">
+    <header class="header"></header>
+    <main>
+        <div class="title__profile">
+            <img src="~/img/@defUser" alt="MyPhoto" class="profile__photo " id="addPhotoArea" />
+
+            @*<button class="profile__add " id="addPhotoBtn" hidden>Добавить фото</button>*@
+            <span class="title__name">@Model.User.Name</span>
+            <span class="title__name">&ensp;</span>
+            <span class="title__name">@Model.User.Surname</span>
+
+        </div>
+        <div class="row"></div>
+
+        <div class="profile__navigation">
+            <div class="nav__left">
+                <a href="#"
+                   class="nav__link active"
+                   id="first__tag">Блюда</a>
+            </div>
+            @*<div class="nav__right">
+
+                <button onclick="location.href='/Account/ChangeInfo';" class="nav__button">
+                    Редактирование
+                </button>
+            </div>*@
+        </div>
+        <div class="row"></div>
+        <div class="content">
+            <div class="left__content" id="left__content">
+                <div class="content__mydishes" id="cnt__mydishes">
+                    @{
+
+                        foreach (var publication in Model.Publications)
+                        {
+                            string dish = "default-dish.jpg";
+                            var photo = Model.Photos.FirstOrDefault(p => p.PublicationId == publication.Id);
+                            if (photo != null)
+                            {
+                                dish = photo.Name;
+                            }
+                            <a href='@Url.Action("DishPage","Account", publication)' class="link__dish">
+
+                                <div class="content__mydish">
+
+                                    <img src="~/dish_img/@dish" alt="" class="photo__dish" />
+                                    <div class="wrap__photo">
+                                        <h1 class="title-name__photo">@publication.DishName</h1>
+                                    </div>
+                                </div>
+
+
+                            </a>
+                        }
+                    }
+                </div>
+
+
+            </div>
+            @*<div class="right__content">
+                <div class="subscribers li__profile">
+                    Подписчики:<span class="num__content">4</span>
+                </div>
+                <div class="subscriptions li__profile">
+                    Подписки:<span class="num__content">23</span>
+                </div>
+                <div class="row"></div>
+            </div>*@
+        </div>
+    </main>
+</div>
+<script src="../js/script.js"></script>

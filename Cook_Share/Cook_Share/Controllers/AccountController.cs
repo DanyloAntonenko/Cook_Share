@@ -258,7 +258,6 @@ namespace Cook_Share.Controllers
         public IActionResult Dish(string discription, string recipe, int id, string cuisine, int? calVal)
         {
             Publication publication = db.Publications.FirstOrDefault(c => c.Id == id);
-            bool _error = false;
             bool _errorDiscr = false;
             bool _errorRec = false;
             bool _errorCuis = false;
@@ -266,39 +265,34 @@ namespace Cook_Share.Controllers
             if(recipe == null)
             {
                 ModelState.AddModelError("Publication.Recipe", "Описание должно быть заполнено");
-                _error = true;
                 _errorRec = true;
                 //return Dish(publication);
             }
-            if (discription.Length < 2)
+
+            if (discription != null)
             {
-                ModelState.AddModelError("Publication.Discription", "Описание меньше 2 символов");
-                _error = true;
-                _errorDiscr = true;
-                //return Dish(publication);
-            }
-            if(discription.Length > 40)
-            {
-                ModelState.AddModelError("Publication.Discription", "Описание больше 2 символов");
-                _error = true;
-                _errorDiscr = true;
-                //return Dish(publication);
+                if (discription.Length < 2)
+                {
+                    ModelState.AddModelError("Publication.Discription", "Описание меньше 2 символов");
+                    _errorDiscr = true;
+                }
+                if (discription.Length > 40)
+                {
+                    ModelState.AddModelError("Publication.Discription", "Описание больше 2 символов");
+                    _errorDiscr = true;
+                }
             }
             if(cuisine != null)
             {
                 if (cuisine.Length < 2)
                 {
                     ModelState.AddModelError("Publication.Cuisine", "Описание меньше 2 символов");
-                    _error = true;
                     _errorCuis = true;
-                    //return Dish(publication);
                 }
                 if (cuisine.Length > 20)
                 {
                     ModelState.AddModelError("Publication.Cuisine", "Описание больше 2 символов");
-                    _error = true;
                     _errorCuis = true;
-                    //return Dish(publication);
                 }
             }
             if (calVal != null)
@@ -306,43 +300,37 @@ namespace Cook_Share.Controllers
                 if (calVal < 10)
                 {
                     ModelState.AddModelError("Publication.CalorificVal", "Размер калорийности не меньше 10");
-                    _error = true;
                     _errorCal = true;
-                    //return Dish(publication);
                 }
                 if (calVal > 1500)
                 {
                     ModelState.AddModelError("Publication.CalorificVal", "Размер калорийности не больше 1500");
-                    _error = true;
                     _errorCal = true;
-                    //return Dish(publication);
                 }
             }
-                if (!_errorCal)
-                {
-                    publication.CalorificVal = calVal;
-                }
-                if (!_errorCuis)
-                {
-                    publication.Cuisine = cuisine;
-                }
-                if (!_errorDiscr)
-                {
-                    publication.Discription = discription;
-                }
-                if (!_errorRec)
-                {
-                    publication.Recipe = recipe;
-                }
-                //return Dish(publication);
-            if (publication.UserId == db.Users.FirstOrDefault(u => u.Email == User.Identity.Name).Id)
+            if (!_errorCal)
             {
-                db.SaveChanges();
-                return Dish(publication);
-                //return RedirectToAction("Account", "Account");
+                publication.CalorificVal = calVal;
+            }
+            if (!_errorCuis)
+            {
+                publication.Cuisine = cuisine;
+            }
+            if (!_errorDiscr)
+            {
+                publication.Discription = discription;
+            }
+            if (!_errorRec)
+            {
+                publication.Recipe = recipe;
             }
             //return Dish(publication);
-            return RedirectToAction("Account", "Account");
+            if (publication.UserId != db.Users.FirstOrDefault(u => u.Email == User.Identity.Name).Id)
+                return RedirectToAction("Account", "Account");
+            db.SaveChanges();
+            return Dish(publication);
+            //return RedirectToAction("Account", "Account");
+            //return Dish(publication);
         }
 
         [HttpGet]
@@ -365,6 +353,34 @@ namespace Cook_Share.Controllers
             return RedirectToAction("Account");
         }
 
+        [HttpGet]
+        public IActionResult UserPage(int? id)
+        {
+            if (id != null)
+            {
+                IEnumerable<PublicationPhoto> photos = db.PublicationPhotos;
+                AccountModel model = new AccountModel();
+                model.User = GetInfo(id);
+                model.Publications = GetPublications(model.User.Id);
+                model.Photos = photos;
+                return View(model);
+            }
+            return RedirectToAction("ViewAllDish", "Account");
+        }
+
+        [HttpGet]
+        public IActionResult DishPage(Publication publication)
+        {
+            PublicationModel publicationModel = new PublicationModel();
+            User user = GetInfo(publication.UserId);
+            var cat = db.Categories.FirstOrDefault(c => c.Id == publication.CategoryId);
+            var photos = db.PublicationPhotos.Where(p => p.PublicationId == publication.Id);
+            publicationModel.Photos = photos;
+            publicationModel.Publication = publication;
+            publicationModel.User = user;
+            publicationModel.Category = cat;
+            return View(publicationModel);
+        }
 
     }
 }

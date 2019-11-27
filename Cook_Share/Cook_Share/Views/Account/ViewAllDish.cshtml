@@ -43,10 +43,12 @@
                     <div class="title__dish__creator">
                         <div class="name__dish-all">@publication.DishName</div>
                         <div class="subtitle__dish">
-                            <div class="name__creator name__creator__all">@publication.User.Name @publication.User.Surname</div>
-                            <div class="cuisine__dish cuisine__dish__all">
-                                @publication.Cuisine
-                            </div>
+                            <a href='@Url.Action("UserPage","Account", new{id = @publication.UserId})' class="link__dish">
+                                <div class="name__creator name__creator__all">@publication.User.Name @publication.User.Surname</div>
+                            </a>
+                                <div class="cuisine__dish cuisine__dish__all">
+                                    @publication.Cuisine
+                                </div>
                         </div>
                         <div class="category__dish dish__span__all"><span class="dish__span dish__span__all">Категория: </span>@publication.Category.Name</div>
                         <div class="description__dish dish__span__all">
