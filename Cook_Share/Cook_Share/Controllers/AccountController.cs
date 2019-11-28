@@ -308,22 +308,22 @@ namespace Cook_Share.Controllers
                     _errorCal = true;
                 }
             }
-                if (!_errorCal)
-                {
-                    publication.CalorificVal = calVal;
-                }
-                if (!_errorCuis)
-                {
-                    publication.Cuisine = cuisine;
-                }
-                if (!_errorDiscr)
-                {
-                    publication.Discription = discription;
-                }
-                if (!_errorRec)
-                {
-                    publication.Recipe = recipe;
-                }
+            if (!_errorCal)
+            {
+                publication.CalorificVal = calVal;
+            }
+            if (!_errorCuis)
+            {
+                publication.Cuisine = cuisine;
+            }
+            if (!_errorDiscr)
+            {
+                publication.Discription = discription;
+            }
+            if (!_errorRec)
+            {
+                publication.Recipe = recipe;
+            }
             if (publication.UserId == db.Users.FirstOrDefault(u => u.Email == User.Identity.Name).Id)
             {
                 db.SaveChanges();
@@ -357,9 +357,13 @@ namespace Cook_Share.Controllers
         {
             if (id != null)
             {
-                IEnumerable<PublicationPhoto> photos = db.PublicationPhotos;
                 AccountModel model = new AccountModel();
                 model.User = GetInfo(id);
+                if (model.User.Email == User.Identity.Name)
+                {
+                    return RedirectToAction("Account");
+                }
+                IEnumerable<PublicationPhoto> photos = db.PublicationPhotos;
                 model.Publications = GetPublications(model.User.Id);
                 model.Photos = photos;
                 return View(model);
