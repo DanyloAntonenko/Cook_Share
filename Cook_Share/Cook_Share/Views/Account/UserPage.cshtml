@@ -29,12 +29,30 @@
                    class="nav__link active"
                    id="first__tag">Блюда</a>
             </div>
-            @*<div class="nav__right">
+            @{
 
-                <button onclick="location.href='/Account/ChangeInfo';" class="nav__button">
-                    Редактирование
-                </button>
-            </div>*@
+                if (Model.IsSub)
+                {
+                    <div class="nav__right">
+
+                        <button onclick="location.href='/Account/Subscribe?id=@Model.User.Id'" class="nav__button">
+                            Подписаться
+                        </button>
+                    </div>
+                }
+                else
+                {
+                    <div class="nav__right">
+
+                        <button onclick="location.href='/Account/UnSubscribe?id=@Model.User.Id'" class="nav__button">
+                            Отписаться 
+                        </button>
+                    </div>
+                }
+
+
+
+            }
         </div>
         <div class="row"></div>
         <div class="content">
@@ -69,14 +87,14 @@
 
             </div>
             @*<div class="right__content">
-                <div class="subscribers li__profile">
-                    Подписчики:<span class="num__content">4</span>
-                </div>
-                <div class="subscriptions li__profile">
-                    Подписки:<span class="num__content">23</span>
-                </div>
-                <div class="row"></div>
-            </div>*@
+                    <div class="subscribers li__profile">
+                        Подписчики:<span class="num__content">4</span>
+                    </div>
+                    <div class="subscriptions li__profile">
+                        Подписки:<span class="num__content">23</span>
+                    </div>
+                    <div class="row"></div>
+                </div>*@
         </div>
     </main>
 </div>
