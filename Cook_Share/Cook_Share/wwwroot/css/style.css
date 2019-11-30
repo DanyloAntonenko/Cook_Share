@@ -689,6 +689,7 @@ span.field-validation-error {
 
 .name__creator__all{
     font-size:32px !important;
+    line-height:34px;
 }
 
 .cuisine__dish__all {
@@ -800,10 +801,18 @@ span.field-validation-error {
     padding-left: 15px;
     font-size: 18px;
     color: #414A4C;
+    transition:1s;
+    
+}
+
+.name__creator__all:hover{
+    
+    font-size:34px !important;
+    color:rgb(56, 151, 240);
 }
 
 .dish__span {
-    width:auto;
+    width: auto;
     font-size: 18px;
     font-weight: bold;
     font-style: italic;
