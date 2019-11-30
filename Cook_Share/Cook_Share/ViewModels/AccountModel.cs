@@ -18,6 +18,10 @@ namespace Cook_Share.ViewModels
 
         public IEnumerable<PublicationPhoto> Photos { get; set; }
 
+        public IEnumerable<Subscribers> Subscribers { get; set; }
+
+        public bool IsSub { get; set; }
+
         
 
     }

@@ -96,7 +96,7 @@ namespace Cook_Share.Controllers
 
         public User GetInfo()
         {
-            var user = db.Users.FirstOrDefault(u => u.Email == User.Identity.Name);
+            var user = db.Users.Include(u=>u.Subscriptions).Include(u=>u.Subscribers).FirstOrDefault(u => u.Email == User.Identity.Name);
             return user;
         }
 
@@ -363,9 +363,15 @@ namespace Cook_Share.Controllers
                 {
                     return RedirectToAction("Account");
                 }
+                IEnumerable<Subscribers> subscribers = db.Users.Include(u => u.Subscribers).FirstOrDefault(u => u.Id == id).Subscribers;
+
+                bool issub = (subscribers.FirstOrDefault(s=>s.SubUserId==GetInfo().Id))==null?true:false;
+
                 IEnumerable<PublicationPhoto> photos = db.PublicationPhotos;
+                model.Subscribers = subscribers;
                 model.Publications = GetPublications(model.User.Id);
                 model.Photos = photos;
+                model.IsSub = issub;
                 return View(model);
             }
             return RedirectToAction("ViewAllDish", "Account");
@@ -383,6 +389,61 @@ namespace Cook_Share.Controllers
             publicationModel.User = user;
             publicationModel.Category = cat;
             return View(publicationModel);
+        }
+        public IActionResult Subscribe(int? id)
+        {
+            User user = GetInfo();
+            IEnumerable<Subscriptions> subscriptions =  db.Users.Include(u=>u.Subscriptions).FirstOrDefault(u=>u.Email==User.Identity.Name).Subscriptions;
+            IEnumerable<Subscribers> subscribes = db.Users.Include(u => u.Subscribers).FirstOrDefault(u => u.Id == id).Subscribers;
+            if(subscriptions.FirstOrDefault(s => s.SubscriptionUserId == id) == null)
+            {
+                db.Subscriptions.Add(new Subscriptions {
+                    SubscriptionUserId = id,
+                    //UserId = user.Id,
+                    User = user
+                });
+                db.Subscribers.Add(new Subscribers
+                {
+                    SubUserId = user.Id,
+                    User = db.Users.FirstOrDefault(u => u.Id == id),
+                    
+                });
+                db.SaveChanges();
+            }
+             return RedirectToAction("UserPage","Account",new {id=id });
+        }
+        public IActionResult UnSubscribe(int? id)
+        {
+            IEnumerable<Subscribers> subscribers = db.Users.Include(u => u.Subscribers).FirstOrDefault(u => u.Id == id).Subscribers;
+            Subscribers sub = subscribers.FirstOrDefault(s => s.SubUserId == GetInfo().Id);
+            db.Subscribers.Remove(sub);
+            IEnumerable<Subscriptions> subscriptions = db.Users.Include(u => u.Subscriptions).FirstOrDefault(u => u.Email == User.Identity.Name).Subscriptions;
+            Subscriptions subscript = subscriptions.FirstOrDefault(s => s.SubscriptionUserId == id);
+            db.Subscriptions.Remove(subscript);
+            db.SaveChanges();
+            return RedirectToAction("UserPage", "Account", new { id = id });
+        }
+        [HttpGet]
+        public IActionResult ViewAllSubscriptionDish()
+        {
+            User curuser = GetInfo();
+            IEnumerable<Subscriptions> subscriptions = db.Users.Include(u => u.Subscriptions).FirstOrDefault(u => u.Email == User.Identity.Name).Subscriptions;
+
+            IEnumerable<Publication> pu = new List<Publication>();
+            
+           
+            List<Publication> subPublication = new List<Publication>();
+            foreach (var item in subscriptions)
+            {
+                List<Publication> temp = new List<Publication>();
+                temp = db.Publications.Include(p => p.Photos).Include(p => p.User).Include(p => p.Category).Where(p => p.UserId == item.SubscriptionUserId).ToList();
+                subPublication=subPublication.Concat(temp).ToList();
+            }
+
+
+
+            subPublication = subPublication.OrderByDescending(p => p.Time).ToList();
+            return View(subPublication);
         }
 
     }
