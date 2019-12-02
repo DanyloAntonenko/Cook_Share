@@ -24,19 +24,61 @@
                 <div class="wrap__label"><span class="label__log">Фото</span> <input type="file" id="files" asp-for="Photo" /> <span asp-validation-for="Photo"></span></div>
 
             </div>
-            
-            
+
+
             @*<div>
-                <label>Photo</label>
-                <div class="wrap__label">
-                    <input type="file" id="files" asp-for="Photo" />
-                    <span asp-validation-for="Photo"></span>
-                </div>
-            </div>*@
+                    <label>Photo</label>
+                    <div class="wrap__label">
+                        <input type="file" id="files" asp-for="Photo" />
+                        <span asp-validation-for="Photo"></span>
+                    </div>
+                </div>*@
             <div class="change-btn__info">
-                <input type="submit" value="Сохранить" class="change-btn__save"/>
+                <input type="submit" value="Сохранить" class="change-btn__save" />
             </div>
         </form>
 
     </div>
 </div>
+
+<footer class="wrap__bottom">
+    <div class="bottom">
+        <div class="row"></div>
+        <div class="footer__top">
+            <div class="footer__top-item">
+                <span class="title__footer__top"><a href="#" class="footer__link">News</a></span>
+                <ul class="footer__list">
+                    <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
+                    <li class="footer__list-item">Text</li>
+                    <li class="footer__list-item">Text</li>
+                </ul>
+            </div>
+
+            <div class="footer__top-item">
+                <span class="title__footer__top"><a href="#" class="footer__link">Support</a></span>
+                <ul class="footer__list">
+                    <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__top-item">
+                <span class="title__footer__top">Navigation</span>
+                <ul class="footer__list">
+                    <li class="footer__list-item">Address: Ukraine Kharkiv </li>
+                    <br>
+                    <li class="footer__list-item">Tel.:<a href="#" class="link__list-item">+380958695956</a></li>
+                    <br>
+                    <li class="footer__list-item">E-mail.:<a href="#" class="link__list-item">info@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row"></div>
+        <div class="footer__bottom">
+            <div class="footer__container">
+                <div class="footer__create">MyWork s.r.o 2019.</div>
+            </div>
+        </div>
+    </div>
+</footer>

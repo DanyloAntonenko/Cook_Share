@@ -16,27 +16,27 @@
 
             <div class="dish-item-all">
                 <div class="dish-left">
-                        <div class="owl-carousel">
-                            @{
-                                if (publication.Photos.Count != 0)
+                    <div class="owl-carousel">
+                        @{
+                            if (publication.Photos.Count != 0)
+                            {
+                                foreach (var photo in publication.Photos)
                                 {
-                                    foreach (var photo in publication.Photos)
-                                    {
 
-                                        <div class="photo__slider">
-                                            <img src="~/dish_img/@photo.Name" alt="" class="dish-photo">
-                                        </div>
-                                    }
-                                }
-                                else
-                                {
-                                    string dish = "default-dish.jpg";
                                     <div class="photo__slider">
-                                        <img src="~/dish_img/@dish" alt="" class="dish-photo">
+                                        <img src="~/dish_img/@photo.Name" alt="" class="dish-photo">
                                     </div>
                                 }
                             }
-                        </div>
+                            else
+                            {
+                                string dish = "default-dish.jpg";
+                                <div class="photo__slider">
+                                    <img src="~/dish_img/@dish" alt="" class="dish-photo">
+                                </div>
+                            }
+                        }
+                    </div>
                 </div>
 
                 <div class="dish-right">
@@ -46,9 +46,9 @@
                             <a href='@Url.Action("UserPage","Account", new{id = @publication.UserId})' class="link__dish">
                                 <div class="name__creator name__creator__all">@publication.User.Name @publication.User.Surname</div>
                             </a>
-                                <div class="cuisine__dish cuisine__dish__all">
-                                    @publication.Cuisine
-                                </div>
+                            <div class="cuisine__dish cuisine__dish__all">
+                                @publication.Cuisine
+                            </div>
                         </div>
                         <div class="category__dish dish__span__all"><span class="dish__span dish__span__all">Категория: </span>@publication.Category.Name</div>
                         <div class="description__dish dish__span__all">
@@ -68,6 +68,49 @@
         }
     }
 </div>
+
+
+<footer class="wrap__bottom">
+    <div class="bottom">
+        <div class="row"></div>
+        <div class="footer__top">
+            <div class="footer__top-item">
+                <span class="title__footer__top"><a href="#" class="footer__link">News</a></span>
+                <ul class="footer__list">
+                    <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
+                    <li class="footer__list-item">Text</li>
+                    <li class="footer__list-item">Text</li>
+                </ul>
+            </div>
+
+            <div class="footer__top-item">
+                <span class="title__footer__top"><a href="#" class="footer__link">Support</a></span>
+                <ul class="footer__list">
+                    <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__top-item">
+                <span class="title__footer__top">Navigation</span>
+                <ul class="footer__list">
+                    <li class="footer__list-item">Address: Ukraine Kharkiv </li>
+                    <br>
+                    <li class="footer__list-item">Tel.:<a href="#" class="link__list-item">+380958695956</a></li>
+                    <br>
+                    <li class="footer__list-item">E-mail.:<a href="#" class="link__list-item">info@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row"></div>
+        <div class="footer__bottom">
+            <div class="footer__container">
+                <div class="footer__create">MyWork s.r.o 2019.</div>
+            </div>
+        </div>
+    </div>
+</footer>
 <script src="~/js/jquery.min.js"></script>
 <link rel="stylesheet"
       href="~/css/jquery.fancybox.min.css" />
