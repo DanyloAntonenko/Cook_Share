@@ -1178,3 +1178,7 @@ footer {
     font-family: 'Roboto', sans-serif;
     color: #818080;
 }
+
+.nav__btn-nope {
+    background: rgb(197, 218, 198);
+}
