@@ -97,18 +97,34 @@
                   </div>
 
               </div>
-              <div class="comment">
-                  <h2>Комментарии:</h2>
+
+              <div class="dish-item dish-item__comments">
+                  <h2 class="title__comments">Комментарии:</h2>
                   @foreach (var comment in Model.Comments)
                   {
-                      <div>
-                          <a href='@Url.Action("UserPage","Account", new{id = comment.UserId})' class="link__dish">
-                              <p>@comment.User.Name @comment.User.Surname</p>
+                      <div class="item__comment">
+                          <a href='@Url.Action("UserPage","Account", new{id = comment.UserId})'>
+                              <div class="name__creator">@comment.User.Name @comment.User.Surname</div>
                           </a>
-                          <p>@comment.Discription</p>
-                      </div>
+                          <label class="text__comment">@comment.Discription</label>
+</div>
                   }
+
+                 
+                  <div class="row"></div>
+                  <check>
+                      <div class="check__comment">
+                          Просмотреть все комментарии
+                      </div>
+                      <div class="row"></div>
+                  </check>
+
+                  <div class="new__comment">
+                      <input type="text" class="input__comment" placeholder="Добавить комментарий..." id="input__comment"/>
+                      <input type="submit" class="nav__button" id="btn__add__comment"/>
+                  </div>
               </div>
+           
           </div>
 
 
@@ -190,7 +206,11 @@
     <script src="~/js/carousel.js"></script>
     @section scripts{
         <script type="text/javascript">
+
+          
             $(document).ready(function () {
+
+
                 var cuisine = document.getElementById("cuisineInput");
                 var discription = document.getElementById("discrInput");
                 var cal = document.getElementById("calVal");
