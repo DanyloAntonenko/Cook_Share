@@ -246,10 +246,12 @@ namespace Cook_Share.Controllers
             User user = GetInfo(publication.UserId);
             var cat = db.Categories.FirstOrDefault(c => c.Id == publication.CategoryId);
             var photos = db.PublicationPhotos.Where(p=>p.PublicationId==publication.Id);
+            var comments = db.Comments.Include(x => x.User).Where(c => c.PublicationId == publication.Id);
             publicationModel.Photos = photos;
             publicationModel.Publication = publication;
             publicationModel.User = user;
             publicationModel.Category = cat;
+            publicationModel.Comments = comments;
             return View(publicationModel);
         }
 
@@ -380,14 +382,17 @@ namespace Cook_Share.Controllers
         [HttpGet]
         public IActionResult DishPage(Publication publication)
         {
+            
             PublicationModel publicationModel = new PublicationModel();
             User user = GetInfo(publication.UserId);
             var cat = db.Categories.FirstOrDefault(c => c.Id == publication.CategoryId);
             var photos = db.PublicationPhotos.Where(p => p.PublicationId == publication.Id);
+            var comments = db.Comments.Include(x => x.User).Where(c => c.PublicationId == publication.Id);
             publicationModel.Photos = photos;
             publicationModel.Publication = publication;
             publicationModel.User = user;
             publicationModel.Category = cat;
+            publicationModel.Comments = comments;
             return View(publicationModel);
         }
         public IActionResult Subscribe(int? id)
