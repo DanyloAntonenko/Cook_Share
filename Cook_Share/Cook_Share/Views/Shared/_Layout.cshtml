@@ -22,7 +22,7 @@
             <div class="top__left">
                 <a asp-area="" asp-controller="Account" asp-action="ViewAllDish" class="top__button"><span class="logo__top">Cook&Share</span></a>
 
-                <a asp-area="" asp-controller="Account" asp-action="ViewAllSubscriptionDish" class="top__button"><span class="label-btn__top top__space">Subscription`s dishes</span></a>
+                <a asp-area="" asp-controller="Account" asp-action="ViewAllSubscriptionDish" class="top__button"><span class="label-btn__top top__space">Подписчики</span></a>
             </div>
             <div class="top__right">
 
@@ -30,13 +30,13 @@
 
                 @if (!User.Identity.IsAuthenticated)
                 {
-                    <a asp-area="" asp-controller="Account" asp-action="Login" class="top__button"><span class="label-btn__top">Login</span></a>
-                    <a asp-area="" asp-controller="Account" asp-action="Register" class="top__button"><span class="label-btn__top">Registration</span></a>
+                    <a asp-area="" asp-controller="Account" asp-action="Login" class="top__button"><span class="label-btn__top">Авторизоваться</span></a>
+                    <a asp-area="" asp-controller="Account" asp-action="Register" class="top__button"><span class="label-btn__top">Зарегистрироваться</span></a>
                 }
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <a asp-area="" asp-controller="Account" asp-action="Account" class="top__button"><span class="label-btn__top">Account</span> </a>
-                    <a asp-area="" asp-controller="Account" asp-action="Logout" class="top__button"><span class="label-btn__top">Logout </span></a>
+                    <a asp-area="" asp-controller="Account" asp-action="Account" class="top__button"><span class="label-btn__top">Аккаунт</span> </a>
+                    <a asp-area="" asp-controller="Account" asp-action="Logout" class="top__button"><span class="label-btn__top">Выйти </span></a>
                 }
 
             </div>
