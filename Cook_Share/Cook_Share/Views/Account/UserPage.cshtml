@@ -30,28 +30,27 @@
                    id="first__tag">Блюда</a>
             </div>
             @{
-
-                if (Model.IsSub)
+                if (User.Identity.IsAuthenticated)
                 {
-                    <div class="nav__right">
+                    if (Model.IsSub)
+                    {
+                        <div class="nav__right">
 
-                        <button onclick="location.href='/Account/Subscribe?id=@Model.User.Id'" class="nav__button">
-                            Подписаться
-                        </button>
-                    </div>
+                            <button onclick="location.href='/Account/Subscribe?id=@Model.User.Id'" class="nav__button">
+                                Подписаться
+                            </button>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="nav__right">
+
+                            <button onclick="location.href='/Account/UnSubscribe?id=@Model.User.Id'" class="nav__button nav__btn-nope">
+                                Отписаться
+                            </button>
+                        </div>
+                    }
                 }
-                else
-                {
-                    <div class="nav__right">
-
-                        <button onclick="location.href='/Account/UnSubscribe?id=@Model.User.Id'" class="nav__button nav__btn-nope">
-                            Отписаться
-                        </button>
-                    </div>
-                }
-
-
-
             }
         </div>
         <div class="row"></div>
