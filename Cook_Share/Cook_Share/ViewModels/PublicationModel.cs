@@ -17,5 +17,7 @@ namespace Cook_Share.ViewModels
         public IEnumerable<PublicationPhoto> Photos { get; set; }
 
         public IEnumerable<Comment> Comments { get; set; }
+
+        public Comment Comment { get; set; }
     }
 }

@@ -333,7 +333,6 @@ namespace Cook_Share.Controllers
             }
             return RedirectToAction("Account", "Account");
         }
-
         [HttpGet]
         public IActionResult ViewAllDish()
         {
@@ -449,6 +448,33 @@ namespace Cook_Share.Controllers
 
             subPublication = subPublication.OrderByDescending(p => p.Time).ToList();
             return View(subPublication);
+        }
+
+        [HttpPost]
+        public IActionResult AddComment(int id,string discription)
+        {
+            Publication publication = db.Publications.FirstOrDefault(c => c.Id == id);
+            Comment comment = new Comment() {
+                Discription = discription,
+                PublicationId = publication.Id,
+                UserId = GetInfo().Id
+            };
+            db.Comments.Add(comment);
+            db.SaveChanges();
+            return RedirectToAction("Dish",publication);
+        }
+        public IActionResult AddCommentDishPage(int id, string discription)
+        {
+            Publication publication = db.Publications.FirstOrDefault(c => c.Id == id);
+            Comment comment = new Comment()
+            {
+                Discription = discription,
+                PublicationId = publication.Id,
+                UserId = GetInfo().Id
+            };
+            db.Comments.Add(comment);
+            db.SaveChanges();
+            return RedirectToAction("DishPage", publication);
         }
 
     }

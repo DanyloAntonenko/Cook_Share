@@ -20,112 +20,115 @@
 </head>
 <body>
     <br /><br />
-          <div class="container">
-              <div class="dish-item">
-                  <div class="dish-left">
-                      <div class="owl-carousel">
-                          @{
-                              if (Model.Photos.ToList().Count == 0)
-                              {
-                                  <div class="photo__slider">
-                                      <img src="~/dish_img/default-dish.jpg" alt="" class="dish-photo">
-                                  </div>
-                              }
-                              else
-                              {
-                                  foreach (var item in Model.Photos)
-                                  {
-                                      <div class="photo__slider">
-                                          <img src="~/dish_img/@item.Name" alt="" class="dish-photo">
-                                      </div>
-                                  }
-                              }
-                          }
-                      </div>
-                      <button id="DeleteModal" class="delete__photo">Удалить пост</button>
-                  </div>
+    <div class="container">
+        <div class="dish-item">
+            <div class="dish-left">
+                <div class="owl-carousel">
+                    @{
+                        if (Model.Photos.ToList().Count == 0)
+                        {
+                            <div class="photo__slider">
+                                <img src="~/dish_img/default-dish.jpg" alt="" class="dish-photo">
+                            </div>
+                        }
+                        else
+                        {
+                            foreach (var item in Model.Photos)
+                            {
+                                <div class="photo__slider">
+                                    <img src="~/dish_img/@item.Name" alt="" class="dish-photo">
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+                <button id="DeleteModal" class="delete__photo">Удалить пост</button>
+            </div>
 
 
 
-                  <div class="dish-right">
-                      <form method="post" asp-action="Dish" asp-controller="Account" enctype="multipart/form-data">
-                          <input type="number" name="id" hidden asp-for="Publication.Id" />
-                          <div class="title__dish__creator">
-                              <div class="name__dish">@Model.Publication.DishName</div>
-                              <div class="subtitle__dish">
-                                  <div class="name__creator">@Model.User.Name @Model.User.Surname</div>
-                                  <div class="cuisine__dish">
-                                      <div class="valid">
-                                          <input type="text" name="cuisine" class="change__input__dish" id="cuisineInput" disabled asp-for="Publication.Cuisine">
+            <div class="dish-right">
+                <form method="post" asp-action="Dish" asp-controller="Account" enctype="multipart/form-data">
+                    <input type="number" name="id" hidden asp-for="Publication.Id" />
+                    <div class="title__dish__creator">
+                        <div class="name__dish">@Model.Publication.DishName</div>
+                        <div class="subtitle__dish">
+                            <div class="name__creator">@Model.User.Name @Model.User.Surname</div>
+                            <div class="cuisine__dish">
+                                <div class="valid">
+                                    <input type="text" name="cuisine" class="change__input__dish" id="cuisineInput" disabled asp-for="Publication.Cuisine">
 
-                                          <span asp-validation-for="Publication.Cuisine" class="exit__errore field-validation-error"></span>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="category__dish"><span class="dish__span">Категория: </span>@Model.Category.Name</div>
-                              <div class="description__dish">
-                                  <span class="dish__span">Описание: </span>
-                                  <div class="valid">
-                                      <input type="text" name="discription" class="change__input__dish" id="discrInput" disabled asp-for="Publication.Discription">
-                                      <span asp-validation-for="Publication.Discription" class="exit__errore field-validation-error"></span>
+                                    <span asp-validation-for="Publication.Cuisine" class="exit__errore field-validation-error"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category__dish"><span class="dish__span">Категория: </span>@Model.Category.Name</div>
+                        <div class="description__dish">
+                            <span class="dish__span">Описание: </span>
+                            <div class="valid">
+                                <input type="text" name="discription" class="change__input__dish" id="discrInput" disabled asp-for="Publication.Discription">
+                                <span asp-validation-for="Publication.Discription" class="exit__errore field-validation-error"></span>
 
-                                  </div>
-                              </div>
-                              <div class="recipe__dish">
-                                  <span class="dish__span">Рецепт: </span>
-                                  <div class="valid">
-                                      <textarea class="txtArea__recipe input__item" id="recInput" name="recipe" disabled asp-for="Publication.Recipe"></textarea>
-                                      <span asp-validation-for="Publication.Recipe" class="exit__errore field-validation-error"></span>
-                                  </div>
-                              </div>
-                              <div class="cal__dish">
-                                  <span class="dish__span">Количество калорий: </span>
-                                  <div class="valid">
-                                      <input name="calVal" class="change__input__dish__cal" id="calVal" disabled asp-for="Publication.CalorificVal">
-                                      <span asp-validation-for="Publication.CalorificVal" class="exit__errore field-validation-error"></span>
-                                  </div>
-                              </div>
+                            </div>
+                        </div>
+                        <div class="recipe__dish">
+                            <span class="dish__span">Рецепт: </span>
+                            <div class="valid">
+                                <textarea class="txtArea__recipe input__item" id="recInput" name="recipe" disabled asp-for="Publication.Recipe"></textarea>
+                                <span asp-validation-for="Publication.Recipe" class="exit__errore field-validation-error"></span>
+                            </div>
+                        </div>
+                        <div class="cal__dish">
+                            <span class="dish__span">Количество калорий: </span>
+                            <div class="valid">
+                                <input name="calVal" class="change__input__dish__cal" id="calVal" disabled asp-for="Publication.CalorificVal">
+                                <span asp-validation-for="Publication.CalorificVal" class="exit__errore field-validation-error"></span>
+                            </div>
+                        </div>
 
-                              <div class="date__creator"> <span class="dish__span">Дата добавления: </span>@Model.Publication.Time</div>
+                        <div class="date__creator"> <span class="dish__span">Дата добавления: </span>@Model.Publication.Time</div>
 
-                          </div>
+                    </div>
 
-                          <input type="button" id="ChangeBtn" value="ChangeInfo" class="nav__button" />
-                          <input type="submit" id="SaveBtn" hidden value="SaveChange" class="nav__button" />
-                      </form>
+                    <input type="button" id="ChangeBtn" value="ChangeInfo" class="nav__button" />
+                    <input type="submit" id="SaveBtn" hidden value="SaveChange" class="nav__button" />
+                </form>
 
-                  </div>
+            </div>
 
-              </div>
+        </div>
 
-              <div class="dish-item dish-item__comments">
-                  <h2 class="title__comments">Комментарии:</h2>
-                  @foreach (var comment in Model.Comments)
-                  {
-                      <div class="item__comment">
-                          <a href='@Url.Action("UserPage","Account", new{id = comment.UserId})'>
-                              <div class="name__creator">@comment.User.Name @comment.User.Surname</div>
-                          </a>
-                          <label class="text__comment">@comment.Discription</label>
-</div>
-                  }
+        <div class="dish-item dish-item__comments">
+            <h2 class="title__comments">Комментарии:</h2>
+            @foreach (var comment in Model.Comments)
+            {
+                <div class="item__comment">
+                    <a href='@Url.Action("UserPage","Account", new{id = comment.UserId})'>
+                        <div class="name__creator">@comment.User.Name @comment.User.Surname</div>
+                    </a>
+                    <label class="text__comment">@comment.Discription</label>
+                </div>
+            }
 
-                 
-                  <div class="row"></div>
-                  <check>
-                      <div class="check__comment">
-                          Просмотреть все комментарии
-                      </div>
-                      <div class="row"></div>
-                  </check>
 
-                  <div class="new__comment">
-                      <input type="text" class="input__comment" placeholder="Добавить комментарий..." id="input__comment"/>
-                      <input type="submit" class="nav__button" id="btn__add__comment"/>
-                  </div>
-              </div>
-           
-          </div>
+            <div class="row"></div>
+            <check>
+                <div class="check__comment">
+                    Просмотреть все комментарии
+                </div>
+                <div class="row"></div>
+            </check>
+            <form method="post" asp-action="AddComment" asp-controller="Account">
+                <div class="new__comment">
+
+                    <input type="text" name="discription" class="input__comment" id="input__comment" placeholder="Добавить комментарий..."  asp-for="Comment.Discription">
+                    <input type="hidden" name="id" value="@Model.Publication.Id" />
+                    <input type="submit" class="nav__button" id="btn__add__comment" />
+                </div>
+            </form>
+        </div>
+
+    </div>
 
 
     <footer class="wrap__bottom">
@@ -207,7 +210,7 @@
     @section scripts{
         <script type="text/javascript">
 
-          
+
             $(document).ready(function () {
 
 

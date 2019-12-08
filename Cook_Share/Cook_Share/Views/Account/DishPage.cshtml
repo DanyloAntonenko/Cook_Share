@@ -80,13 +80,30 @@
                   <h2>Комментарии:</h2>
                   @foreach (var comment in Model.Comments)
                   {
-                      <div>
-                          <a href='@Url.Action("UserPage","Account", new{id = comment.UserId})' class="link__dish">
-                              <p>@comment.User.Name @comment.User.Surname</p>
+                      <div class="item__comment">
+                          <a href='@Url.Action("UserPage","Account", new{id = comment.UserId})'>
+                              <div class="name__creator">@comment.User.Name @comment.User.Surname</div>
                           </a>
-                          <p>@comment.Discription</p>
+                          <label class="text__comment">@comment.Discription</label>
                       </div>
                   }
+
+
+                  <div class="row"></div>
+                  <check>
+                      <div class="check__comment">
+                          Просмотреть все комментарии
+                      </div>
+                      <div class="row"></div>
+                  </check>
+                  <form method="post" asp-action="AddCommentDishPage" asp-controller="Account">
+                      <div class="new__comment">
+
+                          <input type="text" name="discription" class="input__comment" id="input__comment" placeholder="Добавить комментарий..." asp-for="Comment.Discription">
+                          <input type="hidden" name="id" value="@Model.Publication.Id" />
+                          <input type="submit" class="nav__button" id="btn__add__comment" />
+                      </div>
+                  </form>
               </div>
           </div>
 
