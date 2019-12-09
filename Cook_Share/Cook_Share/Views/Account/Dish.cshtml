@@ -102,6 +102,9 @@
             <h2 class="title__comments">Комментарии:</h2>
             @foreach (var comment in Model.Comments)
             {
+
+                <div class="row"></div>
+
                 <div class="item__comment">
                     <a href='@Url.Action("UserPage","Account", new{id = comment.UserId})'>
                         <div class="name__creator">@comment.User.Name @comment.User.Surname</div>
@@ -114,15 +117,15 @@
             <div class="row"></div>
 
             <form method="post" asp-action="AddComment" asp-controller="Account" onsubmit="return empty_form()">
-              
-                    <div class="new__comment" >
 
-                        <input type="text" name="discription" class="input__comment" id="input__comment" placeholder="Добавить комментарий..." asp-for="Comment.Discription">
-                        <span asp-validation-for="Comment.Discription" class="exit__errore field-validation-error"></span>
-                        <input type="hidden" name="id" value="@Model.Publication.Id" />
-                        <input type="submit" class="nav__button" id="btn__add__comment" />
-                    </div>
-                
+                <div class="new__comment">
+
+                    <input type="text" name="discription" class="input__comment" id="input__comment" placeholder="Добавить комментарий..." asp-for="Comment.Discription">
+                    <span asp-validation-for="Comment.Discription" class="exit__errore field-validation-error"></span>
+                    <input type="hidden" name="id" value="@Model.Publication.Id" />
+                    <input type="submit" class="nav__button" id="btn__add__comment" />
+                </div>
+
             </form>
         </div>
 
