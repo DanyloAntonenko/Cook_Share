@@ -119,12 +119,15 @@
                 <div class="row"></div>
             </check>
             <form method="post" asp-action="AddComment" asp-controller="Account">
-                <div class="new__comment">
+              
+                    <div class="new__comment" >
 
-                    <input type="text" name="discription" class="input__comment" id="input__comment" placeholder="Добавить комментарий..."  asp-for="Comment.Discription">
-                    <input type="hidden" name="id" value="@Model.Publication.Id" />
-                    <input type="submit" class="nav__button" id="btn__add__comment" />
-                </div>
+                        <input type="text" name="discription" class="input__comment" id="input__comment" placeholder="Добавить комментарий..." asp-for="Comment.Discription">
+                        <span asp-validation-for="Comment.Discription" class="exit__errore field-validation-error"></span>
+                        <input type="hidden" name="id" value="@Model.Publication.Id" />
+                        <input type="submit" class="nav__button" id="btn__add__comment" />
+                    </div>
+                
             </form>
         </div>
 

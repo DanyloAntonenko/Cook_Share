@@ -39,7 +39,9 @@
 
                 <div class="dish-right">
                     <div class="title__dish__creator">
+                        <a href='@Url.Action("DishPage","Account", publication)' class="link__dish">
                         <div class="name__dish-all">@publication.DishName</div>
+                        </a>
                         <div class="subtitle__dish">
                             <a href='@Url.Action("UserPage","Account", new{id = @publication.UserId})' class="link__dish">
                                 <div class="name__creator name__creator__all">@publication.User.Name @publication.User.Surname</div>

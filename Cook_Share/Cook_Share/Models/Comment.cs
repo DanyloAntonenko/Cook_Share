@@ -10,7 +10,7 @@ namespace Cook_Share.Models
     public class Comment
     {
         public int Id { get; set; }
-
+        [Required(ErrorMessage = "Поле должно быть заполнено!")]
         public string Discription { get; set; }
 
         [ForeignKey("User")]

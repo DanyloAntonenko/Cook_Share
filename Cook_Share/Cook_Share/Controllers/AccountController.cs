@@ -1,22 +1,23 @@
 ﻿using Cook_Share.Models;
 using Cook_Share.ViewModels;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
-using System.IO;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Cook_Share.Controllers
 {
-    public class AccountController:Controller
+    public class AccountController : Controller
     {
         private DataContext db;
         private readonly IHostingEnvironment _appEnvironment;
@@ -54,7 +55,7 @@ namespace Cook_Share.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterModel model)  
+        public async Task<IActionResult> Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
@@ -62,7 +63,7 @@ namespace Cook_Share.Controllers
                 if (user == null)
                 {
                     // добавляем пользователя в бд
-                    db.Users.Add(new User { Email = model.Email, Password = Hash.HashPassword(model.Password), Name = model.Name, Surname = model.SurName});
+                    db.Users.Add(new User { Email = model.Email, Password = Hash.HashPassword(model.Password), Name = model.Name, Surname = model.SurName });
                     await db.SaveChangesAsync();
 
                     await Authenticate(model.Email); // аутентификация
@@ -96,7 +97,7 @@ namespace Cook_Share.Controllers
 
         public User GetInfo()
         {
-            var user = db.Users.Include(u=>u.Subscriptions).Include(u=>u.Subscribers).FirstOrDefault(u => u.Email == User.Identity.Name);
+            var user = db.Users.Include(u => u.Subscriptions).Include(u => u.Subscribers).FirstOrDefault(u => u.Email == User.Identity.Name);
             return user;
         }
 
@@ -104,10 +105,10 @@ namespace Cook_Share.Controllers
         public User GetInfo(int? userId)
         {
             var user = db.Users.FirstOrDefault(u => u.Id == userId);// Linq
-          
+
             return user;
         }
-        
+
 
 
         public IEnumerable<Publication> GetPublications(int id)
@@ -134,12 +135,12 @@ namespace Cook_Share.Controllers
         {
 
             return View(GetInfo());
-        }     
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangeInfo(ChangeModel model)
-        { 
+        {
             if (ModelState.IsValid)
             {
                 string path_Root = _appEnvironment.WebRootPath;
@@ -147,7 +148,7 @@ namespace Cook_Share.Controllers
                 if (user != null)
                 {
                     // добавляем пользователя в бд                                    
-                    if ((model.Photo != null)&&(model.Photo.ContentType=="image/jpeg"|| model.Photo.ContentType == "image/png" || model.Photo.ContentType == "image/tiff" || model.Photo.ContentType == "image/gif" || model.Photo.ContentType == "image/bmp"))
+                    if ((model.Photo != null) && (model.Photo.ContentType == "image/jpeg" || model.Photo.ContentType == "image/png" || model.Photo.ContentType == "image/tiff" || model.Photo.ContentType == "image/gif" || model.Photo.ContentType == "image/bmp"))
                     {
                         string path_to_Images = path_Root + "\\img\\" + model.Photo.FileName;
                         using (var stream = new FileStream(path_to_Images, FileMode.Create))
@@ -180,7 +181,7 @@ namespace Cook_Share.Controllers
         [HttpGet]
         public IActionResult AddDish()
         {
-            IEnumerable<string> cat= db.Categories.Select(c=>c.Name).ToList();
+            IEnumerable<string> cat = db.Categories.Select(c => c.Name).ToList();
             AddPublicationModel model = new AddPublicationModel();
             model.Categories = cat;
             return View(model);
@@ -193,7 +194,7 @@ namespace Cook_Share.Controllers
             string path_Root = _appEnvironment.WebRootPath;
             var photos = Request.Form.Files;
             Category Cat = await db.Categories.FirstOrDefaultAsync(c => c.Name == model.Category);
-            User CurUser = GetInfo(); 
+            User CurUser = GetInfo();
             List<PublicationPhoto> PubPhoto = new List<PublicationPhoto>();
             if (ModelState.IsValid)
             {
@@ -245,7 +246,7 @@ namespace Cook_Share.Controllers
             PublicationModel publicationModel = new PublicationModel();
             User user = GetInfo(publication.UserId);
             var cat = db.Categories.FirstOrDefault(c => c.Id == publication.CategoryId);
-            var photos = db.PublicationPhotos.Where(p=>p.PublicationId==publication.Id);
+            var photos = db.PublicationPhotos.Where(p => p.PublicationId == publication.Id);
             var comments = db.Comments.Include(x => x.User).Where(c => c.PublicationId == publication.Id);
             publicationModel.Photos = photos;
             publicationModel.Publication = publication;
@@ -264,7 +265,7 @@ namespace Cook_Share.Controllers
             bool _errorRec = false;
             bool _errorCuis = false;
             bool _errorCal = false;
-            if(recipe == null)
+            if (recipe == null)
             {
                 ModelState.AddModelError("Publication.Recipe", "Описание должно быть заполнено");
                 _errorRec = true;
@@ -283,8 +284,8 @@ namespace Cook_Share.Controllers
                     _errorDiscr = true;
                 }
             }
-           
-            if(cuisine != null)
+
+            if (cuisine != null)
             {
                 if (cuisine.Length < 2)
                 {
@@ -366,7 +367,7 @@ namespace Cook_Share.Controllers
                 }
                 IEnumerable<Subscribers> subscribers = db.Users.Include(u => u.Subscribers).FirstOrDefault(u => u.Id == id).Subscribers;
 
-                bool issub = (subscribers.FirstOrDefault(s=>s.SubUserId==GetInfo().Id))==null?true:false;
+                bool issub = (subscribers.FirstOrDefault(s => s.SubUserId == GetInfo().Id)) == null ? true : false;
 
                 IEnumerable<PublicationPhoto> photos = db.PublicationPhotos;
                 model.Subscribers = subscribers;
@@ -381,7 +382,7 @@ namespace Cook_Share.Controllers
         [HttpGet]
         public IActionResult DishPage(Publication publication)
         {
-            
+
             PublicationModel publicationModel = new PublicationModel();
             User user = GetInfo(publication.UserId);
             var cat = db.Categories.FirstOrDefault(c => c.Id == publication.CategoryId);
@@ -397,11 +398,12 @@ namespace Cook_Share.Controllers
         public IActionResult Subscribe(int? id)
         {
             User user = GetInfo();
-            IEnumerable<Subscriptions> subscriptions =  db.Users.Include(u=>u.Subscriptions).FirstOrDefault(u=>u.Email==User.Identity.Name).Subscriptions;
+            IEnumerable<Subscriptions> subscriptions = db.Users.Include(u => u.Subscriptions).FirstOrDefault(u => u.Email == User.Identity.Name).Subscriptions;
             IEnumerable<Subscribers> subscribes = db.Users.Include(u => u.Subscribers).FirstOrDefault(u => u.Id == id).Subscribers;
-            if(subscriptions.FirstOrDefault(s => s.SubscriptionUserId == id) == null)
+            if (subscriptions.FirstOrDefault(s => s.SubscriptionUserId == id) == null)
             {
-                db.Subscriptions.Add(new Subscriptions {
+                db.Subscriptions.Add(new Subscriptions
+                {
                     SubscriptionUserId = id,
                     //UserId = user.Id,
                     User = user
@@ -410,11 +412,11 @@ namespace Cook_Share.Controllers
                 {
                     SubUserId = user.Id,
                     User = db.Users.FirstOrDefault(u => u.Id == id),
-                    
+
                 });
                 db.SaveChanges();
             }
-             return RedirectToAction("UserPage","Account",new {id=id });
+            return RedirectToAction("UserPage", "Account", new { id = id });
         }
         public IActionResult UnSubscribe(int? id)
         {
@@ -434,14 +436,14 @@ namespace Cook_Share.Controllers
             IEnumerable<Subscriptions> subscriptions = db.Users.Include(u => u.Subscriptions).FirstOrDefault(u => u.Email == User.Identity.Name).Subscriptions;
 
             IEnumerable<Publication> pu = new List<Publication>();
-            
-           
+
+
             List<Publication> subPublication = new List<Publication>();
             foreach (var item in subscriptions)
             {
                 List<Publication> temp = new List<Publication>();
                 temp = db.Publications.Include(p => p.Photos).Include(p => p.User).Include(p => p.Category).Where(p => p.UserId == item.SubscriptionUserId).ToList();
-                subPublication=subPublication.Concat(temp).ToList();
+                subPublication = subPublication.Concat(temp).ToList();
             }
 
 
@@ -451,17 +453,28 @@ namespace Cook_Share.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddComment(int id,string discription)
+        public IActionResult AddComment(int id, string discription)
         {
             Publication publication = db.Publications.FirstOrDefault(c => c.Id == id);
-            Comment comment = new Comment() {
+            Comment comment = new Comment()
+            {
                 Discription = discription,
                 PublicationId = publication.Id,
                 UserId = GetInfo().Id
             };
-            db.Comments.Add(comment);
-            db.SaveChanges();
-            return RedirectToAction("Dish",publication);
+            if (discription == null)
+            {
+                
+                ModelState.AddModelError("General", "Описание должно быть заполнено");
+
+            }
+            else
+            {
+                db.Comments.Add(comment);
+                db.SaveChanges();
+               
+            } 
+    return RedirectToAction("Dish", publication);
         }
         public IActionResult AddCommentDishPage(int id, string discription)
         {
