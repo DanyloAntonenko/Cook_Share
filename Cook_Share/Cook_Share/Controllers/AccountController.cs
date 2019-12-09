@@ -430,6 +430,7 @@ namespace Cook_Share.Controllers
             return RedirectToAction("UserPage", "Account", new { id = id });
         }
         [HttpGet]
+        [Authorize]
         public IActionResult ViewAllSubscriptionDish()
         {
             User curuser = GetInfo();

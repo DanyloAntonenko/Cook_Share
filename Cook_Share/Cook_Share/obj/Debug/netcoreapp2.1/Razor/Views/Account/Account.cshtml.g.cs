@@ -222,42 +222,11 @@ WriteAttributeValue("", 2458, dish, 2458, 5, false);
             EndContext();
             BeginContext(3414, 2467, true);
             WriteLiteral(@"
-
-
-                </div>
-
-
-            </div>
-            <div class=""right__content"">
-                <div class=""subscribers li__profile"">
-                    Подписчики:<span class=""num__content"">4</span>
-                </div>
-                <div class=""subscriptions li__profile"">
-                    Подписки:<span class=""num__content"">23</span>
-                </div>
-                <div class=""row""></div>
-            </div>
-        </div>
-    </main>
-
-</div>
-
-<footer class=""wrap__bottom"">
-    <div class=""bottom"">
-        <div class=""row""></div>
-        <div class=""footer__top"">
-            <div class=""footer__top-item"">
-                <span class=""title__footer__top""><a href=""#"" class=""footer__link"">News</a></span>
-                <ul class=""footer__list"">
-                    <li class=""footer__list-item""><a href=""#"" class=""footer__link"">Link</a></li>
-                    <li class=""footer__list-item"">Text</li>
-                    <li class=""footer__list-item"">Text</li>
-");
-            WriteLiteral(@"                </ul>
+                </ul>
             </div>
 
             <div class=""footer__top-item"">
-                <span class=""title__footer__top""><a href=""#"" class=""footer__link"">Support</a></span>
+                <span class=""title__footer__top""><a href=""#"" class=""footer__link"">Аккаунт</a></span>
                 <ul class=""footer__list"">
                     <li class=""footer__list-item""><a href=""#"" class=""footer__link"">Link</a></li>
                     <li class=""footer__list-item""><a href=""#"" class=""footer__link"">Link</a></li>
@@ -266,14 +235,14 @@ WriteAttributeValue("", 2458, dish, 2458, 5, false);
             </div>
 
             <div class=""footer__top-item"">
-                <span class=""title__footer__top"">Navigation</span>
+                <span class=""title__footer__top"">Навигация</span>
                 <ul class=""footer__list"">
-                    <li class=""footer__list-item"">Address: Ukraine Kharkiv </li>
+                    <li class=""footer__list-item"">Адрес: Ukraine Kharkiv </li>
                     <br>
-                    <li class=""footer__list-item"">Tel.:<a href=""#"" class=""link__list-item"">+380958695956</a></li>
+                    <li class=""footer__list-item"">Номер:<a href=""#"" class=""link__list-item"">+380958695956</a></li>
                     <br>
-                    <li class=""footer__list-ite");
-            WriteLiteral(@"m"">E-mail.:<a href=""#"" class=""link__list-item"">info@gmail.com</a></li>
+                    <li class=""footer__list-item");
+            WriteLiteral(@""">E-mail.:<a href=""#"" class=""link__list-item"">info@gmail.com</a></li>
                 </ul>
             </div>
         </div>

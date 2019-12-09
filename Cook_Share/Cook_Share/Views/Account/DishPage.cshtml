@@ -20,92 +20,93 @@
 </head>
 <body>
     <br /><br />
-          <div class="container">
-              <div class="dish-item">
-                  <div class="dish-left">
-                      <div class="owl-carousel">
-                          @{
-                              if (Model.Photos.ToList().Count == 0)
-                              {
-                                  <div class="photo__slider">
-                                      <img src="~/dish_img/default-dish.jpg" alt="" class="dish-photo">
-                                  </div>
-                              }
-                              else
-                              {
-                                  foreach (var item in Model.Photos)
-                                  {
-                                      <div class="photo__slider">
-                                          <img src="~/dish_img/@item.Name" alt="" class="dish-photo">
-                                      </div>
-                                  }
-                              }
-                          }
-                      </div>
-                  </div>
+    <div class="container">
+        <div class="dish-item">
+            <div class="dish-left">
+                <div class="owl-carousel">
+                    @{
+                        if (Model.Photos.ToList().Count == 0)
+                        {
+                            <div class="photo__slider">
+                                <img src="~/dish_img/default-dish.jpg" alt="" class="dish-photo">
+                            </div>
+                        }
+                        else
+                        {
+                            foreach (var item in Model.Photos)
+                            {
+                                <div class="photo__slider">
+                                    <img src="~/dish_img/@item.Name" alt="" class="dish-photo">
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
 
 
 
-                  <div class="dish-right">
-                      <form method="post" asp-action="Dish" asp-controller="Account" enctype="multipart/form-data">
-                          <input type="number" name="id" hidden asp-for="Publication.Id" />
-                          <div class="title__dish__creator">
-                              <div class="name__dish">@Model.Publication.DishName</div>
-                              <div class="subtitle__dish">
-                                  <div class="name__creator">@Model.User.Name @Model.User.Surname</div>
-                                  <div class="cuisine__dish">@Model.Publication.Cuisine</div>
-                              </div>
-                              <div class="category__dish"><span class="dish__span">Категория: </span>@Model.Category.Name</div>
-                              <div class="description__dish">
-                                  <span class="dish__span">Описание: </span>@Model.Publication.Discription
-                              </div>
-                              <div class="recipe__dish">
-                                  <span class="dish__span">Рецепт: </span>
-                                  <textarea class="txtArea__recipe input__item" name="recipe" disabled>@Model.Publication.Recipe</textarea>
-                              </div>
-                              <div class="cal__dish">
-                                  <span class="dish__span">Количество калорий: </span>
-                                  @Model.Publication.CalorificVal
-                              </div>
+            <div class="dish-right">
+                <form method="post" asp-action="Dish" asp-controller="Account" enctype="multipart/form-data">
+                    <input type="number" name="id" hidden asp-for="Publication.Id" />
+                    <div class="title__dish__creator">
+                        <div class="name__dish">@Model.Publication.DishName</div>
+                        <div class="subtitle__dish">
+                            <div class="name__creator">@Model.User.Name @Model.User.Surname</div>
+                            <div class="cuisine__dish">@Model.Publication.Cuisine</div>
+                        </div>
+                        <div class="category__dish"><span class="dish__span">Категория: </span>@Model.Category.Name</div>
+                        <div class="description__dish">
+                            <span class="dish__span">Описание: </span>@Model.Publication.Discription
+                        </div>
+                        <div class="recipe__dish">
+                            <span class="dish__span">Рецепт: </span>
+                            <textarea class="txtArea__recipe input__item" name="recipe" disabled>@Model.Publication.Recipe</textarea>
+                        </div>
+                        <div class="cal__dish">
+                            <span class="dish__span">Количество калорий: </span>
+                            @Model.Publication.CalorificVal
+                        </div>
 
-                              <div class="date__creator"> <span class="dish__span">Дата добавления: </span>@Model.Publication.Time</div>
+                        <div class="date__creator"> <span class="dish__span">Дата добавления: </span>@Model.Publication.Time</div>
 
-                          </div>
-                      </form>
+                    </div>
+                </form>
 
-                  </div>
+            </div>
 
-              </div>
-              <div class="comment">
-                  <h2>Комментарии:</h2>
-                  @foreach (var comment in Model.Comments)
-                  {
-                      <div class="item__comment">
-                          <a href='@Url.Action("UserPage","Account", new{id = comment.UserId})'>
-                              <div class="name__creator">@comment.User.Name @comment.User.Surname</div>
-                          </a>
-                          <label class="text__comment">@comment.Discription</label>
-                      </div>
-                  }
+        </div>
+        <div class="comment">
+            <h2>Комментарии:</h2>
+            @foreach (var comment in Model.Comments)
+            {
+                <div class="item__comment">
+                    <a href='@Url.Action("UserPage","Account", new{id = comment.UserId})'>
+                        <div class="name__creator">@comment.User.Name @comment.User.Surname</div>
+                    </a>
+                    <label class="text__comment">@comment.Discription</label>
+                </div>
+            }
 
 
-                  <div class="row"></div>
-                  <check>
-                      <div class="check__comment">
-                          Просмотреть все комментарии
-                      </div>
-                      <div class="row"></div>
-                  </check>
-                  <form method="post" asp-action="AddCommentDishPage" asp-controller="Account">
-                      <div class="new__comment">
+            <div class="row"></div>
+            <check>
+                <div class="check__comment">
+                    Просмотреть все комментарии
+                </div>
+                <div class="row"></div>
+            </check>
+            <form method="post" asp-action="AddCommentDishPage" asp-controller="Account">
+                <div class="new__comment">
 
-                          <input type="text" name="discription" class="input__comment" id="input__comment" placeholder="Добавить комментарий..." asp-for="Comment.Discription">
-                          <input type="hidden" name="id" value="@Model.Publication.Id" />
-                          <input type="submit" class="nav__button" id="btn__add__comment" />
-                      </div>
-                  </form>
-              </div>
-          </div>
+                    <input type="text" name="discription" class="input__comment" id="input__comment" placeholder="Добавить комментарий..." asp-for="Comment.Discription">
+                    <input type="hidden" name="id" value="@Model.Publication.Id" />
+                    <input type="submit" class="nav__button" id="btn__add__comment" />
+                </div>
+            </form>
+        </div>
+    </div>
+
 
 
 
@@ -115,7 +116,7 @@
             <div class="row"></div>
             <div class="footer__top">
                 <div class="footer__top-item">
-                    <span class="title__footer__top"><a href="#" class="footer__link">News</a></span>
+                    <span class="title__footer__top"><a href="#" class="footer__link">Главная</a></span>
                     <ul class="footer__list">
                         <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
                         <li class="footer__list-item">Text</li>
@@ -124,7 +125,7 @@
                 </div>
 
                 <div class="footer__top-item">
-                    <span class="title__footer__top"><a href="#" class="footer__link">Support</a></span>
+                    <span class="title__footer__top"><a href="#" class="footer__link">Аккаунт</a></span>
                     <ul class="footer__list">
                         <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
                         <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
@@ -133,11 +134,11 @@
                 </div>
 
                 <div class="footer__top-item">
-                    <span class="title__footer__top">Navigation</span>
+                    <span class="title__footer__top">Навигация</span>
                     <ul class="footer__list">
-                        <li class="footer__list-item">Address: Ukraine Kharkiv </li>
+                        <li class="footer__list-item">Адрес: Ukraine Kharkiv </li>
                         <br>
-                        <li class="footer__list-item">Tel.:<a href="#" class="link__list-item">+380958695956</a></li>
+                        <li class="footer__list-item">Номер:<a href="#" class="link__list-item">+380958695956</a></li>
                         <br>
                         <li class="footer__list-item">E-mail.:<a href="#" class="link__list-item">info@gmail.com</a></li>
                     </ul>
@@ -151,7 +152,6 @@
             </div>
         </div>
     </footer>
-
 
 
     <script src="~/js/jquery.min.js"></script>
