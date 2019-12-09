@@ -17,6 +17,16 @@
 
     <link rel="stylesheet" href="~/css/style.css" />
     <title>Document</title>
+    <script type="text/javascript">
+
+        function empty_form() {
+            var txt = document.getElementById('input__comment').value;
+            if (txt == '') {
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
     <br /><br />
@@ -96,7 +106,7 @@
                 </div>
                 <div class="row"></div>
             </check>
-            <form method="post" asp-action="AddCommentDishPage" asp-controller="Account">
+            <form method="post" asp-action="AddCommentDishPage" asp-controller="Account" onsubmit="return empty_form()">
                 <div class="new__comment">
 
                     <input type="text" name="discription" class="input__comment" id="input__comment" placeholder="Добавить комментарий..." asp-for="Comment.Discription">
@@ -162,6 +172,6 @@
     <script src="~/js/owl.carousel.min.js"></script>
     <script src="~/js/carousel.js"></script>
 
-</body>
+    </body>
 
 </html>

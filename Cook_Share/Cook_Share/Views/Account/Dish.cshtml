@@ -113,7 +113,7 @@
 
             <div class="row"></div>
 
-            <form method="post" asp-action="AddComment" asp-controller="Account">
+            <form method="post" asp-action="AddComment" asp-controller="Account" onsubmit="return empty_form()">
               
                     <div class="new__comment" >
 
@@ -208,6 +208,14 @@
     <script src="~/js/carousel.js"></script>
     @section scripts{
         <script type="text/javascript">
+
+            function empty_form() {
+                var txt = document.getElementById('input__comment').value;
+                if (txt == '') {
+                    return false;
+                }
+                return true;
+            }
 
 
             $(document).ready(function () {
