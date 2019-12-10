@@ -366,14 +366,16 @@ namespace Cook_Share.Controllers
                     return RedirectToAction("Account");
                 }
                 IEnumerable<Subscribers> subscribers = db.Users.Include(u => u.Subscribers).FirstOrDefault(u => u.Id == id).Subscribers;
-
-                bool issub = (subscribers.FirstOrDefault(s => s.SubUserId == GetInfo().Id)) == null ? true : false;
+                if (User.Identity.IsAuthenticated)
+                {
+                    bool issub = (subscribers.FirstOrDefault(s => s.SubUserId == GetInfo().Id)) == null ? true : false;
+                    model.IsSub = issub;
+                }
 
                 IEnumerable<PublicationPhoto> photos = db.PublicationPhotos;
                 model.Subscribers = subscribers;
                 model.Publications = GetPublications(model.User.Id);
                 model.Photos = photos;
-                model.IsSub = issub;
                 return View(model);
             }
             return RedirectToAction("ViewAllDish", "Account");
