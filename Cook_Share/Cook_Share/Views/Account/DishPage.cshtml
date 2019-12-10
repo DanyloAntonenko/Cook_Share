@@ -120,20 +120,21 @@
             <div class="row"></div>
             <div class="footer__top">
                 <div class="footer__top-item">
-                    <span class="title__footer__top"><a href="#" class="footer__link">Главная</a></span>
+                    <span class="title__footer__top"><a asp-area="" asp-controller="Account" asp-action="ViewAllDish" class="footer__link">Главная</a></span>
                     <ul class="footer__list">
-                        <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
-                        <li class="footer__list-item">Text</li>
-                        <li class="footer__list-item">Text</li>
+                        <li class="footer__list-item"><a asp-area="" asp-controller="Account" asp-action="ViewAllSubscriptionDish" class="footer__link">Подписки</a></li>
+                        <li class="footer__list-item"><a asp-area="" asp-controller="Account" asp-action="ViewAllSubscriptionDish" class="footer__link">Рецепты</a></li>
+
                     </ul>
                 </div>
 
                 <div class="footer__top-item">
-                    <span class="title__footer__top"><a href="#" class="footer__link">Аккаунт</a></span>
+                    <span class="title__footer__top"><a asp-area="" asp-controller="Account" asp-action="Account" class="footer__link">Аккаунт</a></span>
                     <ul class="footer__list">
-                        <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
-                        <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
-                        <li class="footer__list-item"><a href="#" class="footer__link">Link</a></li>
+                        <li class="footer__list-item"><a asp-area="" asp-controller="Account" asp-action="Login" class="footer__link">Авторизоваться</a></li>
+                        <li class="footer__list-item"><a asp-area="" asp-controller="Account" asp-action="Register" class="footer__link">Зарегистрироваться</a></li>
+
+
                     </ul>
                 </div>
 
@@ -157,7 +158,6 @@
         </div>
     </footer>
 
-
     <script src="~/js/jquery.min.js"></script>
     <link rel="stylesheet"
           href="~/css/jquery.fancybox.min.css" />
@@ -166,6 +166,6 @@
     <script src="~/js/owl.carousel.min.js"></script>
     <script src="~/js/carousel.js"></script>
 
-    </body>
+</body>
 
 </html>
