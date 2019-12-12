@@ -25,7 +25,8 @@ namespace Cook_Share.Data
                         new Category { Name = "Хлебо-булочные изделия" },
                         new Category { Name = "Закуси" }, 
                         new Category { Name = "Десерты" }, 
-                        new Category { Name = "Мучные изделия" }
+                        new Category { Name = "Мучные изделия" },
+                        new Category { Name = "Выпечка" }
                     );
             }
             content.SaveChanges();

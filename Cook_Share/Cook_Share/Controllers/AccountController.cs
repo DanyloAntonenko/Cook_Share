@@ -126,6 +126,8 @@ namespace Cook_Share.Controllers
             model.User = GetInfo();
             model.Publications = GetPublications(model.User.Id);
             model.Photos = photos;
+            model.CountSubcribers = db.Subscribers.Where(x => x.UserId == model.User.Id).Count();
+            model.CountSubsripriont = db.Subscribers.Where(x => x.SubUserId == model.User.Id).Count();
             return View(model);
         }
 

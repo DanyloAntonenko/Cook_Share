@@ -22,7 +22,7 @@ namespace Cook_Share.ViewModels
 
         public bool IsSub { get; set; }
 
-        
-
+        public int CountSubcribers { get; set; } = 0;
+        public int CountSubsripriont { get; set; } = 0;
     }
 }
