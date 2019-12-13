@@ -104,7 +104,7 @@ using Cook_Share.ViewModels;
             WriteLiteral("                                    <div class=\"photo__slider\">\r\n                                        ");
             EndContext();
             BeginContext(732, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "1a99b40c6b17403e94d4217bdb8c11b6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a7c2a3ebad4c4fd89efffd03551f0712", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -143,7 +143,7 @@ AddHtmlAttributeValue("", 753, photo.Name, 753, 11, false);
             WriteLiteral("                                <div class=\"photo__slider\">\r\n                                    ");
             EndContext();
             BeginContext(1133, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5c82301dce654d328dc1e1ff16621701", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "4ee7feab6ace462b87f78ed01902d210", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -293,7 +293,7 @@ WriteAttributeValue("", 1765, Url.Action("UserPage","Account", new{id = @publica
             WriteLiteral("</div>\r\n\r\n\r\n<footer class=\"wrap__bottom\">\r\n    <div class=\"bottom\">\r\n        <div class=\"row\"></div>\r\n        <div class=\"footer__top\">\r\n            <div class=\"footer__top-item\">\r\n                <span class=\"title__footer__top\">");
             EndContext();
             BeginContext(3468, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc838bc4c9264b9dae94ab98fea434b4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1de68dbd10d24f8285754cace7b53d6c", async() => {
                 BeginContext(3554, 7, true);
                 WriteLiteral("Главная");
                 EndContext();
@@ -320,7 +320,7 @@ WriteAttributeValue("", 1765, Url.Action("UserPage","Account", new{id = @publica
             WriteLiteral("</span>\r\n                <ul class=\"footer__list\">\r\n                    <li class=\"footer__list-item\">");
             EndContext();
             BeginContext(3667, 110, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "32b298bc59034f1fa0aab7e449c24faf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e61b3505ba66484bb93c7198183dce15", async() => {
                 BeginContext(3765, 8, true);
                 WriteLiteral("Подписки");
                 EndContext();
@@ -347,7 +347,7 @@ WriteAttributeValue("", 1765, Url.Action("UserPage","Account", new{id = @publica
             WriteLiteral("</li>\r\n                    <li class=\"footer__list-item\">");
             EndContext();
             BeginContext(3834, 109, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "31d2aa0fa5884d98a1ca624ffe729a26", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "14d2a96f0df64a4883715a78c5bcea4d", async() => {
                 BeginContext(3932, 7, true);
                 WriteLiteral("Рецепты");
                 EndContext();
@@ -374,7 +374,7 @@ WriteAttributeValue("", 1765, Url.Action("UserPage","Account", new{id = @publica
             WriteLiteral("</li>\r\n\r\n                </ul>\r\n            </div>\r\n\r\n            <div class=\"footer__top-item\">\r\n                <span class=\"title__footer__top\">");
             EndContext();
             BeginContext(4090, 93, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6e4db2081f5549b3aaaff8e2d245e5ef", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c6fa0a77ab94a39b2ba882be146cdf9", async() => {
                 BeginContext(4172, 7, true);
                 WriteLiteral("Аккаунт");
                 EndContext();
@@ -401,7 +401,7 @@ WriteAttributeValue("", 1765, Url.Action("UserPage","Account", new{id = @publica
             WriteLiteral("</span>\r\n                <ul class=\"footer__list\">\r\n                    <li class=\"footer__list-item\">");
             EndContext();
             BeginContext(4285, 98, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "647fc4ad6ff74a11a1c68b7c3dc17e72", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9a95093e67c64af39aa1b0da1de09b9a", async() => {
                 BeginContext(4365, 14, true);
                 WriteLiteral("Авторизоваться");
                 EndContext();
@@ -428,7 +428,7 @@ WriteAttributeValue("", 1765, Url.Action("UserPage","Account", new{id = @publica
             WriteLiteral("</li>\r\n                    <li class=\"footer__list-item\">");
             EndContext();
             BeginContext(4440, 105, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29069bec42de44e0905d626a782e6ba5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d5990d500be49bd92a98c7b3c61e2e0", async() => {
                 BeginContext(4523, 18, true);
                 WriteLiteral("Зарегистрироваться");
                 EndContext();
@@ -480,7 +480,7 @@ WriteAttributeValue("", 1765, Url.Action("UserPage","Account", new{id = @publica
 ");
             EndContext();
             BeginContext(5426, 42, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f6b85683154d4e388074db212a1e056d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85dc2a64f27d491391e66cdb6cee609d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -498,7 +498,7 @@ WriteAttributeValue("", 1765, Url.Action("UserPage","Account", new{id = @publica
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(5470, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d661e7cd9b78428490e0b19ad5332d37", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "59d641fef7b242a6b01efa7345f86904", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -517,7 +517,7 @@ WriteAttributeValue("", 1765, Url.Action("UserPage","Account", new{id = @publica
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(5541, 51, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eae3222d36b54573b4f704dc320866e1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2400ffb851b34480a4e1d619dfd8cb92", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -535,7 +535,7 @@ WriteAttributeValue("", 1765, Url.Action("UserPage","Account", new{id = @publica
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(5596, 48, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1a611ffcf3e94cedaaa4ecb89a1265dc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fa3f15f2eb8144ef8a578a79b6b04d13", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -553,7 +553,7 @@ WriteAttributeValue("", 1765, Url.Action("UserPage","Account", new{id = @publica
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(5646, 40, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e70d9a4562d4d079881d2d4c1c823a7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4090668136f44398bcc84e488f1e3dcc", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

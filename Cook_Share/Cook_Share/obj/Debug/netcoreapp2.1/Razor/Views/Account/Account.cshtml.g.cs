@@ -230,7 +230,7 @@ WriteAttributeValue("", 2362, dish, 2362, 5, false);
                 <span class=""title__footer__top"">");
             EndContext();
             BeginContext(3485, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "89f7c636447c4dfcbc7fe59bc2660380", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ecb297412de4e89ae30657d35bf11a1", async() => {
                 BeginContext(3571, 7, true);
                 WriteLiteral("Главная");
                 EndContext();
@@ -257,7 +257,7 @@ WriteAttributeValue("", 2362, dish, 2362, 5, false);
             WriteLiteral("</span>\r\n                <ul class=\"footer__list\">\r\n                    <li class=\"footer__list-item\">");
             EndContext();
             BeginContext(3684, 110, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a877830bb81e404bbdacc8832030ca43", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bc053b978c642dcac8b92e1d5b29d46", async() => {
                 BeginContext(3782, 8, true);
                 WriteLiteral("Подписки");
                 EndContext();
@@ -284,7 +284,7 @@ WriteAttributeValue("", 2362, dish, 2362, 5, false);
             WriteLiteral("</li>\r\n                    <li class=\"footer__list-item\">");
             EndContext();
             BeginContext(3851, 109, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f9bb2fa02ecf41ed94139c86bfa41176", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "039dd5b75122482db25ccf4609cea16e", async() => {
                 BeginContext(3949, 7, true);
                 WriteLiteral("Рецепты");
                 EndContext();
@@ -311,7 +311,7 @@ WriteAttributeValue("", 2362, dish, 2362, 5, false);
             WriteLiteral("</li>\r\n\r\n                </ul>\r\n            </div>\r\n\r\n            <div class=\"footer__top-item\">\r\n                <span class=\"title__footer__top\">");
             EndContext();
             BeginContext(4107, 93, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c8747c4c25364033b4f1557be1a36762", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "542d12c6e29a4fb490b88a0190dcd10f", async() => {
                 BeginContext(4189, 7, true);
                 WriteLiteral("Аккаунт");
                 EndContext();
@@ -338,7 +338,7 @@ WriteAttributeValue("", 2362, dish, 2362, 5, false);
             WriteLiteral("</span>\r\n                <ul class=\"footer__list\">\r\n                    <li class=\"footer__list-item\">");
             EndContext();
             BeginContext(4302, 98, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "031d13a0f1a24ae293e093d959dcc4b1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff344d68f7934bb2933571f9cb429fc7", async() => {
                 BeginContext(4382, 14, true);
                 WriteLiteral("Авторизоваться");
                 EndContext();
@@ -365,7 +365,7 @@ WriteAttributeValue("", 2362, dish, 2362, 5, false);
             WriteLiteral("</li>\r\n                    <li class=\"footer__list-item\">");
             EndContext();
             BeginContext(4457, 105, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "090bc67f1e144080b3904e20c13bf2e5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "46b2b9c6561f46e3a97ed2c32539d295", async() => {
                 BeginContext(4540, 18, true);
                 WriteLiteral("Зарегистрироваться");
                 EndContext();
